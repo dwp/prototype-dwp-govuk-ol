@@ -1,132 +1,19 @@
 {% extends "layouts/main.html" %}
-{% set phaseBanner = 'true' %}
-{% set govukRebrand = 'true' %}
-{% set title =  "DWP–GOV.UK One Login prototype" %}
 
-
-
-{% set serviceName %}
-  DWP – GOV.UK One Login prototype
-{% endset%}
+{% set pageName="Home" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds-from-desktop">
+  <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">
-      DWP – GOV.UK One Login prototype
+    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
+
+    <h1 class="govuk-heading-xl">
+      {{ serviceName }}
     </h1>
 
-    {{ govukButton({
-      text: "Start prototype",
-      href: "choose-service-line",
-      classes: "govuk-!-margin-bottom-0"
-    }) }}
-
-    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-    </div>
-
-    <div class="govuk-grid-column-two-thirds">
-
-      <h2 class="govuk-heading-l">
-        Dev ready pages
-      </h2>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>
-          <a class="govuk-link" href="/dev-ready/transition/sign-in-with-govuk-one-login">Transition page 1</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="/dev-ready/transition/your-sign-in-details-have-been-updated">Transition page 2</a>
-        </li>
-      
-       
-      </ul>
-
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-      <h2 class="govuk-heading-l">
-        Experiments
-      </h2>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>
-          <h3 class="govuk-heading-s">
-            <a class="govuk-link" href="/ur-r1/dth/email-address?email-data=email-linting">Email linting</a>
-          </h3>
-          <p class="govuk-body">
-            Save user data from the email address input field and display it back to them, allowing them to confirm or change.
-          </p>
-        </li>
-      </ul>
-
-    </div>
-
-    <div class="govuk-grid-column-full">
-
-      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-  
-      <h2 class="govuk-heading-l">
-        Template page examples
-      </h2>
-  
-      <p class="govuk-body">
-        <ul class="govuk-list govuk-list--bullet">
-          <li>
-            <a class="govuk-link" href="/service-pages-routes/repay/start?userJourney=idv">Start page example (Repay)</a>
-          </li>
-          <li>
-            <a class="govuk-link" href="/dev-ready/error/technical">Technical error</a>
-          </li>
-          <li>
-            <a class="govuk-link" href="/dev-ready/error/timeout-and-bookmark">Timeout and bookmark error</a>
-          </li>
-          <li>
-            <a class="govuk-link" href="/dev-ready/error/fail-idv">Failed IDV example (Repay)</a>
-          </li>
-          <li>
-            <a class="govuk-link" href="/dev-ready/sign-out">Sign out example (GOV.UK One Login)</a>
-          </li>
-          <li>
-            <a class="govuk-link" href="/dev-ready/pyi-attempt-recovery">Sorry, you cannot go back (GOV.UK One Login)</a>
-          </li>
-          <li>
-            <a class="govuk-link" href="/dev-ready/error/interstitial">Interstitial screen</a>
-          </li>
-          
-        </ul>
-      </p>
-  
-  
-    </div>
-    <div class="govuk-grid-column-full">
-
-    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-    <h2 class="govuk-heading-l">
-      Iterations – previous UR
-    </h2>
-
-    <p class="govuk-body">
-      <ul class="govuk-list govuk-list--bullet">
-        <li>
-          <a class="govuk-link" href="/ur-r1/index">Round 1</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="/ur-r2/index">Round 2 and 3</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="/ur-r4/index">Round 4</a>
-        </li>
-        <li>
-          <a class="govuk-link" href="/ur-r5/index">Round 5</a>
-        </li>
-      </ul>
-    </p>
-
-
+    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
   </div>
 </div>
 

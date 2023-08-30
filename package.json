@@ -5,11 +5,7 @@
     "start": "govuk-prototype-kit start"
   },
   "dependencies": {
-    "@govuk-prototype-kit/common-templates": "2.0.1",
-    "govuk-frontend": "5.11.0",
-    "govuk-one-login-service-header": "github:alphagov/di-govuk-one-login-service-header",
-    "govuk-prototype-kit": "13.17.0",
-    "jquery": "3.7.1",
-    "notifications-node-client": "8.2.1"
+    "govuk-frontend": "^4.7.0",
+    "govuk-prototype-kit": "^13.11.0"
   }
 }
