@@ -2,18 +2,23 @@
 
 {% set pageName="Home" %}
 
+{% set serviceName %}
+  DWP – GOV.UK One Login prototype
+{% endset%}
+
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% include "govuk-prototype-kit/includes/homepage-top.njk" %}
-
     <h1 class="govuk-heading-xl">
-      {{ serviceName }}
+      DWP – GOV.UK One Login prototype
     </h1>
 
-    {% include "govuk-prototype-kit/includes/homepage-bottom.njk" %}
+    {{ govukButton({
+      text: "Scenario 1"
+    }) }}
+
   </div>
 </div>
 
