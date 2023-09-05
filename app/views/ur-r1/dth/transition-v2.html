@@ -1,0 +1,69 @@
+{% extends "layouts/_base.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+
+{% set title =  "Create a GOV.UK One Login account" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-l">
+                {{ title }}
+            </h1>
+
+            <p class="govuk-body">
+                To use this service, you need to create a GOV.UK One Login account.
+            </p> 
+
+            <p class="govuk-body">
+                With a GOV.UK One Login account, you’ll be able to securely access this service. You can also use your GOV.UK One Login details with other government services.
+            </p>
+
+            <h2 class="govuk-heading-m">
+                Create an account
+            </h1>
+
+            <p class="govuk-body">
+                You’ll need access to your:
+            </p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>personal email address</li>
+                <li>mobile number or an authenticator app</li>
+                <li>National Insurance number</li>
+            </ul>
+
+            <h2 class="govuk-heading-m">
+                Prove your identity
+            </h1>
+
+            <p class="govuk-body">
+                You’ll also need to prove your identity to create your GOV.UK One Login account.
+            </p>
+
+            <p class="govuk-body">
+                You only need to provide this information once to create your account.
+            </p>
+
+            <p class="govuk-body">
+                You’ll need:
+            </p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>a valid photo ID, such as your passport or driving licence</li>
+                <li>details of your home address for the past 5 years</li>
+            </ul>
+
+            <p class="govuk-body">
+                We’ll only use this information to confirm your identity.
+            </p>
+
+            {{ govukButton({
+                text: "Start now"
+            }) }}
+
+    </div>
+
+{% endblock %}
