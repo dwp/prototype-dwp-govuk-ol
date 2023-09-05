@@ -1,0 +1,44 @@
+{% extends "layouts/_base.html" %}
+{% set phaseBanner = 'true' %}
+
+{% set title =  "Prove your identity with GOV.UK One Login" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-l">
+                {{ title }}
+            </h1>
+
+            <p class="govuk-body">
+                It will take you about 10 minutes to prove your identity this way.
+            </p>
+
+            {{ govukInsetText({
+                html: "This service is also available in <a class='govuk-link' href=''>Welsh (Cymraeg)</a>'. The GOV.UK ID Check app is currently only available in English."
+            }) }}
+
+            <p class="govuk-body">
+                You'll need:
+            </p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>a GOV.UK One Login – we'll ask you to sign in or create one when you continue</li>
+                <li>your photo ID</li>
+                <li>your current home address (you might also need your previous address if you've recently moved)</li>
+            </ul>
+
+            <p class="govuk-body">
+                We'll only use the information you give us to make sure that you are who you say you are.
+            </p>
+
+            {{ govukButton({
+                text: "Continue",
+                href: "start-proving-your-identity"
+            }) }}
+
+    </div>
+
+{% endblock %}
