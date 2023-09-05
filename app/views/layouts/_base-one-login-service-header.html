@@ -1,0 +1,27 @@
+{% extends "di-govuk-one-login-service-header/layouts/service-header.html" %}
+
+{% block pageTitle %}
+    {{title}} – GOV.UK 
+{% endblock %}
+
+{% block beforeContent %}
+    {% if phaseBanner == 'true' %}
+        {% include '_includes/phase-banner.njk' %}
+    {% endif %}
+
+    {% if breadcrumbs == 'true' %}
+        {% include '_includes/breadcrumbs.njk' %}
+    {% endif %}
+
+    {% if backLink == 'true' %}
+        {% include '_includes/back-link.njk' %}
+    {% endif %}
+
+    {% if languageToggle == 'true' %}
+        {% include '_includes/language-toggle.njk' %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
