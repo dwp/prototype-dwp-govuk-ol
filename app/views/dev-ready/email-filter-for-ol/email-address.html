@@ -1,6 +1,6 @@
-{% extends "layouts/_base.html" %}
+{% extends "layouts/_base-dev-ready.html" %}
 {% set phaseBanner = 'true' %}
-{% set languageToggle = 'false' %}
+{% set languageToggle = 'true' %}
 
 {% set title =  "Enter your email address" %}
 
@@ -8,7 +8,7 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <form action="" method="post" novalidate>
+        <form action="email-code" method="post" novalidate>
 
             {{ govukInput({
             label: {
@@ -17,7 +17,7 @@
                 isPageHeading: true
             },
             hint: {
-                text: "We'll send a security code to this email address"
+                text: "We'll send a security code to this email address."
             },
             id: "filter-email-address",
             name: "filter-email-address",

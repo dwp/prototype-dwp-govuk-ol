@@ -25,3 +25,25 @@
 {% block content %}
 
 {% endblock %}
+
+{% block footer %}
+    {{ govukFooter({
+    meta: {
+        items: [
+        {
+            href: "",
+            text: "Accessibility"
+        },
+        {
+            href: "",
+            text: "Cookies"
+        },
+        {
+            href: "",
+            text: "Privacy (opens in new tab)"
+        }
+        ],
+        visuallyHiddenTitle: "Footer links"
+    }
+    }) }}
+{% endblock %}
