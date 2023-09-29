@@ -1,0 +1,45 @@
+{% extends "layouts/_base-dev-ready.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+
+{% set title =  "You've previously entered your email address as" %}
+
+{% set emailAddressHtml %}
+<strong class="govuk-!-font-weight-bold">
+    {% if data['filter-email-address'] %}
+        {{ data['filter-email-address'] | lower }}
+    {% else %} 
+        email@email.com
+    {% endif %}
+</strong>
+{% endset %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">{{title}}</h1>
+
+        {{ govukInsetText({
+            html: emailAddressHtml
+        }) }}
+
+        <p class="govuk-body">
+            Continue if this is correct or change your email address.
+        </p>
+
+        <div class="govuk-button-group">
+            {{ govukButton({
+                text: "Continue",
+                href: "/ur-r1/gds/check-your-email"
+            }) }}
+
+            {{ govukButton({
+                text: "Change",
+                href: "/ur-r1/gds/email-address",
+                classes: "govuk-button--secondary"
+            }) }}
+        </div>
+
+    </div>
+</div>
+{% endblock %}
