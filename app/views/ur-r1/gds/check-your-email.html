@@ -8,8 +8,8 @@
     <p class="govuk-body">
         We have sent an email to:
         <strong class="govuk-!-font-weight-bold">
-            {% if data['register-email-address-code'] %}
-                {{ data['register-email-address-code'] | lower }}
+            {% if data['filter-email-address'] %}
+                {{ data['filter-email-address'] | lower }}
             {% else %} 
                 email@email.com
             {% endif %}
