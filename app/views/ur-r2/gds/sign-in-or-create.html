@@ -40,17 +40,11 @@
             </div>
 
             <div class="govuk-button-group">
-                {% if data['email-data'] === 'email-linting' %}
-                    {{ govukButton({
-                        text: "Create a GOV.UK One Login",
-                        href: "/dev-ready/experiments/email-linting/linted-email-address"
-                    }) }}
-                {% else %}
-                    {{ govukButton({
-                        text: "Create a GOV.UK One Login",
-                        href: "/ur-r1/gds/email-address"
-                    }) }}
-                {% endif %}
+                
+                {{ govukButton({
+                    text: "Create a GOV.UK One Login",
+                    href: "/ur-r2/gds/email-address"
+                }) }}
 
                 {{ govukButton({
                     text: "Sign in",
