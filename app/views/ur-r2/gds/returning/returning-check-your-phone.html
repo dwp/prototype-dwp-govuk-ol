@@ -1,0 +1,71 @@
+{% extends "layouts/_base.html" %}
+{% set phaseBanner = 'true' %}
+{% set backLink = 'false' %}
+
+{% set title =  "Check your phone" %}
+
+{% set insetTextHtml %}
+    <p class="govuk-body">
+        We have sent a code to your phone number ending with
+        <strong class="govuk-!-font-weight-bold">
+            {% if data['phoneNumber'] %}
+                {{ data['phoneNumber'] | last(5) }}
+            {% else %} 
+                0012
+            {% endif %}
+        </strong>
+    </p>
+{% endset %}
+
+{% set detailsHtml %}
+    <p class="govuk-body">
+        We can <a href="" class="govuk-link">send the code again</a> if the code is not working or you did not receive it.
+    </p>
+
+    <p class="govuk-body">
+        If you cannot access the phone number for your GOV.UK One Login, you can securely <a href="" class="govuk-link">change how you get security codes</a>. 
+    </p>
+{% endset %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">{{title}}</h1>
+
+        {{ govukInsetText({
+            html: insetTextHtml | safe
+        }) }}
+
+        <p class="govuk-body">
+            It might take a few minutes to arrive. The code will expire after 15 minutes.
+        </p>
+
+        <form action="returning-prove-your-identity" method="post" novalidate>
+
+            {{ govukInput({
+            label: {
+                text: "Enter the 6 digit security code",
+                isPageHeading: false
+            },
+            id: "phone-number",
+            name: "phoneNumber",
+            classes: "govuk-!-width-two-thirds",
+            type: "tel",
+            autocomplete: "tel"
+            }) }}
+
+            {{ govukButton({
+                text: "Continue"
+            }) }}
+
+        </form>
+
+        {{ govukDetails({
+            summaryText: "Problems with the code?",
+            html: detailsHtml | safe
+        }) }}
+
+    </div>
+</div>
+{% endblock %}

@@ -2,13 +2,13 @@
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
 
-{% set title =  "Enter your email address" %}
+{% set title =  "Enter the email address to sign in to your GOV.UK One Login" %}
 
 {% block content %}
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <form action="check-your-email" method="post" novalidate>
+        <form action="returning-enter-password" method="post" novalidate>
 
             {{ govukInput({
             label: {
