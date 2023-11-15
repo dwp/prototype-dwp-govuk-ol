@@ -9,7 +9,7 @@
         We have sent a code to your phone number ending with
         <strong class="govuk-!-font-weight-bold">
             {% if data['phoneNumber'] %}
-                {{ data['phoneNumber'] | last(5) }}
+                {{ lastCharacters(data['phoneNumber'], 4) }}
             {% else %} 
                 0012
             {% endif %}
