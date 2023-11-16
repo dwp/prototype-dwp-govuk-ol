@@ -8,8 +8,8 @@
     <p class="govuk-body">
         We have sent a code to your phone number ending with
         <strong class="govuk-!-font-weight-bold">
-            {% if data['phoneNumber'] %}
-                {{ data['phoneNumber'] | last(5) }}
+            {% if data['phone-number'] %}
+                {{ lastCharacters(data['phone-number'], 4) }}
             {% else %} 
                 0012
             {% endif %}
