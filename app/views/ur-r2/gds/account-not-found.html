@@ -21,13 +21,9 @@
             text: "GOV.UK One Login is new. It does not work with all government accounts or services yet."
         }) }}
 
-        <p class="govuk-body">
-            If you’re trying to access your account for a government service, such as Universal Credit or your personal tax account, sign in to your account for that service. 
-        </p>
-
-        <form action="/index" method="post" novalidate>
+        <form action="check-your-email" method="post" novalidate>
             {{ govukButton({
-                text: "Sign in to a service"
+                text: "Create a GOV.UK One Login"
             }) }}
         </form>
 
