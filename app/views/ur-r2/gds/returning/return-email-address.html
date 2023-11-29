@@ -8,10 +8,10 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {% if data['register-email-address'] %}
+        {% if data['register-email-address'] or data['no-one-login-email-code'] %}
             <form action="returning-enter-password" method="post" novalidate>
         {% else %} 
-            <form action="../account-not-found" method="post" novalidate>
+            <form action="/ur-r2/gds/no-one-login/account-not-found" method="post" novalidate>
         {% endif %}
 
             {{ govukInput({
