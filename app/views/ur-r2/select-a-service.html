@@ -1,0 +1,43 @@
+{% extends "layouts/_base.html" %}
+{% set phaseBanner = 'true' %}
+{% set breadcrumbs = 'false' %}
+
+{% set title = "List of services" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-xl">
+                {{ title }}
+            </h1>
+
+            <h2 class="govuk-heading-m">
+                <a href="/ur-r2/repay/service-agnostic-start" class="govuk-link">Personal Independence Payment (PIP)</a>
+            </h2>
+            
+            <p>
+                Personal Independence Payment (PIP) replaces Disability Living Allowance (DLA) – how and when to claim, rates, eligibility.
+            </p>
+
+            <h2 class="govuk-heading-m">
+                <a href="/ur-r2/repay/service-agnostic-start" class="govuk-link">The new State Pension</a>
+            </h2>
+            
+            <p>
+                How to get and and claim your State Pension, State Pension age – for men born on or after 6 April 1951 and women born on or after 6 April 1953. 
+            </p>
+
+            <h2 class="govuk-heading-m">
+                <a href="/ur-r2/repay/service-agnostic-start" class="govuk-link">Repay and manage benefit money you owe</a>
+            </h2>
+            
+            <p>
+                Use this service if you need to repay debt to the Department for Work and Pensions (DWP). 
+            </p>
+
+        </div>
+    </div>
+
+{% endblock %}
