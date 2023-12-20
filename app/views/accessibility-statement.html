@@ -1,0 +1,129 @@
+{% extends "layouts/_base.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "Accessibility statement for the DWP login and identification service" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-l">
+                {{title}}
+            </h1>
+
+            <p class="govuk-body">
+                This accessibility statement applies to the Department for Work and Pensions (DWP) login and identification service (OIDV). This service allows citizens to access other DWP online services for Authentication & Identity verification via HMRC (IV).
+            </p>
+
+            <h2 class="govuk-heading-m">Using this service</h2>
+
+            <p class="govuk-body">
+                This website is run by DWP. We want as many people as possible to be able to use this website. For example, that means you should be able to:
+            </p>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>change colours, contrast levels and fonts</li>
+              <li>zoom in up to 300% without the text spilling off the screen</li>
+              <li>navigate most of the website using just a keyboard</li>
+              <li>navigate most of the website using speech recognition software</li>
+              <li>listen to most of the website using a screen reader (including the most recent versions of JAWS, NVDA and VoiceOver)</li>
+            </ul>
+
+            <p class="govuk-body">
+                We’ve also made the website text as simple as possible to understand.
+            </p>
+
+            <p class="govuk-body">
+                <a href="https://mcmw.abilitynet.org.uk">AbilityNet</a> has advice on making your device easier to use if you have a disability.
+            </p>
+
+            <h2 class="govuk-heading-m">How accessible this website is</h2>
+
+            <p class="govuk-body">
+                After testing we found all pages within the service accessible other than the issues detailed below.
+            </p>
+
+            <ol class="govuk-list govuk-list--number">
+                <li>The online verification journey doesn’t feature auto complete therefore some data may need to be entered on more than one occasion.</li>
+                <li>Input fields throughout the journey are required but this is only validated with a proceeding error screen.</li>
+            </ol>
+
+                <h2 class="govuk-heading-m">Feedback and contact information</h2>
+
+            <p class="govuk-body">If you need information on this website in a different format like accessible PDF, large print, easy read, audio recording or braille:</p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>email <a href="mailto:IDT.Accessibility@dwp.gov.uk?subject=DWP login and identification service">IDT.Accessibility@dwp.gov.uk</a> with the format you need. Include your contact details and your preferred method of contact.</li>
+            </ul>
+
+            <h2 class="govuk-heading-m">Reporting accessibility problems with this website</h2>
+
+            <p class="govuk-body">
+                We’re always looking to improve the accessibility of this website. If you find any problems not listed on this page or think we’re not meeting accessibility requirements, contact: <a href="mailto:IDT.Accessibility@dwp.gov.uk?subject=DWP login and identification service"> IDT.Accessibility@dwp.gov.uk</a>.
+            </p>
+
+            <h2 class="govuk-heading-m">Enforcement procedure</h2>
+
+            <p class="govuk-body">
+                The Equality and Human Rights Commission (EHRC) is responsible for enforcing the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018 (the ‘accessibility regulations’). If you’re not happy with how we respond to your complaint, <a href="https://www.equalityadvisoryservice.com/"> contact the Equality Advisory and Support Service (EASS)</a>.
+            </p>
+
+            <h1 class="govuk-heading-l">Technical information about this website’s accessibility</h1>
+
+            <p class="govuk-body">DWP is committed to making its website accessible, in accordance with the Public Sector Bodies (Websites and Mobile Applications) (No. 2) Accessibility Regulations 2018.</p>
+
+            <h1 class="govuk-heading-m">Compliance status</h1>
+
+            <p class="govuk-body">
+            This service is partially compliant with the
+            <a href="https://www.w3.org/TR/WCAG21/">Web Content Accessibility Guidelines version 2.1</a> AA standard, due to the non-compliances listed below.
+            </p>
+
+            <h1 class="govuk-heading-l">Non-accessible content</h1>
+
+            <p class="govuk-body">
+            The content listed below is non-accessible for the following reasons.
+            </p>
+
+            <h3 class="govuk-heading-s">Required fields – WCAG 3.3.2 – Labels or Instructions Lv A</h3>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>
+              Not all input fields on OIDV are clearly marked as required or optional. This fails WCAG 2.1 AA success criteria 3.3.2 – Labels or Instructions.
+              </li>
+              <li>
+              The use of required and optional markers for input fields will be reviewed by September 2023.
+              </li>
+            </ul>
+
+            <h3 class="govuk-heading-s">Auto complete - WCAG 1.3.5 – Identify Input Purpose Lv AA</h3>
+
+            <ul class="govuk-list govuk-list--bullet">
+              <li>
+              We don't have the auto complete feature to reduce double keying. This fails WCAG 2.1 AA success criteria 1.3.5 – Identify Input Purpose.
+              </li>
+              <li>
+              This is because of security concerns for the input of personal data and the decision was made on the advice of our security team. Use of the auto complete attribute is subject to an ongoing review.
+              </li>
+            </ul>
+
+            <h2 class="govuk-heading-m">Content that’s not within the scope of the accessibility regulations.</h2>
+
+            <p class="govuk-body">
+              We don't have any content on our service that's not within scope.
+            </p>
+
+            <h1 class="govuk-heading-l">Preparation of this accessibility statement</h1>
+
+            <p class="govuk-body">This statement was prepared on 15 November 2021. It was last reviewed on 3 July 2023.</p>
+
+            <p class="govuk-body">This website was last tested in June 2023. The tests were carried out by our own testing team within Identity and Trust, DWP Digital.</p>
+
+            <p class="govuk-body">We tested all the pages within our online identity checking journey against the WCAG 2.1 AA criteria.</p>
+
+    </div>
+
+{% endblock %}
