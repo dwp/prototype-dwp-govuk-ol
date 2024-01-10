@@ -1,0 +1,39 @@
+{% extends "layouts/_base.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+
+{% set title =  "We’ve found that you’ve proved your identity before" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-l">
+                {{title}}
+            </h1>
+
+            <p class="govuk-body">
+                You’ve already proved your identity to use a DWP service.
+            </p>
+
+            <p class="govuk-body">
+                To help keep your information safe, you’ll need to sign in with the details you used when you previously proved your identity.
+            </p>
+
+            <h2 class="govuk-heading-m">
+                Returning to this DWP service
+            </h2>
+
+            <p class="govuk-body">
+                When you return to this service, you’ll need to use your GOV.UK One Login details. These will be the only details you’ll need to sign into this service.
+            </p>
+
+            {{ govukButton({
+                text: "Continue",
+                href: "sign-in"
+            }) }}
+
+    </div>
+
+{% endblock %}
