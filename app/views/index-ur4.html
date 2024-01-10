@@ -1,0 +1,99 @@
+{% extends "layouts/main.html" %}
+{% set phaseBanner = 'true' %}
+
+{% set title =  "DWP–GOV.UK One Login prototype" %}
+
+{% set serviceName %}
+  DWP – GOV.UK One Login prototype
+{% endset%}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <span class="govuk-caption-l">User research</span>
+    <h2 class="govuk-heading-l">
+      Round 4
+    </h2>
+
+    {{ govukDetails({
+        summaryText: "UR objectives for this round",
+        html: "<a class='govuk-link' href='https://dwpdigital.atlassian.net/wiki/spaces/IDNT/pages/133461508199/Assumptions+for+user+research+round+2'>See Confluence for details - link needs updating" | safe
+    }) }}
+
+    {{ govukButton({
+      text: "Start prototype",
+      href: "/ur-r4/repay/start"
+    }) }}
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+        <p class="govuk-body">
+          <a class="govuk-link" href="/ur-r4/gds/notification-account-created-email">Email notification – account created</a>
+        </p>
+      </li>
+    </ul>
+
+    <!--Use when needed>
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    <h2 class="govuk-heading-l">
+      Dev ready
+    </h2>
+
+    <h3 class="govuk-heading-s">
+      #
+    </h3>
+    <!-->
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-l">
+        Experiments
+      </h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <h3 class="govuk-heading-s">
+            <a class="govuk-link" href="/ur-r1/dth/email-address?email-data=email-linting">Email linting</a>
+          </h3>
+          <p class="govuk-body">
+            Save user input from the email address input field and display it back to them, allowing them to confirm or change.
+          </p>
+        </li>
+      </ul>
+
+    </div>
+
+    <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    <h2 class="govuk-heading-l">
+      Iterations – previous UR
+    </h2>
+
+    <p class="govuk-body">
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          <a class="govuk-link" href="/ur-r1/index">Round 1</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="/ur-r2/index">Round 2</a>
+        </li>
+        <li>
+          <a class="govuk-link" href="#">Round 3</a>
+        </li>
+      </ul>
+    </p>
+
+
+  </div>
+</div>
+
+{% endblock %}
