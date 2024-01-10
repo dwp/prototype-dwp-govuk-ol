@@ -1,0 +1,47 @@
+{% extends "layouts/_base.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+
+{% set title =  "Check your phone" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+          {{title}}
+      </h1>
+            <p class="govuk-body">
+                We have sent you a text message with your security code.
+            </p>
+
+            <p class="govuk-body">
+                It might take up to a minute to arrive.
+            </p>
+
+            <p class="govuk-body">
+                The code will expire in 15 minutes.
+            </p>
+
+            <form action="/ur-r4/gds/resting-page" method="post" class="form">
+                <div class="govuk-form-group govuk-!-margin-top-6">
+                    <label class="govuk-label" for="2fa-code">
+                        Enter your security code
+                    </label>
+
+                    <input class="govuk-input govuk-input--width-10" id="2fa-code" name="2fa-code" type="text">
+                </div>
+
+                {{ govukButton({
+                    text: "Continue"
+                }) }}
+            </form>
+
+            <p><a href="resend-code">I did not get a text message</a></p>
+
+            <p><a href="#">I cannot access the mobile number i use to sign in</a></p>
+
+
+        </div>
+    </div>
+{% endblock %}
