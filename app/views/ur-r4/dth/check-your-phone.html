@@ -6,40 +6,53 @@
 
 {% block content %}
 
-<div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">
-          {{title}}
-      </h1>
-            <p class="govuk-body">
-                We have sent you a text message with your security code.
-            </p>
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
-            <p class="govuk-body">
-                It might take up to a minute to arrive.
-            </p>
+        <h1 class="govuk-heading-l">{{title}}</h1>
 
-            <p class="govuk-body">
-                The code will expire in 15 minutes.
-            </p>
+          <p class="govuk-body">
+                  We have sent you a text message with your security code.
+          </p>
 
-            <form action="/ur-r4/gds/resting-page" method="post" class="form">
-                <div class="govuk-form-group govuk-!-margin-top-6">
-                    <label class="govuk-label" for="2fa-code">
-                        Enter your security code
-                    </label>
+          <p class="govuk-body">
+                  It might take up to a minute to arrive.
+          </p>
 
-                    <input class="govuk-input govuk-input--width-10" id="2fa-code" name="2fa-code" type="text">
-                </div>
+          <p class="govuk-body">
+                  The code will expire in 15 minutes.
+          </p>
+
+          <form action="/ur-r4/gds/resting-page" method="post" novalidate>
+
+                {{ govukInput({
+                label: {
+                    text: "Enter your security code",
+                    isPageHeading: false
+                },
+                id: "2fa-code",
+                name: "2fa-code",
+                classes: "govuk-input--width-10",
+                type: "text",
+                spellcheck: "false",
+                autocomplete: "one-time-code",
+                inputmode: "numeric"
+                }) }}
 
                 {{ govukButton({
                     text: "Continue"
                 }) }}
-            </form>
 
-            <p><a href="resend-code">I did not get a text message</a></p>
+          </form>
 
-            <p><a href="#">I cannot access the mobile number i use to sign in</a></p>
+          <ul class="govuk-list">
+                <li>
+                    <a href="#" class="govuk-link">I did not get a text message</a>
+                </li>
+                <li>
+                    <a href="#" class="govuk-link">I cannot access the mobile number I use to sign in</a>
+                </li>
+            </ul>
 
 
         </div>
