@@ -40,9 +40,11 @@
             },
             id: "phone-otp",
             name: "phoneOtp",
-            classes: "govuk-!-width-two-thirds",
-            type: "tel",
-            autocomplete: "tel"
+            classes: "govuk-input--width-10",
+            type: "text",
+            spellcheck: "false",
+            autocomplete: "one-time-code",
+            inputmode: "numeric"
             }) }}
 
             {{ govukButton({
