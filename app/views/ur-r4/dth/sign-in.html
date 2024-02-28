@@ -19,6 +19,8 @@
             <strong class="govuk-!-font-weight-bold">
                 {% if data['registerEmailAddress'] %}
                     {{ data['registerEmailAddress'] | lower }}
+                {% elif data['return-email-address'] %}
+                {{ data['return-email-address'] | lower }}
                 {% else %}
                     email@email.com
                 {% endif %}
