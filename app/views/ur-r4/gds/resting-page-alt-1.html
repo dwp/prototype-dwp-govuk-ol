@@ -1,27 +1,22 @@
-{% extends "layouts/_base-one-login.html" %}
+{% set title =  "Access to Work Account Home" %}
 {% set phaseBanner = 'false' %}
 
-{% set title =  "You have now completed the first task. Please wait on this page until the interviewer asks you to proceed." %}
+<style type="text/css">
 
-{% block header %}
+    body { margin:0 !important; }
+    div[style*="margin: 16px 0"] { margin:0 !important; }
 
-{% endblock %}
+    img {
+        max-width: 100%;
+        height: auto;
+        width: auto\9; /* ie8 */
+    }
+</style>
 
 {% block content %}
+<a href="/ur-r4/gds/notification-account-created-email-alt">
+<img src="/public/images/dashboard.png" alt="Picture of a Access to Work Account Home Dashboard">
+</a>
 
-    <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-
-            <h1 class="govuk-heading-xl">
-                {{ title }}
-            </h1>
-
-            <p><a class="govuk-link" href="/ur-r4/gds/notification-account-created-email-alt">Continue</a></p>
-
-    </div>
-
-{% endblock %}
-
-{% block footer %}
-
+<p><a class="govuk-link" href="/ur-r4/gds/notification-account-created-email-alt">Continue</a></p>
 {% endblock %}
