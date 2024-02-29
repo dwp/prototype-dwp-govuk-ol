@@ -1,7 +1,7 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-    {{title}} – GOV.UK 
+    {{title}} – GOV.UK
 {% endblock %}
 
 {% block beforeContent %}
@@ -47,9 +47,12 @@
                 text: "Privacy notice"
             },
             {
-                href: "",
-                text: "Support (opens in new tab)"
-            }
+                text: "Support (opens in new tab)",
+                href: "/ur-r4/gds/contact-gov-uk-one-login",
+                attributes: {
+                target: "_blank"
+                }
+              }
         ],
         visuallyHiddenTitle: "Footer links"
     }
