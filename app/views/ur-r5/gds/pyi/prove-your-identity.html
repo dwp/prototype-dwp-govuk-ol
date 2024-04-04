@@ -1,0 +1,36 @@
+{% extends "layouts/_base.html" %}
+{% set phaseBanner = 'true' %}
+
+{% set title =  "Prove your identity with GOV.UK One Login" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-l">
+                {{ title }}
+            </h1>
+
+            <p class="govuk-body">
+                You'll need:
+            </p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>your photo ID</li>
+                <li>your current home address (you might also need your previous address if you've recently moved)</li>
+            </ul>
+
+            {{ govukInsetText({
+                html: "You can also <a class='govuk-link' href=''>use GOV.UK One Login in Welsh (Cymraeg)</a>'. Not all ways to prove your identity are available in Welsh yet."
+            }) }}
+
+            {{ govukButton({
+                text: "Continue",
+                href: "identity-check-completed"
+            }) }}
+        </div>
+
+    </div>
+
+{% endblock %}

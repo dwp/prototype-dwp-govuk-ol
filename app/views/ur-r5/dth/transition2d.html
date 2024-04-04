@@ -1,0 +1,40 @@
+{% extends "layouts/_base.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+
+{% set title =  "You’ve moved your sign in details to GOV.UK One Login" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                <div class="govuk-notification-banner__header">
+                    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                        Success
+                    </h2>
+                </div>
+                <div class="govuk-notification-banner__content">
+                    <h1 class="govuk-notification-banner__heading">
+                        {{title}}
+                    </h1>
+                </div>
+            </div>
+
+            <p class="govuk-body">
+                When you return to this service, you’ll need to use your GOV.UK One Login details.
+            </p>
+
+            <p class="govuk-body">
+                These will be the only details you’ll need to sign in to this service.
+            </p>
+
+            {{ govukButton({
+                text: "Continue",
+                href: "/ur-r5/gds/resting-page-alt-2"
+            }) }}
+
+    </div>
+
+{% endblock %}
