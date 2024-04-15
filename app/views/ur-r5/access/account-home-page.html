@@ -1,22 +1,13 @@
+{% extends "layouts/_base.html" %}
 {% set title =  "Access to Work Account Home" %}
 {% set phaseBanner = 'false' %}
 
-<style type="text/css">
-
-    body { margin:0 !important; }
-    div[style*="margin: 16px 0"] { margin:0 !important; }
-
-    img {
-        max-width: 100%;
-        height: auto;
-        width: auto\9; /* ie8 */
-    }
-</style>
-
 {% block content %}
-<a href="/ur-r4/gds/notification-account-created-email-alt">
-<img src="/public/images/dashboard.png" alt="Picture of a Access to Work Account Home Dashboard">
-</a>
+<img class="atw-homepage" src="/public/images/dashboard3.png" alt="Picture of a Access to Work Account Home Dashboard">
 
-<p><a class="govuk-link" href="/ur-r5/gds/resting-page-after-sign-in">Continue</a></p>
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        <p class="govuk-body govuk-!-font-size-24"><a class="govuk-link" href="/ur-r5/gds/resting-page-after-sign-in">Continue</a></p>
+    </div>
+</div>
 {% endblock %}
