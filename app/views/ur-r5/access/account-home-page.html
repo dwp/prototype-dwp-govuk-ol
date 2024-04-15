@@ -1,6 +1,21 @@
-{% extends "layouts/_base.html" %}
+{% extends "layouts/main.html" %}
 {% set title =  "Access to Work Account Home" %}
 {% set phaseBanner = 'false' %}
+
+{% block header %}
+    {{ govukHeader({
+        homepageUrl: "#",
+        serviceName: "Claim money back from Access to Work",
+        serviceUrl: "#",
+        navigation: [
+            {
+                href: "#",
+                text: "Navigation item 1",
+                active: true
+            }
+        ]
+    }) }}
+{% endblock %}
 
 {% block content %}
 <img class="atw-homepage" src="/public/images/dashboard3.png" alt="Picture of a Access to Work Account Home Dashboard">
