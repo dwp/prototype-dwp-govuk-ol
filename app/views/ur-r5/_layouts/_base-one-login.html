@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+    {{title}} – GOV.UK
+{% endblock %}
+
+{% block header %}
+    {{ govukHeader({
+        homepageUrl: "/ur-r5/access/access-to-work-start"
+    }) }}
+{% endblock %}
+
+{% block beforeContent %}
+    {% if phaseBanner == 'true' %}
+        {% include '_includes/phase-banner.njk' %}
+    {% endif %}
+
+    {% if breadcrumbs == 'true' %}
+        {% include '_includes/breadcrumbs.njk' %}
+    {% endif %}
+
+    {% if backLink == 'true' %}
+        {% include '_includes/back-link.njk' %}
+    {% endif %}
+
+    {% if languageToggle == 'true' %}
+        {% include '_includes/language-toggle.njk' %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+
+{% block footer %}
+    {{ govukFooter({
+    meta: {
+        items: [
+            {
+                href: "",
+                text: "Accessibility"
+            },
+            {
+                href: "",
+                text: "Cookies"
+            },
+            {
+                href: "",
+                text: "Terms and conditions"
+            },
+            {
+                href: "",
+                text: "Privacy notice"
+            },
+            {
+                text: "Support (opens in new tab)",
+                href: "/ur-r4/gds/contact-gov-uk-one-login",
+                attributes: {
+                target: "_blank"
+                }
+              }
+        ],
+        visuallyHiddenTitle: "Footer links"
+    }
+    }) }}
+{% endblock %}
