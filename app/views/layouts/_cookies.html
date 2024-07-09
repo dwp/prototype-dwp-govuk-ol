@@ -9,6 +9,32 @@
     <p class="govuk-body">We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
 {% endset %}
 
+{% block bodyStart %}
+    {{ govukCookieBanner({
+        ariaLabel: "Cookies on DWP login and identification service",
+        messages: [
+            {
+                headingText: "Cookies on DWP login and identification service",
+                html: html,
+                actions: [
+                    {
+                        text: "Accept analytics cookies",
+                        type: "button"
+                    },
+                    {
+                        text: "Reject analytics cookies",
+                        type: "button"
+                    },
+                    {
+                        text: "View cookies",
+                        href: "#"
+                    }
+                ]
+            }
+        ]
+    }) }}
+{% endblock %}
+
 {% block beforeContent %}
     {% if phaseBanner == 'true' %}
         {% include '_includes/phase-banner.njk' %}

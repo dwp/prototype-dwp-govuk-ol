@@ -1,0 +1,183 @@
+{% extends "layouts/_cookies.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+{% set backLink = 'false' %}
+
+{% set title =  "Cookies" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-l">
+                {{title}}
+            </h1>
+
+            <p class="govuk-body">
+                Cookies are small files saved on your phone, tablet or computer when you visit a website.
+            </p>
+
+            <p class="govuk-body">
+                We use cookies to make our services work and collect information about how you use our service.
+            </p>
+
+            <h2 class="govuk-heading-m">
+                Essential cookies
+            </h2>
+
+            <p class="govuk-body">
+                Essential cookies keep your information secure while you use our services. We do not need to ask permission to use them.
+            </p>
+
+            {{ govukTable({
+                firstCellIsHeader: false,
+                head: [
+                    {
+                        text: "Name"
+                    },
+                    {
+                        text: "Purpose"
+                    },
+                    {
+                        text: "Expires"
+                    }
+                ],
+                rows: [
+                    [
+                        {
+                            text: "lng"
+                        },
+                        {
+                            text: "Saves your language settings for English or Welsh"
+                        },
+                        {
+                            text: "1 year"
+                        }
+                    ],
+                    [
+                        {
+                            text: "SESSIONID"
+                        },
+                        {
+                            text: "Remembers where you are in the application and your previous answers"
+                        },
+                        {
+                            text: "This session only"
+                        }
+                    ],
+                    [
+                        {
+                            text: "cookie_consent_decision"
+                        },
+                        {
+                            text: "Saves your cookie settings"
+                        },
+                        {
+                            text: "1 year"
+                        }
+                    ]
+                ]
+            }) }}
+
+            <h2 class="govuk-heading-m">
+                Cookies that measure website use (Google Analytics)
+            </h2>
+
+            <p class="govuk-body">
+                With your permission, we use Google Analytics to collect data about how you use our services. This information helps us to improve our service.
+            </p>
+
+            <p class="govuk-body">
+                Google is not allowed to use or share our analytics data with anyone.
+            </p>
+
+            <p class="govuk-body">
+                Google Analytics stores anonymised information about:
+            </p>
+
+            <ul class="govuk-list govuk-list--bullet">
+                <li>how you got to our service</li>
+                <li>the pages you visit on our services and how long you spend on them</li>
+                <li>any errors you see while using our service</li>
+            </ul>
+
+            {{ govukTable({
+                firstCellIsHeader: false,
+                head: [
+                    {
+                        text: "Name"
+                    },
+                    {
+                        text: "Purpose"
+                    },
+                    {
+                        text: "Expires"
+                    }
+                ],
+                rows: [
+                    [
+                        {
+                            text: "_ga"
+                        },
+                        {
+                            text: "Counts how many people visit the website by checking if they have visited before"
+                        },
+                        {
+                            text: "2 years"
+                        }
+                    ],
+                    [
+                        {
+                            text: "_gid"
+                        },
+                        {
+                            text: "Counts how many people visit the website by checking if they have visited before"
+                        },
+                        {
+                            text: "24 hours"
+                        }
+                    ],
+                    [
+                        {
+                            text: "_gat"
+                        },
+                        {
+                            text: "Used to manage the rate at which page view requests are made"
+                        },
+                        {
+                            text: "1 minute"
+                        }
+                    ]
+                ]
+            }) }}
+
+            {{ govukRadios({
+                name: "whereDoYouLive",
+                fieldset: {
+                    legend: {
+                    text: "Do you want to accept cookies that measure your website use?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--m"
+                    }
+                },
+                items: [
+                    {
+                        value: "cookies-accept",
+                        text: "Use cookies that measure my website use "
+                    },
+                    {
+                        value: "cookies-reject",
+                        checked: "cookies-reject",
+                        text: "Do not use cookies that measure my website use "
+                    }
+                ]
+                }) }}
+
+                {{ govukButton({
+                    text: "Save changes"
+                }) }}
+
+    </div>
+
+{% endblock %}
