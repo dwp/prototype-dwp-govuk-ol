@@ -1,0 +1,71 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "Confirm your details" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="/idv/web/fraud-check" method="post">
+
+            <h1 class="govuk-heading-l">{{ title }}</h1>
+
+            {{ govukWarningText({
+                text: "Make sure your details are correct before you continue. You will not be able to change them later",
+                iconFallbackText: "Warning"
+            }) }}
+
+            {{ govukSummaryList({
+            rows: [
+                {
+                key: {
+                    text: "Current address"
+                },
+                value: {
+                    html: "72 Guild Street<br>London<br>SE23 6FH"
+                },
+                actions: {
+                    items: [
+                    {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "current address"
+                    }
+                    ]
+                }
+                },
+                {
+                key: {
+                    text: "Year you started living at this address"
+                },
+                value: {
+                    text: "2000"
+                },
+                actions: {
+                    items: [
+                    {
+                        href: "#",
+                        text: "Change",
+                        visuallyHiddenText: "Year I started living at this address"
+                    }
+                    ]
+                }
+                }
+            ]
+            }) }}
+
+            
+
+            {{ govukButton({
+                text: "I confirm my details are correct",
+                type: "Submit"
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}
