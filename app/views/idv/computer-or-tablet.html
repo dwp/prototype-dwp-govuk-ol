@@ -1,0 +1,86 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set serviceName %}
+    Confirm your identity
+{% endset%}
+
+{% set title =  "Are you on a computer or a tablet right now?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="/idv/computerOrTablet" method="post">
+
+            {% if showErrorSummary %}
+            {{ govukErrorSummary({
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "Select if you are using a computer or tablet or using a smartphone",
+                        href: "#computer-or-tablet"
+                    }
+                ]
+            }) }}
+            {{ govukRadios({
+            name: "computer-or-tablet",
+            fieldset: {
+                legend: {
+                    text: "Are you on a computer or a tablet right now?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                text: "Some ways of confirming your identity require a smartphone. Let us know what you’re using right now."
+            },
+            items: [
+                {
+                    value: "Yes, I am on a computer or tablet",
+                    text: "Yes, I am on a computer or tablet"
+                },
+                {
+                    value: "No, I am on a smartphone",
+                    text: "No, I am on a smartphone"
+                }
+            ],
+                errorMessage: {
+                    text: "Select if you are using a computer or tablet or using a smartphone"
+                }
+            }) }}
+            {% else %}
+            {{ govukRadios({
+            name: "computer-or-tablet",
+            fieldset: {
+                legend: {
+                    text: "Are you on a computer or a tablet right now?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                text: "Some ways of confirming your identity require a smartphone. Let us know what you’re using right now."
+            },
+            items: [
+                {
+                    value: "Yes, I am on a computer or tablet",
+                    text: "Yes, I am on a computer or tablet"
+                },
+                {
+                    value: "No, I am on a smartphone",
+                    text: "No, I am on a smartphone"
+                }
+            ]
+            }) }}
+            {% endif %}
+            
+            <button class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}

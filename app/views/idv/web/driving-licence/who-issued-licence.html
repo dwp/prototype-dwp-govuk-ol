@@ -1,0 +1,104 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+
+{% set title =  "Continue proving your identity online" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="/idv/web/driving-licence/whoIssuedLicence" method="post">
+
+            {% if showErrorSummary %}
+            {{ govukErrorSummary({
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "You must choose an option to continue",
+                        href: "#issuerName"
+                    }
+                ]
+            }) }}
+
+            {{ govukRadios({
+            name: "issuerName",
+            fieldset: {
+                legend: {
+                    text: " Who was your UK driving licence issued by?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                    value: "dvla",
+                    text: "DVLA"
+                },
+                {
+                    value: "dva",
+                    text: " DVA"
+                },
+                {
+                    divider: "or"
+                },
+                {
+                    value: "no-uk-licence",
+                    text: "I do not have a UK driving licence"
+                }
+            ],
+                errorMessage: {
+                    text: "You must choose an option to continue"
+                }
+            }) }}
+            {% else %}
+            {{ govukRadios({
+            name: "issuerName",
+            fieldset: {
+                legend: {
+                    text: " Who was your UK driving licence issued by?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            items: [
+                {
+                    value: "dvla",
+                    text: "DVLA"
+                },
+                {
+                    value: "dva",
+                    text: " DVA"
+                },
+                {
+                    divider: "or"
+                },
+                {
+                    value: "no-uk-licence",
+                    text: "I do not have a UK driving licence"
+                }
+            ]
+            }) }}
+            {% endif %}
+
+            <button class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+
+            <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        Why we need to know this
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    We need to make sure we check your driving licence details with the right organisation. DVLA issues driving licences in England, Scotland and Wales. DVA issues driving licences in Northern Ireland.
+                </div>
+            </details>
+
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
