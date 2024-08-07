@@ -1,0 +1,73 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+
+{% set title =  "How much of your loan do you pay back every month?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="date-account-opened" method="post">
+
+            {% set hintHtml %}
+            <div class="govuk-body">
+                <p>
+                    Think about the amount you're meant to pay back every month on a personal loan. This does not include hire purchase agreements, second mortgages, home credit loans or student loans.
+                </p>
+                <p>
+                    You can find this amount on your loan agreement.
+                </p>
+            </div>
+            {% endset %}
+
+            {{ govukRadios({
+            name: "mortgage-payment",
+            fieldset: {
+                legend: {
+                    text: "How much of your loan do you pay back every month?",
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                html: hintHtml
+            },
+            items: [
+                {
+                    value: "UP TO £ 500",
+                    text: "UP TO £ 500"
+                },
+                {
+                    value: "OVER £500 UP TO £550",
+                    text: "OVER £500 UP TO £550"
+                },
+                {
+                    value: "OVER £550 UP TO £600",
+                    text: "OVER £550 UP TO £600"
+                },
+                {
+                    value: "OVER £600 UP TO £650",
+                    text: "OVER £600 UP TO £650"
+                },
+                { 
+                    value: "NONE OF THE ABOVE / DOES NOT APPLY",
+                    text: "NONE OF THE ABOVE / DOES NOT APPLY"
+                }
+            ]
+            }) }}
+            
+            <button class="govuk-button" data-module="govuk-button">
+                Continue
+            </button>
+
+        </form>
+
+        <p class="govuk-body">
+            <a class="govuk-link govuk-link--no-visited-state" href="kbv-abandon">I cannot answer this question</a>
+        </p>
+
+    </div>
+</div>
+
+{% endblock%}
