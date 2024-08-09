@@ -218,3 +218,35 @@ router.post('/kbv-another-way-answer', (req, res) => {
         res.redirect('/kbv-another-way-answer?error=true');
     }
 });
+
+//Routes for Choosing a journey 
+router.get('/choose-journey/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('choose-journey.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/choose-journey/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['choose-journey'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "prove-identity") {
+            // Send user to 
+            res.redirect('/idv/filter-question');
+        } else if (selectedOption === "identity-reuse") {
+            // Send user to 
+            res.redirect('');
+        } else if (selectedOption === "oidv-medium-user") {
+            // Send user to 
+            res.redirect('');
+        } 
+    } else {
+        // If no radio button is selected, redirect to /choose-journey/answer with error
+        res.redirect('/choose-journey/answer?error=true');
+    }
+});

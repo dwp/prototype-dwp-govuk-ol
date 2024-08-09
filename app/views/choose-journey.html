@@ -1,0 +1,120 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "DWP–GOV.UK One Login prototype" %}
+
+{% set serviceName %}
+  DWP – GOV.UK One Login prototype
+{% endset%}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <form class="form" action="/choose-journey/answer" method="post">
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Choose a journey to continue",
+                    href: "#choose-journey"
+                }
+            ]
+        }) }}
+
+        {{ govukRadios({
+          name: "choose-journey",
+          fieldset: {
+            legend: {
+              text: "Choose a journey",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "prove-identity",
+              text: "Prove identity within a service",
+              hint: {
+                text: "Users prove their identity after creating or signing in to their GOV.UK One Login."
+              }
+            },
+            {
+              value: "identity-reuse",
+              text: "Use a service when identity has been proved through One Login",
+              hint: {
+                text: "Users who have proven their identity sign in to use a different GOV.UK service, without having to prove their identity again.
+                "
+              }
+            },
+            {
+              value: "oidv-medium-user",
+              text: "Use a service with OIDV medium confidence",
+              hint: {
+                text: "Users who have proven their identity using OIDV before sign in to their service without having to prove identity again.
+                "
+              }
+            }
+          ],
+            errorMessage: {
+                text: "Choose a journey to continue"
+            }
+        }) }}
+        {% else %}
+        {{ govukRadios({
+          name: "choose-journey",
+          fieldset: {
+            legend: {
+              text: "Choose a journey",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "prove-identity",
+              text: "Prove identity within a service",
+              hint: {
+                text: "Users prove their identity after creating or signing in to their GOV.UK One Login."
+              }
+            },
+            {
+              value: "identity-reuse",
+              text: "Use a service when identity has been proved through One Login",
+              hint: {
+                text: "Users who have proven their identity sign in to use a different GOV.UK service, without having to prove their identity again.
+                "
+              }
+            },
+            {
+              value: "oidv-medium-user",
+              text: "Use a service with OIDV medium confidence",
+              hint: {
+                text: "Users who have proven their identity using OIDV before sign in to their service without having to prove identity again.
+                "
+              }
+            }
+          ]
+        }) }}
+        {% endif %}
+
+        {{ govukButton({
+            text: "Continue",
+            type: "Submit"
+        }) }}
+
+      </form>
+
+
+  </div>
+</div>
+
+{% endblock %}
