@@ -3,6 +3,16 @@
 
 {% set title =  "You’ve created your GOV.UK One Login" %}
 
+{% set userJourneyUrl -%}
+    {% if data['userJourney'] === 'idv' %}
+        /ol-credential-create-and-signin/pyi/prove-your-identity
+    {% elif data['userJourney'] == 'oidvMedium' %}
+        /transition/your-sign-in-details-have-been-updated
+    {% else %}
+        /ol-credential-create-and-signin/sign-in-or-create
+    {% endif %}
+{% endset %}
+
 {% block content %}
 
     <div class="govuk-grid-row">
@@ -18,7 +28,7 @@
 
             {{ govukButton({
                 text: "Continue",
-                href: "./pyi/prove-your-identity"
+                href: userJourneyUrl | trim
             }) }}
 
     </div>
