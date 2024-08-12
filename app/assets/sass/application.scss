@@ -136,3 +136,8 @@
     object-position: bottom;
     @include govuk-responsive-margin(6, "bottom");
 }
+
+.object-fit--contain {
+    max-width: 100%; /* Ensure image doesn't exceed container width */
+    max-height: 100%; /* Ensure image doesn't exceed container height */
+}

@@ -11,7 +11,7 @@
         {% if data['registerEmailAddress'] or data['no-one-login-email-code'] %}
             <form action="returning-enter-password" method="post" novalidate>
         {% else %} 
-            <form action="/ur-r2/gds/no-one-login/account-not-found" method="post" novalidate>
+            <form action="./no-one-login/account-not-found" method="post" novalidate>
         {% endif %}
 
             {{ govukInput({

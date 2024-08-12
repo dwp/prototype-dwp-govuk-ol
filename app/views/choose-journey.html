@@ -81,25 +81,37 @@
           items: [
             {
               value: "prove-identity",
-              text: "Prove identity within a service",
+              text: "Path A",
               hint: {
-                text: "Users prove their identity after creating or signing in to their GOV.UK One Login."
+                text: "Citizen without One Login or OIDV credential."
               }
             },
             {
               value: "identity-reuse",
-              text: "Use a service when identity has been proved through One Login",
+              text: "Path B",
               hint: {
-                text: "Users who have proven their identity sign in to use a different GOV.UK service, without having to prove their identity again.
-                "
+                text: "Citizen without One Login but has OIDV credential (no confidence)."
               }
             },
             {
               value: "oidv-medium-user",
-              text: "Use a service with OIDV medium confidence",
+              text: "Path C",
               hint: {
-                text: "Users who have proven their identity using OIDV before sign in to their service without having to prove identity again.
-                "
+                text: "Citizen without One Login but has OIDV medium level confidence."
+              }
+            },
+            {
+              value: "returning-ol-user",
+              text: "Path D",
+              hint: {
+                text: "Citizen with One Login credential (returning or new to service)."
+              }
+            },
+            {
+              value: "returning-ol-and-oidv-medium-user",
+              text: "Path E",
+              hint: {
+                text: "Returning citizen with One Login credentials and OIDV medium confidence."
               }
             }
           ]
@@ -113,6 +125,19 @@
 
       </form>
 
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">
+      High level user journeys
+    </h2>
+
+    <img class="object-fit--contain" src="/public/images/user-journey/user-journeys-ol-dwp.png">
 
   </div>
 </div>
