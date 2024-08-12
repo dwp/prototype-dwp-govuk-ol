@@ -237,14 +237,20 @@ router.post('/choose-journey/answer', (req, res) => {
         // If radio option is selected:
         if (selectedOption === "prove-identity") {
             // Send user to 
-            res.redirect('/service-pages-routes/repay/start?user-journey=idv');
+            res.redirect('/service-pages-routes/repay/start?userJourney=idv');
         } else if (selectedOption === "identity-reuse") {
             // Send user to 
-            res.redirect('');
+            res.redirect('/service-pages-routes/repay/start?userJourney=signin');
         } else if (selectedOption === "oidv-medium-user") {
             // Send user to 
-            res.redirect('');
-        } 
+            res.redirect('/service-pages-routes/repay/start?userJourney=oidvMedium');
+        } else if (selectedOption === "returning-ol-user") {
+            // Send user to 
+            res.redirect('/service-pages-routes/repay/start?userJourney=returningOlUser');
+        } else if (selectedOption === "returning-ol-and-oidv-medium-user") {
+            // Send user to 
+            res.redirect('/service-pages-routes/repay/start?userJourney=returningOlAndOidvMediumUser');
+        }
     } else {
         // If no radio button is selected, redirect to /choose-journey/answer with error
         res.redirect('/choose-journey/answer?error=true');
