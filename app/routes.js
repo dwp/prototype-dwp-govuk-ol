@@ -237,7 +237,7 @@ router.post('/choose-journey/answer', (req, res) => {
         // If radio option is selected:
         if (selectedOption === "prove-identity") {
             // Send user to 
-            res.redirect('/idv/filter-question');
+            res.redirect('/service-pages-routes/repay/start?user-journey=idv');
         } else if (selectedOption === "identity-reuse") {
             // Send user to 
             res.redirect('');
