@@ -1,0 +1,28 @@
+.custom-inline-elements .circle {
+    display: inline-block;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    line-height: 10px;
+    padding: 10px;
+    background: #0b0c0c;
+    border: 3px solid #0b0c0c;
+    color: #fff;
+    text-align: center;
+    text-indent: -16%;
+    margin-right: 6px
+}
+
+.custom-inline-elements .govuk-heading-m {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    /* Other styles for .govuk-heading-m */
+}
+
+.post-office-list .govuk-list,main ol,main ul {
+    -moz-osx-font-smoothing: grayscale;
+    margin-top: 0;
+    padding-left: 0;
+    list-style-type: none;
+}  

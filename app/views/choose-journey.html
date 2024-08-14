@@ -39,25 +39,30 @@
           items: [
             {
               value: "prove-identity",
-              text: "Prove identity within a service",
+              text: "Path A and B",
               hint: {
-                text: "Users prove their identity after creating or signing in to their GOV.UK One Login."
-              }
-            },
-            {
-              value: "identity-reuse",
-              text: "Use a service when identity has been proved through One Login",
-              hint: {
-                text: "Users who have proven their identity sign in to use a different GOV.UK service, without having to prove their identity again.
-                "
+                text: "Citizen without a GOV.UK One Login credential."
               }
             },
             {
               value: "oidv-medium-user",
-              text: "Use a service with OIDV medium confidence",
+              text: "Path C",
               hint: {
-                text: "Users who have proven their identity using OIDV before sign in to their service without having to prove identity again.
-                "
+                text: "Citizen without a GOV.UK One Login but has OIDV medium level confidence."
+              }
+            },
+            {
+              value: "returning-ol-user",
+              text: "Path D",
+              hint: {
+                text: "Returning user with GOV.UK One Login credentials (users who previously gone through Path A or B)."
+              }
+            },
+            {
+              value: "returning-ol-and-oidv-medium-user",
+              text: "Path E",
+              hint: {
+                text: "Returning user with GOV.UK One Login credentials and OIDV medium confidence (users who have previously gone through Path C)."
               }
             }
           ],
@@ -81,37 +86,30 @@
           items: [
             {
               value: "prove-identity",
-              text: "Path A",
+              text: "Path A and B",
               hint: {
-                text: "Citizen without One Login or OIDV credential."
-              }
-            },
-            {
-              value: "identity-reuse",
-              text: "Path B",
-              hint: {
-                text: "Citizen without One Login but has OIDV credential (no confidence)."
+                text: "Citizen without a GOV.UK One Login credential."
               }
             },
             {
               value: "oidv-medium-user",
               text: "Path C",
               hint: {
-                text: "Citizen without One Login but has OIDV medium level confidence."
+                text: "Citizen without a GOV.UK One Login but has OIDV medium level confidence."
               }
             },
             {
               value: "returning-ol-user",
               text: "Path D",
               hint: {
-                text: "Citizen with One Login credential (returning or new to service)."
+                text: "Returning user with GOV.UK One Login credentials (users who previously gone through Path A or B)."
               }
             },
             {
               value: "returning-ol-and-oidv-medium-user",
               text: "Path E",
               hint: {
-                text: "Returning citizen with One Login credentials and OIDV medium confidence."
+                text: "Returning user with GOV.UK One Login credentials and OIDV medium confidence (users who have previously gone through Path C)."
               }
             }
           ]

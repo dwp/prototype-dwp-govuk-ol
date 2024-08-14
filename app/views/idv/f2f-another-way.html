@@ -1,7 +1,7 @@
 {% extends "layouts/_base-one-login.html" %}
 {% set phaseBanner = 'true' %}
 
-{% set title =  "Continue to the service you want to use" %}
+{% set title =  "Prove your identity another way" %}
 
 {% block content %}
 
@@ -15,11 +15,15 @@
             </h1>
 
             <p class="govuk-body">
-                You've successfully proved your identity. You can now continue to the service you want to use.
+                Based on what you told us, you cannot prove your identity online with GOV.UK One Login.
             </p>
 
+            <h2 class="govuk-heading-m">
+                What you can do
+            </h2>
+
             <p class="govuk-body">
-                Some of the information you shared when you proved your identity might be used to automatically fill in forms within the service.
+                Continue to the service you were trying to use and look for other ways to prove your identity.
             </p>
             
             <button class="govuk-button" data-module="govuk-button">
@@ -27,6 +31,11 @@
             </button>
 
         </form>
+        
+        <p class="govuk-!-padding-bottom-5">
+            <a href="#" class="govuk-link govuk-link--no-visited-state" id="confirmIdentityAnotherWay">Contact the GOV.UK account team (opens in a new tab)</a>
+        </p>
+
 
     </div>
 </div>
