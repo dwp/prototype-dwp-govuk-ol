@@ -211,7 +211,7 @@ router.post('/kbv-another-way-answer', (req, res) => {
             res.redirect('/idv/computer-or-tablet');
         } else {
             // Send user to enter phone number
-            res.redirect('/page-index/f2f-cri/intro-page');
+            res.redirect('/idv/send-to-post-office');
         }
     } else {
         // If no radio button is selected, redirect to /computer-or-tablet/answer with error

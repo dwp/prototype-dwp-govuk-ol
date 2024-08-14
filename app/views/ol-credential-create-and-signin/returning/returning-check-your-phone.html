@@ -41,7 +41,11 @@
             It might take a few minutes to arrive. The code will expire after 15 minutes.
         </p>
 
-        <form action="returning-prove-your-identity" method="post" novalidate>
+        {% if data['userJourney'] === 'returningOlAndOidvMediumUser' %}
+            <form action="/index" method="post" novalidate>
+        {% else %} 
+            <form action="returning-prove-your-identity" method="post" novalidate>
+        {% endif %}
 
             {{ govukInput({
             label: {

@@ -8,10 +8,10 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        {% if data['registerEmailAddress'] or data['no-one-login-email-code'] %}
+        {% if data['registerEmailAddress'] or data['no-one-login-email-code'] or data['userJourney'] === 'returningOlUser' or data['userJourney'] === 'returningOlAndOidvMediumUser' %}
             <form action="returning-enter-password" method="post" novalidate>
         {% else %} 
-            <form action="./no-one-login/account-not-found" method="post" novalidate>
+            <form action="/ol-credential-create-and-signin/no-one-login/account-not-found" method="post" novalidate>
         {% endif %}
 
             {{ govukInput({
