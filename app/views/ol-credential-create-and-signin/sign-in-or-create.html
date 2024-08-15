@@ -1,21 +1,7 @@
 {% extends "layouts/_base-one-login.html" %}
 {% set phaseBanner = 'true' %}
 
-{% set title =  "Create a GOV.UK One Login or sign in" %}
-
-{% set detailsTextHtml %}
-    <p class="govuk-body">
-        GOV.UK One Login is new. At the moment you can only use it to access some government services.
-    </p>
-
-    <p class="govuk-body">
-        It does not work with all government accounts or services yet (for example Government Gateway or Universal Credit).
-    </p>
-
-    <p class="govuk-body">
-        In the future, you’ll be able to use GOV.UK One Login to access all services on GOV.UK.
-    </p>
-{% endset %}
+{% set title =  "Create your GOV.UK One Login or sign in" %}
 
 {% block content %}
 
@@ -25,6 +11,14 @@
             <h1 class="govuk-heading-l">
                 {{ title }}
             </h1>
+
+            <p class="govuk-body">
+                You can use your GOV.UK One Login to access some government services.
+            </p>
+
+            <p class="govuk-body">
+                In the future, you’ll be able to use it to access all services on GOV.UK.
+            </p>
 
             <p class="govuk-body">
                 You’ll need:
@@ -39,24 +33,22 @@
                 You can also <a class="govuk-link" href="">use GOV.UK One Login in Welsh (Cymraeg)</a>.
             </div>
 
-            <div class="govuk-button-group">
-                
-                {{ govukButton({
-                    text: "Create a GOV.UK One Login",
-                    href: "email-address"
-                }) }}
+            {{ govukButton({
+                text: "Create a GOV.UK One Login",
+                href: "email-address"
+            }) }}
 
+            <div>
                 {{ govukButton({
                     text: "Sign in",
                     classes: "govuk-button--secondary",
                     href: "./returning/return-email-address"
                 }) }}
-            </div>
 
-            {{ govukDetails({
-                summaryText: "About GOV.UK One Login",
-                html: detailsTextHtml | safe
-            }) }}
+                <p class="govuk-body">
+                    <a class="govuk-link" href="https://www.gov.uk/using-your-gov-uk-one-login/services" target="blank">Services you can use with GOV.UK One Login (opens in a new tab)</a>
+                </p>
+            </div>
 
     </div>
 
