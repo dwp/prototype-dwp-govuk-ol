@@ -43,8 +43,8 @@
 
         {% if data['userJourney'] === 'returningOlAndOidvMediumUser' %}
             <form action="/index" method="post" novalidate>
-        {% else %} 
-            <form action="returning-prove-your-identity" method="post" novalidate>
+        {% else %}
+            <form action="returning-you-have-already-proved-your-identity" method="post" novalidate>
         {% endif %}
 
             {{ govukInput({
