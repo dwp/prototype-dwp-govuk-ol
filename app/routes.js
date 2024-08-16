@@ -57,7 +57,7 @@ router.post('/idv/computerOrTablet', (req, res) => {
         // If radio option is selected:
         if (selectedOption === "No, I am on a smartphone") {
             // Send user to...
-            res.redirect('/page-index/app-cri/on-a-smartphone');
+            res.redirect('/idv/app/on-a-smartphone');
         } else {
             // Send user to...
             res.redirect('/idv/do-you-have-a-smartphone');
