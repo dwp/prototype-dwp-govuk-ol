@@ -1,0 +1,117 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Your scan was successful
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <form class="form" id="captureForm" action="../face-scan/face-scan-start" method="post">
+
+        <a href="how-to-scan-passport" class="govuk-app-back-link">Back</a>
+        <h1 class="govuk-app-heading-l govuk-app-margin-bottom-xl govuk-app-margin-top-l">
+         Your scan was successful
+        </h1>
+
+        <div class="success-icon-container" id="successIcon" style="display: none;">
+          <img src="/public/images/document-checking-app/information-submitted.svg" width="162" height="159" alt="">
+      </div>
+
+<!-- Wrap the image in a container div -->
+<div class="image-container govuk-app-margin-bottom-m">
+  <img src="/public/images/document-checking-app/passport/your-scan-was-successful.png" class="centered-image">
+</div>
+
+
+        <dl class="govuk-app-summary-list">
+          <div class="govuk-app-summary-list__row">
+            <dt class="govuk-app-summary-list__key govuk-app-body">
+              Full name
+            </dt>
+            <dd class="govuk-app-summary-list__value govuk-app-body">
+              Jane Elizabeth Doe
+            </dd>
+          </div>
+          <div class="govuk-app-summary-list__row">
+            <dt class="govuk-app-summary-list__key govuk-app-body">
+              Date of Birth
+            </dt>
+            <dd class="govuk-app-summary-list__value govuk-app-body">
+              18.Oct.95
+            </dd>
+          </div>
+          <div class="govuk-app-summary-list__row">
+            <dt class="govuk-app-summary-list__key govuk-app-body">
+              Expiry Date
+            </dt>
+            <dd class="govuk-app-summary-list__value govuk-app-body">
+              07.Sep.25
+            </dd>
+          </div>
+          <div class="govuk-app-summary-list__row">
+            <dt class="govuk-app-summary-list__key govuk-app-body">
+              Issuing Country
+            </dt>
+            <dd class="govuk-app-summary-list__value govuk-app-body">
+              <p class="govuk-app-body">United Kingdom</p>
+            </dd>
+          </div>
+        </dl>
+
+        <div class="button-container">
+        <button type="submit" class="govuk-app-button-default" data-module="govuk-button">
+         Submit information
+        </button>
+      </div>
+
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script>
+   document.getElementById('captureForm').addEventListener('submit', function(event) {
+    // Prevent the form from submitting immediately
+    event.preventDefault();
+    
+    // Display the success icon
+    document.getElementById('successIcon').style.display = 'block';
+    
+    // Add a delay before redirecting
+    setTimeout(function() {
+        // Submit the form
+        document.getElementById('captureForm').submit();
+    }, 600); // 2000 milliseconds (2 seconds) delay before redirection
+});
+  </script>
+{% endblock %}
+
+
+
+
+
+
+

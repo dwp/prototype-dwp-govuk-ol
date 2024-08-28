@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Sorry, there is a problem
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/url/of/next/page" method="post">
+
+      <h1 class="govuk-heading-l">Sorry, there is a problem</h1>
+
+      <p>We cannot find any addresses with the postcode <b>AA1 1AA</b></p>
+
+      {{ govukRadios({
+        name: "cannot-find-address",
+        fieldset: {
+          legend: {
+            text: "What would you like to do?",
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "Continue with AA1 1AA and enter the rest of your address details manually",
+            text: "Continue with AA1 1AA and enter the rest of your address details manually"
+          },
+          {
+            value: "Try entering your postcode again",
+            text: "Try entering your postcode again"
+          }
+        ]
+      }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      <a href="#" class="govuk-link">Contact the GOV.UK account team (opens in a new tab)</a>
+
+    </form>
+
+    </div>
+    
+  </div>
+
+{% endblock %}

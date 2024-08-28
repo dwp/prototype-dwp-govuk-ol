@@ -1,0 +1,53 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Ready to exit app - mobile
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+
+    <form class="form" action="/exit-app-journey/answer" method="post">
+    
+        <div class="centred-container">
+          <h1 class="govuk-app-heading-l govuk-app-margin-bottom-m govuk-app-margin-top-s" style="text-align: center;">
+            You're ready to exit GOV.UK ID Check
+          </h1>
+          <p class="govuk-app-body govuk-app-margin-bottom-m" style="text-align: center;">Your information has been submitted. You will finish confirming your identity on the GOV.UK website. </p>      
+        </div>
+
+ 
+
+  <div class="button-container">
+    <button type="submit" class="govuk-app-button-default" data-module="govuk-button">
+      Go to GOV.UK
+      <img src="/public/images/linkout-symbol-dark.svg" alt="iOS Link Out Symbol">
+    </button>
+  </div>
+
+</div>
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+

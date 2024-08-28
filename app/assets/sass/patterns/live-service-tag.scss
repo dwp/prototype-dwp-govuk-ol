@@ -1,0 +1,25 @@
+
+//We're using he latest version of the prototype kit and therefore the latest phase banner design. 
+//This adapts the govuk tag this so that it's closer to the live service phase banner.
+
+.govuk-tag-current {
+  display: inline-block;
+  outline: 2px solid rgba(0,0,0,0);
+  outline-offset: -2px;
+  color: #fff;
+  background-color: #1d70b8;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "GDS Transport",arial,sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  font-size: 14px;
+  font-size: .875rem;
+  line-height: 1;
+  padding-top: 5px;
+  padding-right: 8px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+}

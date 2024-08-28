@@ -1,0 +1,39 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+You’ve given us your new name - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+         
+      <form class="form" action="/page-index/fraud-cri/repeat-fraud-check/fraud-check" method="post">
+
+      <h1 class="govuk-heading-l">You’ve given us your new name</h1>
+
+      <p>We’ll need to check your details when you continue. </p>
+
+   
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">Contact the GOV.UK account team (opens in a new tab)</a>
+          </p>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
