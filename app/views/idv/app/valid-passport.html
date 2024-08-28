@@ -5,36 +5,27 @@
 {% endset %}
 {% set backLink = 'true' %}
 
-{% set title =  "Which smartphone are you using?" %}
+{% set title =  "Do you have a valid passport?" %}
 
 {% block content %}
-
-{% set hintTextHtml %}
-<p class="govuk-hint">
-    You need a smartphone with working front (selfie) and rear cameras for some ways of confirming your identity.
-</p>
-<p class="govuk-hint">
-    Let us know which device you’re using right now.
-</p>
-{% endset %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <form class="form" action="/on-a-smartphone/answer" method="post">
+        <form class="form" action="/valid-passport/answer" method="post">
 
             {% if showErrorSummary %}
             {{ govukErrorSummary({
                 titleText: "There is a problem",
                 errorList: [
                     {
-                        text: "Select if you are on an iPhone, Android phone or neither of these phones",
-                        href: "#smartphone"
+                        text: "Select if you have a valid passport",
+                        href: "#valid-passport"
                     }
                 ]
             }) }}
             {{ govukRadios({
-            name: "smartphone",
+            name: "valid-passport",
             fieldset: {
                 legend: {
                     text: title,
@@ -43,29 +34,25 @@
                 }
             },
             hint: {
-                text: hintTextHtml | safe
+                text: "If you have a passport, you can use it to confirm your identity."
             },
             items: [
                 {
-                    value: "iPhone",
-                    text: "iPhone"
+                    value: "Yes",
+                    text: "Yes"
                 },
                 {
-                    value: "Android",
-                    text: "Android phone (for example, Samsung, Google Pixel, OPPO)"
-                },
-                {
-                    value: "Neither of these phones",
-                    text: "Neither of these phones"
+                    value: "No",
+                    text: "No"
                 }
             ],
                 errorMessage: {
-                    text: "Select if you are on an iPhone, Android phone or neither of these phones"
+                    text: "Select if you have a valid passport"
                 }
             }) }}
             {% else %}
             {{ govukRadios({
-            name: "smartphone",
+            name: "valid-passport",
             fieldset: {
                 legend: {
                     text: title,
@@ -74,20 +61,16 @@
                 }
             },
             hint: {
-                text: hintTextHtml | safe
+                text: "If you have a passport, you can use it to confirm your identity."
             },
             items: [
                 {
-                    value: "iPhone",
-                    text: "iPhone"
+                    value: "Yes",
+                    text: "Yes"
                 },
                 {
-                    value: "Android",
-                    text: "Android phone (for example, Samsung, Google Pixel, OPPO)"
-                },
-                {
-                    value: "Neither of these phones",
-                    text: "Neither of these phones"
+                    value: "No",
+                    text: "No"
                 }
             ]
             }) }}

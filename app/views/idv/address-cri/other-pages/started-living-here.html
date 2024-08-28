@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+When did you start living at your current home address?
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/page-index/address-cri/confirm-addresses" method="post">
+
+        <h1 class="govuk-heading-l">When did you start living at your current home address?</h1>
+
+            <p style="text-align: left">
+              UNIT 8 WARWICK HOUSE<br>
+              18 FORGE LANE MINWORTH<br>
+              SUTTON COLDFIELD<br>
+              B76 1AH
+          </p>
+         
+          {{ govukInput({
+            label: {
+              text: "Year"
+            },
+            hint: {
+              text: "Enter the year you started living at this address, for example 2017"
+            },
+            classes: "govuk-input--width-4",
+            id: "started-living-here",
+            name: "started-living-here"
+          }) }}
+  
+          <button class="govuk-button" type="submit" data-module="govuk-button"> Continue </button>
+          
+        </form>
+    </div>
+  </div>
+
+{% endblock %}
