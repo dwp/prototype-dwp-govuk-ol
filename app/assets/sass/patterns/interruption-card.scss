@@ -1,0 +1,31 @@
+//interruption card
+
+.white-text {
+    color: #fff
+}
+
+.blue-background {
+    background-color: #1d70b8
+}
+
+#gov-uk-logo {
+    border-radius: 13px
+}
+
+.app-button--inverted .govuk-button {
+    background-color: #fff;
+    color: #245ea0
+}
+
+.app-button--inverted:active .govuk-button {
+    color: #0b0c0c;
+    background-color: #fd0
+}
+
+.app-button--inverted:focus .govuk-button {
+    border-color: #fd0;
+    color: #1d70b8;
+    background-color: #e8f1f8;
+    -webkit-box-shadow: inset 0 0 0 2px #fd0;
+    box-shadow: inset 0 0 0 2px #fd0
+}

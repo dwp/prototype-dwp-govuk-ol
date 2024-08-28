@@ -1,0 +1,190 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Update your details - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+         
+      <form class="form" action="/continuity-of-identity/update-your-details/answer" method="post">
+
+
+        {% if showErrorSummary %}
+      {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+              {
+                  text: "Select which details you need to update, or select ‘I do not need to update my details’",
+                  href: "#update-details"
+              }
+          ]
+      }) }}
+      {% endif %}
+
+      <h1 class="govuk-heading-l">
+        Update your details
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Given names
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Jane Elizabeth
+          </dd>
+          <dd class="govuk-summary-list__actions"> 
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Last name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Doe
+          </dd>
+          <dd class="govuk-summary-list__actions"> 
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Current home address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            38 Park Square North<br>Leeds<br>AB12 3CD
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date of birth
+          </dt>
+          <dd class="govuk-summary-list__value">
+            01 January 1982
+          </dd>
+          <dd class="govuk-summary-list__actions">
+          </dd>
+        </div>
+      </dl>
+
+
+{% if showErrorSummary %}   
+{{ govukCheckboxes({
+  name: "update-details",
+  fieldset: {
+    legend: {
+      text: "Which details do you need to update?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "Given names",
+      text: "Given names",
+      hint: {
+        text: "This is your first name and middle names."
+      }
+    },
+    {
+      value: "Last name",
+      text: "Last name"
+    },
+    {
+      value: "Address",
+      text: "Address"
+    },
+    {
+      value: "dob",
+      text: "Date of birth"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "none",
+      text: "I do not need to update my details",
+      behaviour: "exclusive"
+  }
+  ],
+  errorMessage: {
+      text: "Select which details you need to update, or select ‘I do not need to update my details’"
+  }
+}) }}
+
+
+{% else %}
+{{ govukCheckboxes({
+  name: "update-details",
+  fieldset: {
+    legend: {
+      text: "Which details do you need to update?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select all that apply."
+  },
+  items: [
+    {
+      value: "Given names",
+      text: "Given names",
+      hint: {
+        text: "This is your first name and middle names."
+      }
+    },
+    {
+      value: "Last name",
+      text: "Last name"
+    },
+    {
+      value: "Address",
+      text: "Address"
+    },
+    {
+      value: "dob",
+      text: "Date of birth"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "none",
+      text: "I do not need to update my details",
+      behaviour: "exclusive"
+    }
+    ]
+}) }}
+{% endif %}
+
+
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

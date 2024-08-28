@@ -5,36 +5,27 @@
 {% endset %}
 {% set backLink = 'true' %}
 
-{% set title =  "Which smartphone are you using?" %}
+{% set title =  "Do you have a valid UK photocard driving licence?" %}
 
 {% block content %}
-
-{% set hintTextHtml %}
-<p class="govuk-hint">
-    You need a smartphone with working front (selfie) and rear cameras for some ways of confirming your identity.
-</p>
-<p class="govuk-hint">
-    Let us know which device you’re using right now.
-</p>
-{% endset %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <form class="form" action="/on-a-smartphone/answer" method="post">
+        <form class="form" action="/driving-licence/answer" method="post">
 
             {% if showErrorSummary %}
             {{ govukErrorSummary({
                 titleText: "There is a problem",
                 errorList: [
                     {
-                        text: "Select if you are on an iPhone, Android phone or neither of these phones",
-                        href: "#smartphone"
+                        text: "Select yes if you have a valid UK photocard driving licence",
+                        href: "#driving-licence"
                     }
                 ]
             }) }}
             {{ govukRadios({
-            name: "smartphone",
+            name: "driving-licence",
             fieldset: {
                 legend: {
                     text: title,
@@ -43,29 +34,25 @@
                 }
             },
             hint: {
-                text: hintTextHtml | safe
+                text: "You cannot use an expired licence or a photocopy or digital copy of your licence."
             },
             items: [
                 {
-                    value: "iPhone",
-                    text: "iPhone"
+                    value: "Yes",
+                    text: "Yes"
                 },
                 {
-                    value: "Android",
-                    text: "Android phone (for example, Samsung, Google Pixel, OPPO)"
-                },
-                {
-                    value: "Neither of these phones",
-                    text: "Neither of these phones"
+                    value: "No",
+                    text: "No"
                 }
             ],
                 errorMessage: {
-                    text: "Select if you are on an iPhone, Android phone or neither of these phones"
+                    text: "Select yes if you have a valid UK photocard driving licence"
                 }
             }) }}
             {% else %}
             {{ govukRadios({
-            name: "smartphone",
+            name: "driving-licence",
             fieldset: {
                 legend: {
                     text: title,
@@ -74,24 +61,25 @@
                 }
             },
             hint: {
-                text: hintTextHtml | safe
+                text: "You cannot use an expired licence or a photocopy or digital copy of your licence."
             },
             items: [
                 {
-                    value: "iPhone",
-                    text: "iPhone"
+                    value: "Yes",
+                    text: "Yes"
                 },
                 {
-                    value: "Android",
-                    text: "Android phone (for example, Samsung, Google Pixel, OPPO)"
-                },
-                {
-                    value: "Neither of these phones",
-                    text: "Neither of these phones"
+                    value: "No",
+                    text: "No"
                 }
             ]
             }) }}
             {% endif %}
+
+            {{ govukDetails({
+                summaryText: "How do I know my driving licence is valid?",
+                text: "Your full or provisional licence is valid until the expiry date printed in section 4b on your licence card."
+            }) }}
             
             {{ govukButton({
                 text: "Continue",

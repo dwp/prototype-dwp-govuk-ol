@@ -1,0 +1,82 @@
+//
+// For guidance on how to add CSS and SCSS see:
+// https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
+//
+
+
+//transition interruption card
+.govuk-panel--interruption {
+    background-color:#4c2c92	;
+    text-align: left;
+    border: none; 
+}
+
+//Buttons used on transition interrpution card  
+.govuk-button--inverse-transition {
+    color: #4c2c92 !important;
+    box-shadow: 0 2px 0 #ffffff;
+}
+
+.govuk-button--inverse-transition:hover {
+    color: #371e66;
+}
+
+//Prototype options notification banners
+.govuk-notification-banner__title--journey_options {
+    color: #ffffff;
+}
+
+.govuk-notification-banner--journey-options {
+    position: relative;
+    background-color: #4c2c92;
+    border: 5px solid #4c2c92;
+}
+
+//Primary prototype button used on prototype rather than live service pages.
+.govuk-button--transition {
+    color: #ffffff;
+    background-color: #4c2c92;
+}
+
+.govuk-button--transition:hover {
+    background-color: #371e66;
+}
+
+.govuk-button--transition:focus:not(:active):not(:hover) {
+    background-color: #ffdd00; /* Custom hover color */
+    color: #0b0c0c; /* Custom text color */
+    border-color: 	#ffdd00; /* Custom border color for focus */
+}
+
+.govuk-button--transition:focus { 
+    background-color: #371e66;
+    color: #ffffff; /* Custom text color */
+    border-color: 	#ffdd00; /* Custom border color for focus */
+}
+
+//Secondary button used on prototype rather than live service pages.
+.govuk-button--transition-secondary {
+    color: #ffffff;
+    background-color: #4c6272;
+}
+
+.govuk-button--transition-secondary:hover {
+    background-color: #384853;
+}
+
+.govuk-button--transition-secondary:focus:not(:active):not(:hover) {
+    background-color: #ffdd00; /* Custom hover color */
+    color: #0b0c0c; /* Custom text color */
+    border-color: 	#ffdd00; /* Custom border color for focus */
+}
+
+.govuk-button--transition-secondary:focus { 
+    background-color: #384853;
+    color: #ffffff; /* Custom text color */
+    border-color: 	#ffdd00; /* Custom border color for focus */
+}
+
+//changes bottom border colour on prototype page headers to distinguish from the live service page headers.
+.govuk-header__container-design-hub {
+    border-bottom: 10px solid #4c2c92;
+}

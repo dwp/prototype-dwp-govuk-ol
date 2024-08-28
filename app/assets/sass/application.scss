@@ -4,6 +4,18 @@
 //
 @import "includes/panel";
 @import "patterns/post-office-start-page";
+@import "patterns/interruption-card";
+@import "patterns/prototype-transitions";
+@import "patterns/information-box";
+@import "patterns/loading-spinner";
+@import "patterns/email-template";
+@import "patterns/mobile-images";
+@import "patterns/live-service-tag";
+@import "patterns/mobile-app-container";
+@import "patterns/mobile-app-library";
+@import "patterns/authentication";
+@import "patterns/button-spinner";
+@import "patterns/spinner";
 
 // Add extra styles here
 
@@ -141,4 +153,9 @@
 .object-fit--contain {
     max-width: 100%; /* Ensure image doesn't exceed container width */
     max-height: 100%; /* Ensure image doesn't exceed container height */
+}
+
+//dark mode
+.govuk-dark-mode {
+    background-color: black;
 }

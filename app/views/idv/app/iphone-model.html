@@ -1,0 +1,107 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set serviceName %}
+    Confirm your identity
+{% endset %}
+{% set backLink = 'true' %}
+
+{% set title =  "Which iPhone model do you have?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="/iphone-model/answer" method="post">
+
+            {% set iphoneSEDetailsHtml %}
+                <p class="govuk-body">
+                    If you have an iPhone SE from 2022 (3rd generation) or from 2020 (2nd generation), select ‘iPhone 7 or newer’.
+                </p>
+                <p class="govuk-body">
+                    If you have an iPhone SE from 2016 (1st generation), select ‘iPhone 6s or older’.
+                </p>
+            {% endset %}
+
+            {% if showErrorSummary %}
+            {{ govukErrorSummary({
+                titleText: "There is a problem",
+                errorList: [
+                    {
+                        text: "Select what iPhone model you have",
+                        href: "#iphone-model"
+                    }
+                ]
+            }) }}
+            {{ govukRadios({
+            name: "iphone-model",
+            fieldset: {
+                legend: {
+                    text: title,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                text: "The iPhone 7 was released in 2016. If you purchased your smartphone after 2016, you likely have an iPhone 7 or newer."
+            },
+            items: [
+                {
+                    value: "iPhone 7 or newer",
+                    text: "iPhone 7 or newer"
+                },
+                {
+                    value: "iPhone 6s or older",
+                    text: "iPhone 6s or older"
+                }
+            ],
+                errorMessage: {
+                    text: "Select what iPhone model you have"
+                }
+            }) }}
+            {% else %}
+            {{ govukRadios({
+            name: "iphone-model",
+            fieldset: {
+                legend: {
+                    text: title,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                text: "The iPhone 7 was released in 2016. If you purchased your smartphone after 2016, you likely have an iPhone 7 or newer."
+            },
+            items: [
+                {
+                    value: "iPhone 7 or newer",
+                    text: "iPhone 7 or newer"
+                },
+                {
+                    value: "iPhone 6s or older",
+                    text: "iPhone 6s or older"
+                }
+            ]
+            }) }}
+            {% endif %}
+
+            {{ govukDetails({
+                summaryText: "How do I know which iPhone I have?",
+                html: "You can easily find the iPhone model you have by going to Settings &gt; General &gt; About and looking at the ‘Model Name’." | safe
+            }) }}
+
+            {{ govukDetails({
+                summaryText: "What if I have an iPhone SE?",
+                html: iphoneSEDetailsHtml | safe
+            }) }}
+            
+            {{ govukButton({
+                text: "Continue",
+                type: "Submit"
+            }) }}
+
+        </form>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+
+{% set title =  "Continue to the service you want to use" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+         
+      <form class="form" action="/idv/return-to-service" method="post">
+
+      <h1 class="govuk-heading-l">
+        {{ title }}
+      </h1>
+
+      <p>You've successfully proved your identity. You can now continue to the service you want to use.</p>
+
+      <p>Some of the information you shared when you proved your identity might be used to automatically fill in forms within the service.</p>
+
+   
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

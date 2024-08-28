@@ -1,0 +1,72 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Scan passport start
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <form class="form" method="post">
+
+        <a href="photo-capture-successful" class="govuk-app-back-link">Back</a>
+        <h1 class="govuk-app-heading-l govuk-app-margin-bottom-s govuk-app-margin-top-l">
+          Scan the biometric chip in your passport
+        </h1>
+
+        <p class="govuk-app-body govuk-app-margin-bottom-xl">This is so we can check the information stored in your passport chip.</p>
+        <h2 class="govuk-app-heading-m">Next you will need to:</h1>
+        <ul class="govuk-app-list govuk-app-list--bullet">
+          <li>have your passport closed and front side up</li>
+          <li>have your phone with the screen facing up</li>
+          <li>place the top half of your phone on the bottom half of your passport</li>
+          <li>make sure your phone is touching your passport</li>
+          <li>follow the guidelines until the scan is complete</li>
+        </ul>
+
+       
+        <div class="button-container">
+          <div class="govuk-app-button-group">
+            <button type="submit" class="govuk-app-button" data-module="govuk-button" formaction="how-to-scan-passport">
+              Start
+            </button>
+            <button type="submit" class="govuk-app-button--secondary" data-module="govuk-button" formaction="/idv/app/document-checking/ios/leaving-app">
+              Confirm your identity another way
+              <img src="/public/images/linkout-symbol.svg" alt="iOS Link Out Symbol">
+            </button>
+          </div>
+        </div>
+
+        </form>
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
