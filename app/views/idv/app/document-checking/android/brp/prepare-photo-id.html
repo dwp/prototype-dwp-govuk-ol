@@ -1,0 +1,94 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Prepare photo ID
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/android-status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <form class="form" method="post">
+
+
+        <h1 class="govuk-app-heading-l-android govuk-app-margin-bottom-s govuk-app-margin-top-l">
+          Put your photo ID face down
+        </h1>
+
+        <p class="govuk-app-body-android govuk-app-margin-bottom-xl">It will have three lines of numbers and letters at the bottom.</p>
+
+        <div class="illustration-container">
+          <img class="app-illustration" src="/public/images/document-checking-app/brp/photo-id-face-down.svg">
+        </div>
+        
+        <div class="button-container govuk-app-margin-bottom-xl">
+          <div class="govuk-app-button-group-android">
+            <button type="submit" class="govuk-app-button-android" data-module="govuk-button" formaction="/page-index/document-checking-app/android/brp/hold-phone-above-photo-id">
+              Start
+            </button>
+            <button type="submit" class="govuk-app-button-android--secondary" data-module="govuk-button" formaction="/page-index/document-checking-app/android/leaving-app">
+              Confirm your identity another way
+              <img src="/public/images/android-linkout-symbol.svg" alt="android Link Out Symbol">
+            </button>
+          </div>
+        </div>
+
+</form>
+      </div>
+    </div>
+
+    
+  </div>
+
+  <!-- BottomBar -->
+  <div class="BottomBar black white-text">
+    <div class="button-wrapper">
+      <a href="#" class="waves-effect waves-light black">
+        <span class="icon">
+          <svg width="40" height="40">
+            <polygon points="26.5,12.5 26.5,27.5 13.5,20" fill="grey" stroke="grey" stroke-width="2" />
+          </svg>
+        </span>
+      </a>
+      <a href="#" class="waves-effect waves-light black">
+        <span class="icon">
+          <svg width="40" height="40">
+            <circle cx="20" cy="20" r="7.5" fill="white" stroke="white" stroke-width="2" />
+          </svg>
+        </span>
+      </a>
+      <a href="#" class="waves-effect waves-light black">
+        <span class="icon">
+          <svg width="40" height="40">
+            <rect x="12.5" y="12.5" width="15" height="15" fill="white" stroke="white" stroke-width="2" />
+          </svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+

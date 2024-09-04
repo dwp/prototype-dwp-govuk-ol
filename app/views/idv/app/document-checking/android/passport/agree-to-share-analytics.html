@@ -1,7 +1,9 @@
 {% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
 {% block pageTitle %}
-Welcome screen
+Agree to share analytics
 {% endblock %}
+
 
 {% block header %}
 {% endblock %}
@@ -22,36 +24,53 @@ Welcome screen
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        <form class="form" action="agree-to-share-analytics" method="post">
+        <form class="form" action="allow-analytics-data" method="post">
 
-        <div class="centred-container">
-          <img class="app-logo" src="/public/images/document-checking-app/app-logo-with-tudor-crown.svg" width="135" height="135" alt="">
-          <h1 class="govuk-app-heading-l-android govuk-app-margin-bottom-m govuk-app-margin-top-m" style="text-align: center;">
-            GOV.UK ID Check
-          </h1>
-          <p class="govuk-app-body-android govuk-app-margin-bottom-m" style="text-align: center;">GOV.UK ID Check is a secure way to confirm your identity when you sign in to a government service with GOV.UK One Login.</p>
-        </div>
+        <h1 class="govuk-app-heading-l-android govuk-app-margin-bottom-s govuk-app-margin-top-l">
+          Help improve the app by sharing analytics
+        </h1>
+
+        <p class="govuk-app-body-android govuk-app-margin-bottom-m">You can help us improve this app by choosing to automatically share app activity and analytics data.</p>
 
 
-        <div class="open-app-bottom-body-container">
-          <p class="govuk-app-body-android govuk-app-margin-bottom-m " style="text-align: center;">
-            This app uses open source software. View the <a href="#" class="govuk-app-link-android">open source licences</a>.
-          </p>
-        </div>
-        <!-- Button container -->
-        <div class="button-container govuk-app-margin-bottom-xl">
-          <button type="submit" class="govuk-app-button-android" data-module="govuk-button">
-            Continue
-          </button>
-        </div>
+      <p class="govuk-app-body-android govuk-app-margin-bottom-m">This is optional and lets us understand how people use this service so we can make it better.</p>
+
+      <p class="govuk-app-body-android govuk-app-margin-bottom-m">You can change your preferences at any time in your Settings.</p>
+
+      <a href="#" class="govuk-app-link-android">View privacy policy</a>
+
+
+
+
+<div class="bottom-body-container">
+  <p class="govuk-app-body-android" style="text-align: center;">
+    Tap ‘continue’ to make your choice.
+  </p>
+</div>
+
+<!-- Button container -->
+<div class="button-container govuk-app-margin-bottom-xl">
+  <button type="submit" class="govuk-app-button-android" data-module="govuk-button">
+    Continue
+  </button>
+</div>
+
+
+
+
+
 
       </div>
+
+
+
+      
     </div>
- 
+
     
   </div>
 
-    <!-- BottomBar -->
+   <!-- BottomBar -->
 <div class="BottomBar black white-text">
   <div class="button-wrapper">
     <a href="#" class="waves-effect waves-light black ">
@@ -77,9 +96,13 @@ Welcome screen
     </a>
   </div>
 </div>
-
-
-  </div>
-
+</div>
 
 {% endblock %}
+
+
+
+
+
+
+

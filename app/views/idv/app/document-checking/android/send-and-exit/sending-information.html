@@ -1,7 +1,9 @@
 {% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
 {% block pageTitle %}
-Welcome screen
+Sending information
 {% endblock %}
+
 
 {% block header %}
 {% endblock %}
@@ -11,7 +13,9 @@ Welcome screen
 
 {% block content %}
 
-<div class="mobile-frame">
+<!-- Clickable mobile frame to avoid reliance on JavaScipt for those who have it disabled -->
+<a href="exit-app-desktop">
+  <div class="mobile-frame">
 
   <!-- status bar -->
   <img src="/public/images/android-status-bar.svg" alt="Logo" id="status-bar">
@@ -22,39 +26,31 @@ Welcome screen
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        <form class="form" action="agree-to-share-analytics" method="post">
+      <form id="myForm" class="form" action="/starting-device/android/answer" method="post">
 
         <div class="centred-container">
-          <img class="app-logo" src="/public/images/document-checking-app/app-logo-with-tudor-crown.svg" width="135" height="135" alt="">
-          <h1 class="govuk-app-heading-l-android govuk-app-margin-bottom-m govuk-app-margin-top-m" style="text-align: center;">
-            GOV.UK ID Check
-          </h1>
-          <p class="govuk-app-body-android govuk-app-margin-bottom-m" style="text-align: center;">GOV.UK ID Check is a secure way to confirm your identity when you sign in to a government service with GOV.UK One Login.</p>
+          <svg class="android-loading" width="100" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="25" />
+          </svg>
+          <p class="govuk-app-body govuk-app-margin-top-s" style="text-align: center;">Submitting your information.</p>
+          <p class="govuk-app-body" style="text-align: center;">This may take a moment.</p>
+
         </div>
 
-
-        <div class="open-app-bottom-body-container">
-          <p class="govuk-app-body-android govuk-app-margin-bottom-m " style="text-align: center;">
-            This app uses open source software. View the <a href="#" class="govuk-app-link-android">open source licences</a>.
-          </p>
-        </div>
-        <!-- Button container -->
-        <div class="button-container govuk-app-margin-bottom-xl">
-          <button type="submit" class="govuk-app-button-android" data-module="govuk-button">
-            Continue
-          </button>
-        </div>
+      </form>
 
       </div>
     </div>
- 
-    
-  </div>
+</a>
 
-    <!-- BottomBar -->
+ 
+
+</div>
+
+<!-- BottomBar -->
 <div class="BottomBar black white-text">
   <div class="button-wrapper">
-    <a href="#" class="waves-effect waves-light black ">
+    <a href="#" class="waves-effect waves-light black">
       <span class="icon">
         <svg width="40" height="40">
           <polygon points="26.5,12.5 26.5,27.5 13.5,20" fill="grey" stroke="grey" stroke-width="2" />
@@ -79,7 +75,29 @@ Welcome screen
 </div>
 
 
-  </div>
 
+
+</div>
 
 {% endblock %}
+
+{% block pageScripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Set a timeout to submit the form after 2 seconds
+    setTimeout(function() {
+      // Find the form element
+      var form = document.getElementById('myForm');
+      // Submit the form
+      form.submit();
+    }, 2000); // 2000 milliseconds = 2 seconds
+  });
+</script>
+{% endblock %}
+
+
+
+
+
+
+ 

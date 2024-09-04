@@ -1,0 +1,119 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Scan passport start
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/android-status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        
+        <form class="form" method="post">
+
+          <h1 class="govuk-app-heading-l-android govuk-app-margin-bottom-s govuk-app-margin-top-l">
+            Scan the biometric chip in your passport
+          </h1>
+  
+          <p class="govuk-app-body-android govuk-app-margin-bottom-xl">This is so we can check the information stored in your passport chip.</p>
+          <h2 class="govuk-app-heading-m-android">Next you will need to:</h1>
+          <ul class="govuk-app-list-android govuk-app-list-android--bullet">
+            <li>have your passport closed and front side up</li>
+            <li>have your phone with the screen facing up</li>
+            <li>place the top half of your phone on the bottom half of your passport</li>
+            <li>make sure your phone is touching your passport</li>
+            <li>follow the guidelines until the scan is complete</li>
+          </ul>
+
+          <div class="button-container govuk-app-button-group-android govuk-app-margin-bottom-xl">
+            <button type="submit" class="govuk-app-button-android" data-module="govuk-button" formaction="how-to-scan-passport">
+              Start
+            </button>
+            <button type="submit" class="govuk-app-button-android--secondary" data-module="govuk-button" formaction="/idv/app/document-checking/android/leaving-app">
+              Confirm your identity another way
+              <img src="/public/images/android-linkout-symbol.svg" alt="android Link Out Symbol">
+            </button>
+            <div class="govuk-app-margin-bottom-m"></div>
+            <div class="snackbar-container" id="snackbar">
+              <div class="snackbar govuk-app-body-android">Photo submitted</div>
+          </div>
+          </div>
+        
+
+        </form>
+      </div>
+    </div>
+
+
+    
+  </div>
+
+
+  <!-- BottomBar -->
+<div class="BottomBar black white-text">
+  <div class="button-wrapper">
+    <a href="#" class="waves-effect waves-light black ">
+      <span class="icon">
+        <svg width="40" height="40">
+          <polygon points="26.5,12.5 26.5,27.5 13.5,20" fill="grey" stroke="grey" stroke-width="2" />
+        </svg>
+      </span>
+    </a>
+    <a href="#" class="waves-effect waves-light black">
+      <span class="icon">
+        <svg width="40" height="40">
+          <circle cx="20" cy="20" r="7.5" fill="white" stroke="white" stroke-width="2" />
+        </svg>
+      </span>
+    </a>
+    <a href="#" class="waves-effect waves-light black">
+      <span class="icon">
+        <svg width="40" height="40">
+          <rect x="12.5" y="12.5" width="15" height="15" fill="white" stroke="white" stroke-width="2" />
+        </svg>
+      </span>
+    </a>
+  </div>
+</div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+ // Wait for the DOM content to be fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+  // Select the snackbar container and the margin-bottom element
+  var snackbar = document.getElementById('snackbar');
+  var marginElement = document.querySelector('.govuk-app-margin-bottom-m');
+
+  // Show the snackbar
+  snackbar.style.display = 'block';
+
+  // Hide the snackbar and remove the margin-bottom element after 1 second
+  setTimeout(function() {
+    snackbar.style.display = 'none';
+    if (marginElement) {
+      marginElement.parentNode.removeChild(marginElement); // Remove the margin-bottom element if it exists
+    }
+  }, 2000); // 2000 milliseconds (2 seconds) delay before hiding
+});
+
+</script>
+
+{% endblock %}

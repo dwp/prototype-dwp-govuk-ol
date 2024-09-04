@@ -1,7 +1,9 @@
 {% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
 {% block pageTitle %}
-Welcome screen
+Capture successful
 {% endblock %}
+
 
 {% block header %}
 {% endblock %}
@@ -22,36 +24,39 @@ Welcome screen
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        <form class="form" action="agree-to-share-analytics" method="post">
 
-        <div class="centred-container">
-          <img class="app-logo" src="/public/images/document-checking-app/app-logo-with-tudor-crown.svg" width="135" height="135" alt="">
-          <h1 class="govuk-app-heading-l-android govuk-app-margin-bottom-m govuk-app-margin-top-m" style="text-align: center;">
-            GOV.UK ID Check
-          </h1>
-          <p class="govuk-app-body-android govuk-app-margin-bottom-m" style="text-align: center;">GOV.UK ID Check is a secure way to confirm your identity when you sign in to a government service with GOV.UK One Login.</p>
+        <form class="form" id="captureForm" action="scan-passport-start" method="post">
+
+
+        <h1 class="govuk-app-heading-l-android govuk-app-margin-bottom-s govuk-app-margin-top-l">
+          Your capture was successful
+        </h1>
+
+        <p class="govuk-app-body-android govuk-app-margin-bottom-xl">You can continue to the next step.</p>
+
+        <div class="success-icon-container" id="successIcon" style="display: none;">
+          <img src="/public/images/document-checking-app/success.svg" width="162" height="159" alt="">
+      </div>
+
+        <div class="illustration-container">
+          <img class="app-illustration" src="/public/images/document-checking-app/passport/photo-capture-check.png">
         </div>
-
-
-        <div class="open-app-bottom-body-container">
-          <p class="govuk-app-body-android govuk-app-margin-bottom-m " style="text-align: center;">
-            This app uses open source software. View the <a href="#" class="govuk-app-link-android">open source licences</a>.
-          </p>
-        </div>
-        <!-- Button container -->
+        
         <div class="button-container govuk-app-margin-bottom-xl">
-          <button type="submit" class="govuk-app-button-android" data-module="govuk-button">
-            Continue
+          <button type="submit" id="continueButton" class="govuk-app-button-android" data-module="govuk-button">
+              Continue
           </button>
-        </div>
+      </div>
 
+    
+        </form>
       </div>
     </div>
  
     
   </div>
 
-    <!-- BottomBar -->
+   <!-- BottomBar -->
 <div class="BottomBar black white-text">
   <div class="button-wrapper">
     <a href="#" class="waves-effect waves-light black ">
@@ -77,9 +82,17 @@ Welcome screen
     </a>
   </div>
 </div>
-
-
-  </div>
-
+</div>
 
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,9 @@
 {% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
 {% block pageTitle %}
 Welcome screen
 {% endblock %}
+
 
 {% block header %}
 {% endblock %}
@@ -22,7 +24,7 @@ Welcome screen
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        <form class="form" action="agree-to-share-analytics" method="post">
+        <form class="form" action="/page-index/document-checking-app/android/brp/agree-to-share-analytics" method="post">
 
         <div class="centred-container">
           <img class="app-logo" src="/public/images/document-checking-app/app-logo-with-tudor-crown.svg" width="135" height="135" alt="">
@@ -32,18 +34,19 @@ Welcome screen
           <p class="govuk-app-body-android govuk-app-margin-bottom-m" style="text-align: center;">GOV.UK ID Check is a secure way to confirm your identity when you sign in to a government service with GOV.UK One Login.</p>
         </div>
 
-
         <div class="open-app-bottom-body-container">
           <p class="govuk-app-body-android govuk-app-margin-bottom-m " style="text-align: center;">
             This app uses open source software. View the <a href="#" class="govuk-app-link-android">open source licences</a>.
           </p>
         </div>
-        <!-- Button container -->
         <div class="button-container govuk-app-margin-bottom-xl">
           <button type="submit" class="govuk-app-button-android" data-module="govuk-button">
             Continue
           </button>
         </div>
+
+
+
 
       </div>
     </div>
@@ -51,7 +54,8 @@ Welcome screen
     
   </div>
 
-    <!-- BottomBar -->
+
+<!-- BottomBar -->
 <div class="BottomBar black white-text">
   <div class="button-wrapper">
     <a href="#" class="waves-effect waves-light black ">
@@ -79,7 +83,16 @@ Welcome screen
 </div>
 
 
-  </div>
 
+
+
+</div>
 
 {% endblock %}
+
+
+
+
+
+
+
