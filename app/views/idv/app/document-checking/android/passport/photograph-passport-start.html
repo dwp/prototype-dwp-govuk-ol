@@ -1,7 +1,9 @@
 {% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
 {% block pageTitle %}
-Welcome screen
+Photograph passport start
 {% endblock %}
+
 
 {% block header %}
 {% endblock %}
@@ -22,36 +24,45 @@ Welcome screen
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        <form class="form" action="agree-to-share-analytics" method="post">
+        <form class="form" method="post">
 
-        <div class="centred-container">
-          <img class="app-logo" src="/public/images/document-checking-app/app-logo-with-tudor-crown.svg" width="135" height="135" alt="">
-          <h1 class="govuk-app-heading-l-android govuk-app-margin-bottom-m govuk-app-margin-top-m" style="text-align: center;">
-            GOV.UK ID Check
-          </h1>
-          <p class="govuk-app-body-android govuk-app-margin-bottom-m" style="text-align: center;">GOV.UK ID Check is a secure way to confirm your identity when you sign in to a government service with GOV.UK One Login.</p>
-        </div>
+        <h1 class="govuk-app-heading-l-android govuk-app-margin-bottom-s govuk-app-margin-top-l">
+          Take a photo of your passport photo page
+        </h1>
 
+        <p class="govuk-app-body-android govuk-app-margin-bottom-xl">This is so we can capture the information in your passport.</p>
+        <h2 class="govuk-app-heading-m-android">Next you will need to:</h1>
+        <ul class="govuk-app-list-android govuk-app-list-android--bullet">
+          <li>open your passport to the photo page</li>
+          <li>position the photo page inside the white frame</li>
+          <li>follow the guidelines until the white frame turns green</li>
+          <li>hold still while the app automatically takes the photo</li>
+        </ul>
 
-        <div class="open-app-bottom-body-container">
-          <p class="govuk-app-body-android govuk-app-margin-bottom-m " style="text-align: center;">
-            This app uses open source software. View the <a href="#" class="govuk-app-link-android">open source licences</a>.
-          </p>
-        </div>
-        <!-- Button container -->
         <div class="button-container govuk-app-margin-bottom-xl">
-          <button type="submit" class="govuk-app-button-android" data-module="govuk-button">
-            Continue
-          </button>
+          <div class="govuk-app-button-group-android">
+            <button type="submit" class="govuk-app-button-android" data-module="govuk-button" formaction="allow-camera-access">
+              Continue
+            </button>
+            <button type="submit" class="govuk-app-button-android--secondary" data-module="govuk-button" formaction="/idv/app/document-checking/android/leaving-app">
+              Confirm your identity another way
+              <img src="/public/images/android-linkout-symbol.svg" alt="android Link Out Symbol">
+            </button>
+          </div>
         </div>
+
 
       </div>
+
+
+
+      
     </div>
- 
+
     
   </div>
 
-    <!-- BottomBar -->
+   <!-- BottomBar -->
 <div class="BottomBar black white-text">
   <div class="button-wrapper">
     <a href="#" class="waves-effect waves-light black ">
@@ -77,9 +88,13 @@ Welcome screen
     </a>
   </div>
 </div>
-
-
-  </div>
-
+</div>
 
 {% endblock %}
+
+
+
+
+
+
+

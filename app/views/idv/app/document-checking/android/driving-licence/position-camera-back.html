@@ -1,0 +1,110 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Position camera - front
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+
+
+<!-- Clickable mobile frame to avoid reliance on JavaScipt for those who have it disabled -->
+<a href="/page-index/document-checking-app/android/driving-licence/send-or-retake-photo-back">
+  <div class="mobile-frame govuk-dark-mode">
+
+  <!-- status bar -->
+  <img src="/public/images/android-status-bar-dark-mode.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+
+
+         <!-- Clickable container to avoid reliance on JavaScipt for those who have it disabled -->
+         <a href="/page-index/document-checking-app/android/driving-licence/send-or-retake-photo-back">
+        <div class="take-photo-container">
+          <img class="app-illustration" src="/public/images/document-checking-app/driving-licence/driving-licence-photo-4.png" id="take-photo">
+        </div>
+      </div>
+    </div>
+
+  </a>
+
+    
+  </div>
+
+    <!-- BottomBar -->
+    <div class="BottomBar black white-text">
+      <div class="button-wrapper">
+        <a href="#" class="waves-effect waves-light black">
+          <span class="icon">
+            <svg width="40" height="40">
+              <polygon points="26.5,12.5 26.5,27.5 13.5,20" fill="grey" stroke="grey" stroke-width="2" />
+            </svg>
+          </span>
+        </a>
+        <a href="#" class="waves-effect waves-light black">
+          <span class="icon">
+            <svg width="40" height="40">
+              <circle cx="20" cy="20" r="7.5" fill="white" stroke="white" stroke-width="2" />
+            </svg>
+          </span>
+        </a>
+        <a href="#" class="waves-effect waves-light black">
+          <span class="icon">
+            <svg width="40" height="40">
+              <rect x="12.5" y="12.5" width="15" height="15" fill="white" stroke="white" stroke-width="2" />
+            </svg>
+          </span>
+        </a>
+      </div>
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block pageScripts %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Set a timeout to replace the face scan image after 2 seconds
+    setTimeout(function() {
+      var takephotoimage = document.getElementById('take-photo');
+      // Replace the current image with the new image
+      takephotoimage.src = "/public/images/document-checking-app/driving-licence/driving-licence-photo-5.png";
+
+      // Set another timeout to change the image again after 2 seconds
+      setTimeout(function() {
+        // Replace the current image with the second new image
+        takephotoimage.src = "/public/images/document-checking-app/driving-licence/driving-licence-photo-6.png";
+
+        // Set another timeout to redirect to another page after 2 seconds
+        setTimeout(function() {
+          // Redirect to another page
+          window.location.href = "/page-index/document-checking-app/android/driving-licence/send-or-retake-photo-back";
+        }, 1500); // redirect
+      }, 1500); // 3rd image
+    }, 500); // second image
+  });
+</script>
+{% endblock %}
+
+
+
+
+
+
+
+
