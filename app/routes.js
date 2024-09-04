@@ -599,3 +599,20 @@ router.post('/exit-app-journey/answer', function (req, res) {
         res.redirect('/idv/ipv-core/match-successful');
     }
 });
+
+//Android
+// Run this code when a form is submitted to '/computer-or-tablet/answer'
+router.post('/starting-device/android/answer', function (req, res) {
+
+    // Make a variable and give it the value from 'choose-security-codes'
+    var startingdevice = req.session.data['computer-or-tablet']
+
+    // Check whether the variable matches a condition
+    if (startingdevice == "No, I am on a smartphone"){
+        // Send user to set up auth app
+        res.redirect('/idv/app/document-checking/android/send-and-exit/exit-app-mobile')
+    } else {
+        // Send user to enter phone number
+        res.redirect('/idv/app/document-checking/android/send-and-exit/exit-app-desktop')
+    }
+})

@@ -1,7 +1,9 @@
 {% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
 {% block pageTitle %}
-Welcome screen
+Start scan
 {% endblock %}
+
 
 {% block header %}
 {% endblock %}
@@ -16,45 +18,58 @@ Welcome screen
   <!-- status bar -->
   <img src="/public/images/android-status-bar.svg" alt="Logo" id="status-bar">
 
+
   <!-- mobile-body -->
   <div class="mobile-body">
-    
+
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        <form class="form" action="agree-to-share-analytics" method="post">
+        <form class="form" method="post">
+    
 
-        <div class="centred-container">
-          <img class="app-logo" src="/public/images/document-checking-app/app-logo-with-tudor-crown.svg" width="135" height="135" alt="">
-          <h1 class="govuk-app-heading-l-android govuk-app-margin-bottom-m govuk-app-margin-top-m" style="text-align: center;">
-            GOV.UK ID Check
-          </h1>
-          <p class="govuk-app-body-android govuk-app-margin-bottom-m" style="text-align: center;">GOV.UK ID Check is a secure way to confirm your identity when you sign in to a government service with GOV.UK One Login.</p>
+        <h1 class="govuk-app-heading-l-android govuk-app-margin-bottom-s govuk-app-margin-top-l">
+          Start the scan
+        </h1>
+
+        <p class="govuk-app-body-android govuk-app-margin-bottom-m">Make sure your phone is touching your photo ID.</p>
+
+        <p class="govuk-app-body-android govuk-app-margin-bottom-xl">Select 'Start scan' to begin.</p>
+
+        <div class="illustration-container">
+          <img class="app-illustration" src="/public/images/document-checking-app/brp/start-scan.svg">
         </div>
+        
 
-
-        <div class="open-app-bottom-body-container">
-          <p class="govuk-app-body-android govuk-app-margin-bottom-m " style="text-align: center;">
-            This app uses open source software. View the <a href="#" class="govuk-app-link-android">open source licences</a>.
-          </p>
-        </div>
-        <!-- Button container -->
         <div class="button-container govuk-app-margin-bottom-xl">
-          <button type="submit" class="govuk-app-button-android" data-module="govuk-button">
-            Continue
-          </button>
+          <div class="govuk-app-button-group-android">
+            <button type="submit" class="govuk-app-button-android" data-module="govuk-button" formaction="/page-index/document-checking-app/android/brp/id-scan-successful">
+             Start scan
+            </button>
+            <button type="submit" class="govuk-app-button-android--secondary" data-module="govuk-button" formaction="/page-index/document-checking-app/android/leaving-app">
+              Confirm your identity another way
+              <img src="/public/images/android-linkout-symbol.svg" alt="android Link Out Symbol">
+            </button>
+          </div>
         </div>
 
-      </div>
-    </div>
- 
+
+
     
   </div>
 
-    <!-- BottomBar -->
+  
+</div>
+
+
+
+
+</div>
+
+<!-- BottomBar -->
 <div class="BottomBar black white-text">
   <div class="button-wrapper">
-    <a href="#" class="waves-effect waves-light black ">
+    <a href="#" class="waves-effect waves-light black">
       <span class="icon">
         <svg width="40" height="40">
           <polygon points="26.5,12.5 26.5,27.5 13.5,20" fill="grey" stroke="grey" stroke-width="2" />
@@ -78,8 +93,13 @@ Welcome screen
   </div>
 </div>
 
-
-  </div>
-
+</div>
 
 {% endblock %}
+
+
+
+
+
+
+
