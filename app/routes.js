@@ -88,7 +88,7 @@ router.post('/idv/doYouHaveASmartphone', (req, res) => {
             res.redirect('/idv/web/continue-proving-your-identity-online');
         } else {
          // Send user to...
-            res.redirect('/page-index/app-cri/valid-passport');
+            res.redirect('/idv/app/valid-passport');
         }
     } else {
         // If no radio button is selected, redirect to page with error
