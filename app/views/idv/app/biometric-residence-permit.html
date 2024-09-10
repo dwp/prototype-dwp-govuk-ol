@@ -5,77 +5,128 @@
 {% endset %}
 {% set backLink = 'true' %}
 
-{% set title =  "Do you have a valid passport?" %}
+{% set title =  "Do you have a valid UK biometric residence permit or card?" %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <form class="form" action="/valid-passport/answer" method="post">
+        <form class="form" action="/biometric-residence-permit/answer" method="post">
 
             {% if showErrorSummary %}
             {{ govukErrorSummary({
                 titleText: "There is a problem",
                 errorList: [
                     {
-                        text: "Select if you have a valid passport",
-                        href: "#valid-passport"
+                        text: "Select if you have a valid UK BRP, BRC or FWP",
+                        href: "#valid-brp"
                     }
                 ]
             }) }}
             {{ govukRadios({
-            name: "valid-passport",
+            name: "valid-brp",
             fieldset: {
                 legend: {
-                    text: title,
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--l"
+                text: "Do you have a valid UK biometric residence permit or card?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
                 }
             },
             hint: {
-                text: "If you have a passport, you can use it to confirm your identity."
+                text: "Choose one of these types of photo ID you can use to confirm your identity."
             },
             items: [
                 {
-                    value: "Yes",
-                    text: "Yes"
+                    value: "BRP",
+                    text: "Biometric residence permit (BRP)",
+                    hint: {
+                        text: "You might have a BRP if you have a visa for longer than 6 months or indefinite leave to remain."
+                    }
                 },
                 {
-                    value: "No",
-                    text: "No"
+                    value: "BRC",
+                    text: "Biometric residence card (BRC)",
+                    hint: {
+                        text: "You might have a BRC if you're in the UK as a family member of an EEA citizen."
+                    }
+                },
+                {
+                    value: "FWP",
+                    text: "Frontier worker permit (FWP)",
+                    hint: {
+                        text: "You might have a FWP if you work in the UK but live in another country."
+                    }
+                },
+                {
+                    divider: "or"
+                },
+                {
+                    value: "other-id",
+                    text: "I have another photo ID"
                 }
-            ],
+                ],
                 errorMessage: {
-                    text: "Select if you have a valid passport"
+                    text: "Select if you have a valid UK BRP, BRC or FWP"
                 }
             }) }}
             {% else %}
             {{ govukRadios({
-            name: "computer-or-tablet",
+            name: "valid-brp",
             fieldset: {
                 legend: {
-                    text: title,
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--l"
+                text: "Do you have a valid UK biometric residence permit or card?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
                 }
             },
             hint: {
-                text: "If you have a passport, you can use it to confirm your identity."
+                text: "Choose one of these types of photo ID you can use to confirm your identity."
             },
             items: [
                 {
-                    value: "Yes",
-                    text: "Yes"
+                value: "BRP",
+                text: "Biometric residence permit (BRP)",
+                hint: {
+                    text: "You might have a BRP if you have a visa for longer than 6 months or indefinite leave to remain."
+                }
                 },
                 {
-                    value: "No",
-                    text: "No"
+                value: "BRC",
+                text: "Biometric residence card (BRC)",
+                hint: {
+                    text: "You might have a BRC if you're in the UK as a family member of an EEA citizen."
                 }
-            ]
+                },
+                {
+                value: "FWP",
+                text: "Frontier worker permit (FWP)",
+                hint: {
+                    text: "You might have a FWP if you work in the UK but live in another country."
+                }
+                },
+                {
+                divider: "or"
+                },
+                {
+                value: "other-id",
+                text: "I have another photo ID"
+                }
+                ]
             }) }}
-            {% endif %}
-            
+        {% endif %}
+
+            <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                        How do I check if my photo ID is valid?
+                    </span>
+                </summary>
+                <div class="govuk-details__text">
+                    You'll find the date of expiry printed in the 'valid until' section of your card.
+                </div>
+            </details>
+        
             {{ govukButton({
                 text: "Continue",
                 type: "Submit"
