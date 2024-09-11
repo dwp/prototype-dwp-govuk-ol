@@ -1,0 +1,109 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Update your name or date of birth - GOV.UK One Login
+{% endblock %}
+
+{% block header %}
+{% include "/includes/govuk-one-login-header.njk" %}
+{% endblock %}
+
+{% block beforeContent %}
+{% include "/includes/phase-banner.njk" %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+         
+      <form class="form" action="/repeat-fraud-check/update-name-or-dob-answer" method="post">
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Select what you would like to do",
+                    href: "#update-name-or-dob"
+                }
+            ]
+        }) }}
+        {% endif %}
+
+      <h1 class="govuk-heading-l">
+        Update your full name or date of birth
+      </h1>
+
+      <p class="govuk-body">To update your full name or date of birth, you need to contact the GOV.UK One Login team.</p>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          You may not be able to use your GOV.UK One Login if your details are not up to date.
+        </strong>
+      </div>
+
+
+      {% if showErrorSummary %}
+      {{ govukRadios({
+        name: "update-name-or-dob",
+        fieldset: {
+          legend: {
+            text: "What would you like to do? ",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "Contact us",
+            text: "Contact the GOV.UK One Login team to update your full name or date of birth"
+          },
+          {
+            value: "Check details",
+            text: "Go back and check your details again",
+            hint: {
+              text: "You might be able update your details yourself if you only need to update either your first or middle names, or your last name."
+            }
+          }
+          ],
+          errorMessage: {
+              text: "Select what you would like to do"
+          }
+      }) }}
+      {% else %}
+      {{ govukRadios({
+        name: "update-name-or-dob",
+        fieldset: {
+          legend: {
+            text: "What would you like to do? ",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "Contact us",
+            text: "Contact the GOV.UK One Login team to update your full name or date of birth"
+          },
+          {
+            value: "Check details",
+            text: "Go back and check your details again",
+            hint: {
+              text: "You might be able update your details yourself if you only need to update either your first or middle names, or your last name."
+            }
+          }
+        ]
+      }) }}
+      {% endif %}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

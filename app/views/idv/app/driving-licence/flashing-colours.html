@@ -1,0 +1,101 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set serviceName %}
+    Confirm your identity
+{% endset %}
+{% set backLink = 'true' %}
+
+{% set title =  "The app uses flashing colours. Do you want to continue?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/driving-licence/flashing-colours/answer" method="post">
+
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Select yes if you want to continue",
+                    href: "#flashing-colours"
+                }
+            ]
+        }) }}
+        {{ govukRadios({
+          name: "flashing-colours",
+          fieldset: {
+            legend: {
+              text: "The app uses flashing colours. Do you want to continue?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "A unique pattern of flashing colours is used during the face scan to confirm your identity."
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+            ],
+            errorMessage: {
+                text: "Select yes if you want to continue"
+            }
+        }) }}
+        {% else %}
+        {{ govukRadios({
+          name: "flashing-colours",
+          fieldset: {
+            legend: {
+              text: "The app uses flashing colours. Do you want to continue?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "A unique pattern of flashing colours is used during the face scan to confirm your identity."
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+            ]
+        }) }}
+    {% endif %}
+        
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What if I am sensitive to flashing colours?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            The technology we use is tested to make sure it meets the regulations on safe flash rates for photosensitive epilepsy.
+          </div>
+        </details>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+    </div>
+  </div>
+
+
+{% endblock %}
+
