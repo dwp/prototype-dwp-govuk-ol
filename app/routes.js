@@ -644,6 +644,34 @@ router.post('/passport/working-camera/answer', (req, res) => {
     }
 });
 
+router.get('/brp/working-camera/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('/idv/app/brp/working-camera.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/brp/working-camera/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['working-camera'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "Yes") {
+            // Send user to...
+            res.redirect('/idv/app/brp/flashing-colours');
+        } else {
+          // Send user to...
+            res.redirect('/idv/web/continue-proving-your-identity-online');
+        }
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/brp/working-camera/answer?error=true');
+    }
+});
+
 // Routes for 'The app uses flashing colours. Do you want to continue?'
 router.get('/passport/flashing-colours/answer', (req, res) => {
     // Check if there was an error
@@ -672,6 +700,41 @@ router.post('/passport/flashing-colours/answer', (req, res) => {
     } else if (!selectedOption) {
         // If no radio button is selected for the first question, redirect to /passport/flashing-colours/answer with error
         res.redirect('/passport/flashing-colours/answer?error=true');
+    } else {
+        // Handle cases where the answer to the first question is not 'Yes'
+        // In this example, redirect to an 'ineligible' route
+        res.redirect('/idv/web/continue-proving-your-identity-online');
+    }
+});
+
+// Routes for 'The app uses flashing colours. Do you want to continue?'
+router.get('/brp/flashing-colours/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('/idv/app/brp/flashing-colours.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/brp/flashing-colours/answer', (req, res) => {
+    // Check if a radio button is selected for the first question
+    const selectedOption = req.body['flashing-colours'];
+
+    if (selectedOption === "Yes") {
+        // Check the answer to the second question
+        var secondQuestionAnswer = req.session.data['computer-or-tablet'];
+
+        if (secondQuestionAnswer == "No, I am on a smartphone") {
+            // Send user to...
+            res.redirect('/idv/app/brp/download-app-mobile');
+        } else {
+            // Handle other cases if needed
+            res.redirect('/idv/app/brp/download-app-desktop');
+        }
+    } else if (!selectedOption) {
+        // If no radio button is selected for the first question, redirect to /brp/flashing-colours/answer with error
+        res.redirect('/brp/flashing-colours/answer?error=true');
     } else {
         // Handle cases where the answer to the first question is not 'Yes'
         // In this example, redirect to an 'ineligible' route
@@ -746,6 +809,48 @@ router.post('/passport-app-journey/answer', function (req, res) {
     } else {
         // Redirect to a page if the original question isn't answered
         res.redirect('/idv/app/document-checking/ios/passport/open-app');
+    }
+})
+
+// Run this code when a form is submitted to '/brp-app-journey/answer'
+router.post('/brp-app-journey/answer', function (req, res) {
+
+    // Make a variable and give it the value from 'computer-or-tablet'
+    var selectedOption = req.session.data['computer-or-tablet']
+
+    // Check whether the variable matches a condition
+    if (selectedOption === "No, I am on a smartphone") {
+        // Check the answer to the second question
+        var selectedSmartphone = req.session.data['smartphone'];
+
+        if (selectedSmartphone) {
+            if (selectedSmartphone === "Android") {
+                // Send Android users to android journey
+                res.redirect('/idv/app/document-checking/android/brp/open-app');
+            } else if (selectedSmartphone === "iPhone") {
+                // Send iPhone users to iPhone-specific page
+                res.redirect('/idv/app/document-checking/ios/brp/open-app');
+            }
+        }
+    } else if (selectedOption === "Yes, I am on a computer or tablet") {
+        // Check the answer to the third question
+        var haveSmartphoneOption = req.session.data['have-a-smartphone'];
+
+        if (haveSmartphoneOption) {
+            if (haveSmartphoneOption === "android") {
+                // Send Android users to some page
+                res.redirect('/idv/app/document-checking/android/brp/open-app');
+            } else if (haveSmartphoneOption === "iPhone") {
+                // Send iPhone users to some page
+                res.redirect('/idv/app/document-checking/ios/brp/open-app');
+            }
+        } else {
+            // Redirect to a page if the third question isn't answered
+            res.redirect('/idv/app/document-checking/ios/brp/open-app');
+        }
+    } else {
+        // Redirect to a page if the original question isn't answered
+        res.redirect('/idv/app/document-checking/ios/brp/open-app');
     }
 })
 

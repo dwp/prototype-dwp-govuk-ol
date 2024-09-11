@@ -1,0 +1,76 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Take a photo of the back of your BRP, BRC or FWP
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+
+        <form class="form" method="post">
+
+        <div class="image-container govuk-app-margin-top-l">
+          <img src="/public/images/document-checking-app/brp/photo.svg" class="centered-image">
+        </div>
+
+        <h1 class="govuk-app-heading-l govuk-app-margin-top-l govuk-app-margin-bottom-xl" style="text-align: center;">
+          Take a photo of the back of your BRP, BRC or FWP
+        </h1>
+
+        <h2 class="govuk-app-heading-m govuk-app-margin-bottom-s">Why we need this</h1>
+          <p class="govuk-app-body govuk-app-margin-bottom-l">The back of your biometric residence permit (BRP), biometric residence card (BRC) or Frontier Worker permit (FWP) contains a code with your personal details.</p>
+
+          <h2 class="govuk-app-heading-m govuk-app-margin-bottom-s">How it works</h1>
+            <p class="govuk-app-body govuk-app-margin-bottom-l">You’ll capture these details by taking a photo  with your phone camera. We’ll show you how to do this.</p>
+
+
+
+
+
+       
+        <div class="button-container">
+          <div class="govuk-app-button-group">
+            <button type="submit" class="govuk-app-button" data-module="govuk-button" formaction="prepare-photo-id">
+             Continue
+            </button>
+            <button type="submit" class="govuk-app-button--secondary" data-module="govuk-button" formaction="/idv/app/document-checking/ios/leaving-app">
+              Confirm your identity another way
+              <img src="/public/images/linkout-symbol.svg" alt="iOS Link Out Symbol">
+            </button>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
