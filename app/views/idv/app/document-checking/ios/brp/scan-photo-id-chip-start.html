@@ -1,0 +1,75 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Scan photo id chip start
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <form class="form" method="post">
+
+        <div class="image-container govuk-app-margin-top-l">
+          <img src="/public/images/document-checking-app/brp/scan-chip.svg" class="centered-image">
+        </div>
+
+        <h1 class="govuk-app-heading-l govuk-app-margin-top-l govuk-app-margin-bottom-xl" style="text-align: center;">
+          Scan the chip in your BRP, BRC or FWP
+        </h1>
+
+        <h2 class="govuk-app-heading-m govuk-app-margin-bottom-s">Why we need this</h1>
+          <p class="govuk-app-body govuk-app-margin-bottom-l">Your details are also stored in a biometric chip inside your photo ID. We’ll compare these to your photo capture.</p>
+
+          <h2 class="govuk-app-heading-m govuk-app-margin-bottom-s">How it works</h1>
+            <p class="govuk-app-body govuk-app-margin-bottom-l">We’ll show you how to scan the chip with your phone. It works similarly to contactless payments.</p>
+
+
+
+
+
+       
+        <div class="button-container">
+          <div class="govuk-app-button-group">
+            <button type="submit" class="govuk-app-button" data-module="govuk-button" formaction="get-phone-ready">
+             Continue
+            </button>
+            <button type="submit" class="govuk-app-button--secondary" data-module="govuk-button" formaction="/idv/app/document-checking/ios/leaving-app">
+              Confirm your identity another way
+              <img src="/public/images/linkout-symbol.svg" alt="iOS Link Out Symbol">
+            </button>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+

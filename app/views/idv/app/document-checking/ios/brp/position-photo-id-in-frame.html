@@ -18,7 +18,7 @@ Position photo ID in frame
   <div class="mobile-frame govuk-dark-mode">
 
   <!-- status bar -->
-  <img src="/public/images/android-status-bar-dark-mode.svg" alt="Logo" id="status-bar">
+  <img src="/public/images/status-bar-dark-mode.svg" alt="Logo" id="status-bar">
 
   <!-- mobile-body -->
   <div class="mobile-body">
@@ -26,6 +26,11 @@ Position photo ID in frame
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
+        <div class="chevron-container">
+          <a href="/page-index/document-checking-app/ios/brp/take-a-photo-start" class="govuk-app-link">
+            <img src="/public/images/document-checking-app/chevron.up.svg">
+          </a>
+        </div>
 
  <!-- Clickable container to avoid reliance on JavaScipt for those who have it disabled -->
  <a href="capture-successful">
@@ -39,39 +44,6 @@ Position photo ID in frame
     
   </div>
 </a>
-
-<!-- BottomBar -->
-<div class="BottomBar black white-text">
-  <div class="button-wrapper">
-    <a href="#" class="waves-effect waves-light black">
-      <span class="icon">
-        <svg width="40" height="40">
-          <polygon points="26.5,12.5 26.5,27.5 13.5,20" fill="grey" stroke="grey" stroke-width="2" />
-        </svg>
-      </span>
-    </a>
-    <a href="#" class="waves-effect waves-light black">
-      <span class="icon">
-        <svg width="40" height="40">
-          <circle cx="20" cy="20" r="7.5" fill="white" stroke="white" stroke-width="2" />
-        </svg>
-      </span>
-    </a>
-    <a href="#" class="waves-effect waves-light black">
-      <span class="icon">
-        <svg width="40" height="40">
-          <rect x="12.5" y="12.5" width="15" height="15" fill="white" stroke="white" stroke-width="2" />
-        </svg>
-      </span>
-    </a>
-  </div>
-</div>
-
-
-
-
-
-
 </div>
 
 {% endblock %}
@@ -94,7 +66,7 @@ Position photo ID in frame
           // Set another timeout to redirect to another page after 2 seconds
           setTimeout(function() {
             // Redirect to another page
-            window.location.href = "/idv/app/document-checking/android/brp/capture-successful";
+            window.location.href = "/idv/app/document-checking/ios/brp/capture-successful";
           }, 1500); // redirect
         }, 1500); // 3rd image
       }, 500); // 2nd image
