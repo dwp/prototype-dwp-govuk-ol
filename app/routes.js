@@ -316,6 +316,121 @@ router.post('/valid-passport/answer', (req, res) => {
     }
 });
 
+//Routes for 'Do you have a valid UK biometric residence permit or card?'
+router.get('/biometric-residence-permit/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('/idv/app/biometric-residence-permit.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/biometric-residence-permit/answer', function (req, res) {
+    // Check if a radio button is selected for the first question
+    const selectedOption = req.body['valid-brp'];
+
+    if (!selectedOption) {
+        // If no radio button is selected for the first question, redirect to /biometric-residence-permit/answer with error
+        res.redirect('/biometric-residence-permit/answer?error=true');
+    } else {
+        // Make variables and give them the values from the questions
+        var validBRP = selectedOption;
+        var computerOrTablet = req.session.data['computer-or-tablet'];
+        var secondQuestionAnswer = req.session.data['smartphone'];
+        var thirdQuestionAnswer = req.session.data['have-a-smartphone'];
+
+        // Check the answer to the first question
+        if (validBRP == "BRP" || validBRP == "BRC" || validBRP == "FWP") {
+            // Check the answer to the 'computer-or-tablet' question
+            if (computerOrTablet == "No, I am on a smartphone") {
+                // Check the answer to the 'smartphone' question
+                if (secondQuestionAnswer == "Android") {
+                    // Send user to a specific route based on the answer to the 'smartphone' question
+                    res.redirect('/idv/app/brp/use-app-brp');
+                } else if (secondQuestionAnswer == "iPhone") {
+                    // Send user to phone model
+                    res.redirect('/idv/app/brp/iphone-model');
+                }
+            } else if (computerOrTablet == "Yes, I am on a computer or tablet") {
+                // Check the answer to the 'have-a-smartphone' question
+                if (thirdQuestionAnswer == "android") {
+                    // Handle cases where the answer to the 'have-a-smartphone' question is as expected
+                    res.redirect('/idv/app/brp/use-app-brp');
+                } else if (thirdQuestionAnswer == "iPhone") {
+                    // Send user to phone model
+                    res.redirect('/idv/app/brp/iphone-model');
+                }
+            } else if (computerOrTablet === "" || computerOrTablet === null || computerOrTablet === undefined) {
+                // Redirect when 'computer-or-tablet' is blank or not provided
+                res.redirect('/idv/app/brp/iphone-model');
+            }
+        } else if (validBRP == "other-id") {
+            res.redirect('/idv/app/driving-licence');
+        } else {
+            // If an invalid option is selected for the first question, handle it as needed
+            // You can add specific error handling here if necessary
+        }
+    }
+});
+
+// Render the template with the error condition
+router.get('/page-index/app-cri/biometric-passport/answer', (req, res) => {
+const showErrorSummary = req.query.error === 'true';
+res.render('/page-index/app-cri/biometric-passport.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/page-index/app-cri/biometric-passport/answer', (req, res) => {
+// Check if a radio button is selected for the first question
+const selectedOption = req.body['biometric-passport-symbol'];
+
+if (!selectedOption) {
+    // If no radio button is selected for the first question, redirect to /biometric-passport/answer with error
+    res.redirect('/page-index/app-cri/biometric-passport/answer?error=true');
+} else {
+    // Make variables and give them the values from the questions
+    var biometricpassport = selectedOption;
+    var computerOrTablet = req.session.data['computer-or-tablet'];
+    var secondQuestionAnswer = req.session.data['smartphone'];
+    var thirdQuestionAnswer = req.session.data['have-a-smartphone'];
+
+    // Check the answer to the first question
+    if (biometricpassport === "Yes") {
+    // Check the answer to the 'computer-or-tablet' question
+    if (computerOrTablet === "No, I am on a smartphone") {
+        // Check the answer to the 'smartphone' question
+        if (secondQuestionAnswer === "Android") {
+        // Send user to a specific route based on the answer to the 'smartphone' question
+        res.redirect('/page-index/app-cri/passport/use-app-passport');
+        } else if (secondQuestionAnswer === "iPhone") {
+        // Send user to phone model
+        res.redirect('/page-index/app-cri/iphone-model');
+        }
+    } else if (computerOrTablet === "Yes, I am on a computer or tablet") {
+        // Check the answer to the 'have-a-smartphone' question
+        if (thirdQuestionAnswer === "android") {
+        // Handle cases where the answer to the 'have-a-smartphone' question is as expected
+        res.redirect('/page-index/app-cri/passport/use-app-passport');
+        } else if (thirdQuestionAnswer === "iPhone") {
+        // Send user to phone model
+        res.redirect('/page-index/app-cri/iphone-model');
+        }
+    } else if (computerOrTablet === "" || computerOrTablet === null || computerOrTablet === undefined) {
+        // Redirect when 'computer-or-tablet' is blank or not provided
+        res.redirect('/page-index/app-cri/iphone-model');
+    }
+    } else if (biometricpassport === "No") {
+    // Handle cases where the answer to the first question is 'No'
+    // You can redirect to an 'ineligible' route or another appropriate route
+    res.redirect('/page-index/app-cri/biometric-residence-permit');
+    } else {
+    // If an invalid option is selected for the first question, handle it as needed
+    // You can add specific error handling here if necessary
+    }
+}
+});
+
 // Routes for 'Does your passport have this symbol on the cover'
 router.get('/app/biometric-passport/answer', (req, res) => {
     // Check if there was an error
@@ -407,6 +522,99 @@ router.post('/iphone-model/answer', (req, res) => {
     }
 });
 
+// Routes for 'Biometric route – Which iPhone model do you have?'
+router.get('/brp/iphone-model/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('/idv/app/brp/iphone-model.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/brp/iphone-model/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['iphone-model'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "iPhone 7 or newer") {
+           // Send user to...
+            res.redirect('/idv/app/brp/use-app-brp');
+        } else {
+          // Send user to...
+            res.redirect('/idv/app/driving-licence');
+        }
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/brp/iphone-model/answer?error=true');
+    }
+});
+
+// Routes for 'Driving licence – Does your smartphone have a working camera?'
+router.get('/driving-licence/working-camera/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('/idv/app/driving-licence/working-camera.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/driving-licence/working-camera/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['working-camera'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "Yes") {
+        // Send user to...
+            res.redirect('/idv/app/driving-licence/flashing-colours');
+        } else {
+           // Send user to...
+            res.redirect('/idv/web/continue-proving-your-identity-online');
+        }
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/driving-licence/working-camera/answer?error=true');
+    }
+});
+
+// Routes for 'Driving licence – The app uses flashing colours. Do you want to continue?'
+router.get('/driving-licence/flashing-colours/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('/idv/app/driving-licence/flashing-colours.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/driving-licence/flashing-colours/answer', (req, res) => {
+    // Check if a radio button is selected for the first question
+    const selectedOption = req.body['flashing-colours'];
+
+    if (selectedOption === "Yes") {
+        // Check the answer to the second question
+        var secondQuestionAnswer = req.session.data['computer-or-tablet'];
+
+            if (secondQuestionAnswer == "No, I am on a smartphone") {
+            // Send the user to a specific route based on the answer to the second question
+                res.redirect('/idv/app/driving-licence/download-app-mobile');
+            } else {
+                // Handle other cases if needed
+                res.redirect('/idv/app/driving-licence/download-app-desktop');
+            }
+    } else if (!selectedOption) {
+        // If no radio button is selected for the first question, redirect to /brp/flashing-colours/answer with error
+        res.redirect('/driving-licence/flashing-colours/answer?error=true');
+    } else {
+        // Handle cases where the answer to the first question is not 'Yes'
+        // In this example, redirect to an 'ineligible' route
+        res.redirect('/idv/web/continue-proving-your-identity-online');
+    }
+});
+
 // Routes for 'Does your smartphone have a working camera'
 router.get('/passport/working-camera/answer', (req, res) => {
     // Check if there was an error
@@ -476,7 +684,7 @@ router.get('/driving-licence/answer', (req, res) => {
     const showErrorSummary = req.query.error === 'true';
 
     // Render the template with the error condition
-    res.render('/page-index/app-cri/driving-licence.html', { showErrorSummary });
+    res.render('/idv/app/driving-licence.html', { showErrorSummary });
 });
 
 // Handle form submission
@@ -488,10 +696,10 @@ router.post('/driving-licence/answer', (req, res) => {
         // If radio option is selected:
         if (selectedOption === "Yes") {
       // Send user to...
-            res.redirect('/page-index/app-cri/driving-licence/use-app-driving-licence');
+            res.redirect('/idv/app/driving-licence/use-app-driving-licence');
         } else {
       // Send user to...
-            res.redirect('/page-index/app-cri/ineligible');
+            res.redirect('/idv/web/continue-proving-your-identity-online');
         }
     } else {
         // If no radio button is selected, redirect to /computer-or-tablet/answer with error
@@ -578,7 +786,47 @@ router.post('/starting-device/ios/answer', function (req, res) {
     
 })
 
+// Run this code when a form is submitted to '/driving-licence-app-journey/answer'
+router.post('/driving-licence-app-journey/answer', function (req, res) {
 
+    // Make a variable and give it the value from 'computer-or-tablet'
+    var selectedOption = req.session.data['computer-or-tablet']
+
+    // Check whether the variable matches a condition
+    if (selectedOption === "No, I am on a smartphone") {
+        // Check the answer to the second question
+        var selectedSmartphone = req.session.data['smartphone'];
+
+        if (selectedSmartphone) {
+            if (selectedSmartphone === "Android") {
+                // Send Android users to android journey
+                res.redirect('/idv/app/document-checking/android/driving-licence/open-app');
+            } else if (selectedSmartphone === "iPhone") {
+                // Send iPhone users to iPhone-specific page
+                res.redirect('/idv/app/document-checking/ios/driving-licence/open-app');
+            }
+        }
+    } else if (selectedOption === "Yes, I am on a computer or tablet") {
+        // Check the answer to the third question
+        var haveSmartphoneOption = req.session.data['have-a-smartphone'];
+
+        if (haveSmartphoneOption) {
+            if (haveSmartphoneOption === "android") {
+            // Send Android users to some page
+            res.redirect('/idv/app/document-checking/android/driving-licence/open-app');
+            } else if (haveSmartphoneOption === "iPhone") {
+            // Send iPhone users to some page
+            res.redirect('/idv/app/document-checking/ios/driving-licence/open-app');
+            }
+        } else {
+            // Redirect to a page if the third question isn't answered
+            res.redirect('/idv/app/document-checking/ios/driving-licence/open-app');
+        }
+    } else {
+        // Redirect to a page if the original question isn't answered
+        res.redirect('/idv/app/document-checking/ios/driving-licence/open-app');
+    }
+})
 
 ///exiting app routes 
 // Run this code when a form is submitted to '/next-step'
@@ -590,7 +838,7 @@ router.post('/exit-app-journey/answer', function (req, res) {
     // Check the selected options and redirect accordingly
     if (selectedOptions.includes("Address") || selectedFraudCheckOptions.includes("Address")) {
         // Redirect to the new address update page if Address was selected
-        res.redirect('/page-index/ipv-core/continuity-of-identity/name-address-success');
+        res.redirect('/idv/ipv-core/continuity-of-identity/name-address-success');
     } else if (selectedOptions.includes("Given names") || selectedOptions.includes("Last name") || selectedFraudCheckOptions.includes("Given names") || selectedFraudCheckOptions.includes("Last name")) {
         // Redirect to the new name update page if Given names or Last name was selected
         res.redirect('/idv/ipv-core/continuity-of-identity/name-success'); 

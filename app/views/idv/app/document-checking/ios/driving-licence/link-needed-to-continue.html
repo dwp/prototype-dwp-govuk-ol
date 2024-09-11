@@ -1,0 +1,67 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+Link needed to continue
+{% endblock %}
+
+
+{% block header %}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="mobile-frame">
+
+  <!-- status bar -->
+  <img src="/public/images/status-bar.svg" alt="Logo" id="status-bar">
+
+  <!-- mobile-body -->
+  <div class="mobile-body">
+    
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+
+        <form class="form" action="/page-index/document-checking-app/ios/brp/prepare-photo-id" method="post">
+
+        <div class="image-container govuk-app-margin-top-l">
+          <img src="/public/images/document-checking-app/error-alert.svg" class="centered-image">
+        </div>
+
+        <h1 class="govuk-app-heading-l govuk-app-margin-top-l govuk-app-margin-bottom-m" style="text-align: center;">
+          Link needed to continue
+        </h1>
+
+        <p class="govuk-app-body govuk-app-margin-bottom-xl" style="text-align: center;">To use the GOV.UK ID Check app, you must link it to the GOV.UK website. </p>
+
+        <h2 class="govuk-app-heading-m govuk-app-margin-bottom-s">Link the app manually</h1>
+          <p class="govuk-app-body govuk-app-margin-bottom-s">Choose this option if you tried to link the app but it was unsuccessful. </p>
+          <hr class="govuk-section-break govuk-section-break--visible govuk-app-margin-bottom-s">
+          <a href="/page-index/document-checking-app/ios/driving-licence/permission-to-share-data" class="govuk-app-link">Link GOV.UK ID Check</a>
+          <div class="govuk-app-margin-bottom-xl"></div>
+
+          <h2 class="govuk-app-heading-m govuk-app-margin-bottom-s">Allow the app to link to GOV.UK</h1>
+            <p class="govuk-app-body govuk-app-margin-bottom-s">Choose this option if you did not allow the app and website to share information. </p>
+            <hr class="govuk-section-break govuk-section-break--visible govuk-app-margin-bottom-s">
+            <a href="/page-index/document-checking-app/ios/driving-licence/permission-to-share-data" class="govuk-app-link">Change your permissions</a>
+            <div class="govuk-app-margin-bottom-l"></div>
+
+
+      </div>
+    </div>
+
+    
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
