@@ -1,0 +1,57 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+GOV.UK One Login prototype
+{% endblock %}
+
+{% block headIcons %}
+<link rel="icon" sizes="48x48" href="/plugin-assets/govuk-frontend/dist/govuk/assets/images/favicon.ico">
+<link rel="icon" sizes="any" href="/plugin-assets/govuk-frontend/dist/govuk/assets/images/favicon.svg" type="image/svg+xml">
+{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+
+
+
+
+{% endblock %}
+
+
+{% block content %}
+ 
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="govuk-panel govuk-panel--interruption govuk-!-padding-left-8 govuk-!-padding-top-8 govuk-!-padding-right-8">
+          
+    
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+
+              <form class="form" action="/brp-app-journey/answer" method="post">
+
+          <h1 class="govuk-heading-xl govuk-!-margin-bottom-6 white-text">The GOV.UK ID Check app journey </h1>
+
+
+          <p class="govuk-body govuk-!-margin-bottom-6 white-text">These screens are a re-creation of the GOV.UK ID Check app when used on an Apple or Android phone.</p>
+          <p class="govuk-body govuk-!-margin-bottom-6 white-text">They'll give you a good understanding of the flows, though they are not an exact copy of the live product.</p>
+
+        
+          <button type="submit" class="govuk-button govuk-button--inverse govuk-button--inverse-transition" data-module="govuk-button">
+          Continue
+          </button>
+
+          <p class="govuk-body">
+            <a href="/index" class="govuk-link govuk-link--inverse">Go back to prototype home</a>
+            </p>
+
+{% endblock %}
+
+
+{% block footer %}
+
+{% endblock %}
