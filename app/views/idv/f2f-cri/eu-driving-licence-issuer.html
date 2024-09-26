@@ -1,0 +1,101 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "Select which country your driving licence is from" %}
+
+{% block content %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form class="form" action="find-post-office" method="post">
+
+        <h1 class="govuk-heading-l">{{ title }}</h1>
+  
+          <p>If the country your driving licence is from is not on the list, you'll need to choose another type of photo ID.</p>
+
+              <div class="hint-with-margin">
+          
+          <div class="govuk-form-group">
+            <label class="govuk-label" id="euDrivingLicenceCountrySelector-label" for="euDrivingLicenceCountrySelector">
+              Select country
+            </label>
+          
+            <div id="euDrivingLicenceCountrySelector-hint" class="govuk-hint">
+              
+            </div>
+          
+            <select class="govuk-select" id="euDrivingLicenceCountrySelector" name="euDrivingLicenceCountrySelector" aria-describedby="euDrivingLicenceCountrySelector-hint">
+            
+              
+                <option value="Select">Select country</option>
+              
+                <option value="AUT">Austria</option>
+              
+                <option value="BEL">Belgium</option>
+              
+                <option value="BGR">Bulgaria</option>
+              
+                <option value="HRV">Croatia</option>
+              
+                <option value="CYP">Cyprus</option>
+              
+                <option value="CZE">Czech Republic</option>
+              
+                <option value="DNK">Denmark</option>
+              
+                <option value="EST">Estonia</option>
+              
+                <option value="FIN">Finland</option>
+              
+                <option value="FRA">France</option>
+              
+                <option value="DEU">Germany</option>
+              
+                <option value="GRC">Greece</option>
+              
+                <option value="HUN">Hungary</option>
+              
+                <option value="IRL">Ireland</option>
+              
+                <option value="ITA">Italy</option>
+              
+                <option value="LVA">Latvia</option>
+              
+                <option value="LTU">Lithuania</option>
+              
+                <option value="LUX">Luxembourg</option>
+              
+                <option value="MLT">Malta</option>
+              
+                <option value="NLD">Netherlands</option>
+              
+                <option value="POL">Poland</option>
+              
+                <option value="PRT">Portugal</option>
+              
+                <option value="ROU">Romania</option>
+              
+                <option value="SVK">Slovakia</option>
+              
+                <option value="SVN">Slovenia</option>
+              
+                <option value="ESP">Spain</option>
+              
+                <option value="SWE">Sweden</option>
+              
+            </select>
+          </div>
+            </div>
+          
+            <p class="govuk-body">
+              <a href="/page-index/f2f-cri/choose-id">The country my driving licence is from is not on the list</a>
+            </p>
+
+            <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+          </form>
+          </div>
+          </div>
+{% endblock %}

@@ -1,27 +1,15 @@
-{% extends "layouts/main.html" %}
-
-{% block pageTitle %}
-Choose your address
-{% endblock %}
-
-{% block header %}
-{% include "/includes/govuk-one-login-header.njk" %}
-{% endblock %}
-
-{% block beforeContent %}
-{% include "/includes/phase-banner.njk" %}
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-  }) }}
-{% endblock %}
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+{% set backLink = 'true' %}
+{% set title =  "Choose your address" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/page-index/address-cri/in-person/check-current-address" method="post">
+      <form class="form" action="check-current-address" method="post">
 
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">

@@ -1,0 +1,103 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "Does your driving licence have your current address on it?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/page-index/f2f-cri/eu-driving-licence-current-address/answer" method="post">
+
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Select if your driving licence has your current address on it",
+                    href: "#eu-driving-licence-address"
+                }
+            ]
+        }) }}
+        {{ govukRadios({
+          name: "eu-driving-licence-address",
+          fieldset: {
+            legend: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "If your driving licence has your previous address on it, you'll need to choose another type of photo ID."
+          },
+          items: [
+            {
+              value: "Yes, it has my current address on it",
+              text: "Yes, it has my current address on it"
+            },
+            {
+              value: "No, it has my previous address on it",
+              text: "No, it has my previous address on it"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "My driving licence does not have my address on it",
+              text: "My driving licence does not have my address on it"
+            }
+            ],
+            errorMessage: {
+                text: "Select if your driving licence has your current address on it"
+            }
+        }) }}
+        {% else %}
+        {{ govukRadios({
+          name: "eu-driving-licence-address",
+          fieldset: {
+            legend: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "If your driving licence has your previous address on it, you'll need to choose another type of photo ID."
+          },
+          items: [
+            {
+              value: "Yes, it has my current address on it",
+              text: "Yes, it has my current address on it"
+            },
+            {
+              value: "No, it has my previous address on it",
+              text: "No, it has my previous address on it"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "My driving licence does not have my address on it",
+              text: "My driving licence does not have my address on it"
+            }
+            ]
+        }) }}
+    {% endif %}
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+
+{% endblock %}
+
