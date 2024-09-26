@@ -969,3 +969,249 @@ router.post('/starting-device/android/answer', function (req, res) {
         res.redirect('/idv/app/document-checking/android/send-and-exit/exit-app-desktop')
     }
 })
+
+router.get('/id-screener-2/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('/idv/ipv-core/id-screener-2.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/id-screener-2/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['post-office-id'];
+
+    if (selectedOption) {
+        // Route user based on their selection
+        if (selectedOption === "No") {
+            // Send user to find another way
+            res.redirect('/idv/f2f-another-way');
+        } else {
+            // Send user to claimed identity cri
+            res.redirect('/idv/claimed-identity-cri/name');
+        }
+    } else {
+        // If no radio button is selected, redirect to /id-screener-2/answer with error
+        res.redirect('/id-screener-2/answer?error=true');
+    }
+});
+
+// Routes for Face to Face CRI
+router.get('/f2f-cri/choose-id/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('/idv/f2f-cri/choose-id.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/f2f-cri/choose-id/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['in-person-choose-id'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "UK passport") {
+            // Send user to set up auth app
+            res.redirect('/idv/f2f-cri/expiry-date');
+        } else if (selectedOption === "Non-UK passport") {
+            // Send user to enter passport details
+            res.redirect('/idv/f2f-cri/non-uk-passport-have-expiry-date');
+        } else if (selectedOption === "UK photocard driving licence") {
+            // Send user to prove identity at the post office
+            res.redirect('/idv/f2f-cri/uk-driving-licence-expiry-date');
+        } else if (selectedOption === "Biometric residence permit (BRP)") {
+            // Send user to enter passport details
+            res.redirect('/idv/f2f-cri/biometric-residence-permit-expiry-date');
+        } else if (selectedOption === "European Union (EU) photocard driving licence") {
+            // Send user to enter passport details
+            res.redirect('/idv/f2f-cri/eu-driving-licence-have-expiry-date');
+        } else if (selectedOption === "National identity card from a European Economic Area (EEA) country") {
+            // Send user to enter passport details
+            res.redirect('/idv/f2f-cri/national-identity-card-have-expiry-date');
+        } else if (selectedOption === "I do not have any of these documents") {
+            // Send user to enter passport details
+            res.redirect('/idv/f2f-another-way');
+        }
+    } else {
+        // If no radio button is selected, redirect to /ineligible-next-steps/answer with error
+        res.redirect('/f2f-cri/choose-id/answer?error=true');
+    }
+});
+
+// Does your passport has an expirty date routes
+router.get('/page-index/f2f-cri/non-uk-passport-have-expiry-date/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('/idv/f2f-cri/non-uk-passport-have-expiry-date.html', { showErrorSummary });
+    });
+
+// Handle form submission
+router.post('/page-index/f2f-cri/non-uk-passport-have-expiry-date/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['has-expiry'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "No") {
+            // Send user to set up auth app
+            res.redirect('/idv/f2f-cri/non-uk-passport-issuer');
+        } else {
+            // Send user to enter phone number
+            res.redirect('/idv/f2f-cri/non-uk-passport-expiry');
+        }
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/page-index/f2f-cri/non-uk-passport-have-expiry-date/answer?error=true');
+    }
+});
+
+// Routes for 'Does your driving licence have your current address on it?'
+router.get('/page-index/f2f-cri/uk-driving-licence-current-address/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('/idv/f2f-cri/uk-driving-licence-current-address.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/page-index/f2f-cri/uk-driving-licence-current-address/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['driving-licence-address'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "Yes, it has my current address on it") {
+            // Send user to set up auth app
+            res.redirect('/idv/f2f-cri/find-post-office');
+        } else {
+            // Send user to enter phone number
+            res.redirect('/idv/f2f-cri/choose-id');
+        }
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/page-index/f2f-cri/uk-driving-licence-current-address/answer?error=true');
+    }
+});
+
+// Routes for 'Does your driving licence have an expiry date?'
+router.get('/page-index/f2f-cri/eu-driving-licence-have-expiry-date/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('/idv/f2f-cri/eu-driving-licence-have-expiry-date.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/page-index/f2f-cri/eu-driving-licence-have-expiry-date/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['has-expiry'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "No") {
+            // Send user to set up auth app
+            res.redirect('/idv/f2f-cri/eu-driving-licence-current-address');
+        } else {
+            // Send user to enter phone number
+            res.redirect('/idv/f2f-cri/eu-driving-licence-expiry-date');
+        }
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/page-index/f2f-cri/eu-driving-licence-have-expiry-date/answer?error=true');
+    }
+});
+
+// Routes for 'Does your driving licence have your current address on it?' 
+router.get('/page-index/f2f-cri/eu-driving-licence-current-address/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('/idv/f2f-cri/eu-driving-licence-current-address.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/page-index/f2f-cri/eu-driving-licence-current-address/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['eu-driving-licence-address'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "No, it has my previous address on it") {
+            // Send user to set up auth app
+            res.redirect('/idv/f2f-cri/choose-id');
+        } else {
+            // Send user to enter phone number
+            res.redirect('/idv/f2f-cri/eu-driving-licence-issuer');
+        }
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/page-index/f2f-cri/eu-driving-licence-current-address/answer?error=true');
+    }
+});
+
+// Routes for 'Does your national identity card have an expiry date?' 
+router.get('/page-index/f2f-cri/national-identity-card-have-expiry-date/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('/idv/f2f-cri/national-identity-card-have-expiry-date.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/page-index/f2f-cri/national-identity-card-have-expiry-date/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['has-expiry'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "No") {
+            // Send user to set up auth app
+            res.redirect('/idv/f2f-cri/national-identity-current-address');
+        } else {
+            // Send user to enter phone number
+            res.redirect('/idv/f2f-cri/national-identity-card-expiry-date');
+        }
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/page-index/f2f-cri/national-identity-card-have-expiry-date/answer?error=true');
+    }
+});
+
+// Routes for 'Does your national identity card have your current address on it?' 
+router.get('/page-index/f2f-cri/national-identity-current-address/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('/idv/f2f-cri/national-identity-current-address.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/page-index/f2f-cri/national-identity-current-address/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['national-identity-address'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "No, it has my previous address on it") {
+            // Send user to set up auth app
+            res.redirect('/idv/f2f-cri/choose-id');
+        } else {
+            // Send user to enter phone number
+            res.redirect('/idv/f2f-cri/national-identity-issuer');
+        }
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/page-index/f2f-cri/national-identity-current-address/answer?error=true');
+    }
+});

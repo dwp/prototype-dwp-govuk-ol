@@ -23,6 +23,8 @@
 .dwp-language-toggle__list {
     margin-top: 1em;
     text-align: right;
+    @include govuk-font($size: 16);
+    margin-bottom: govuk-spacing(-3);
 }
 
 .dwp-language-toggle__list-item {

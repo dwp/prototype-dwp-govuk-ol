@@ -1,0 +1,106 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% set htmlClasses = "app-email" %}
+{% set bodyClasses = "app-email__body" %}
+{% block footer %}{% endblock %}
+
+{% block pageTitle %}
+Go to Post Office reminder email - GOV.UK One Login
+{% endblock %}
+
+{% block headIcons %}
+<link rel="icon" sizes="48x48" href="/plugin-assets/govuk-frontend/dist/govuk/assets/images/favicon.ico">
+<link rel="icon" sizes="any" href="/plugin-assets/govuk-frontend/dist/govuk/assets/images/favicon.svg" type="image/svg+xml">
+{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<h1 class="govuk-heading-l">
+  <span class="govuk-caption-l">Face to face at a post office</span>
+Go to Post Office reminder email
+</h1>
+
+<div class="email-message">
+  <table class="email-message-meta">
+    <tbody>
+          <tr>
+            <th scope="row">From</th>
+            <td>
+             GOV.UK One Login
+            </td>
+          </tr>
+      
+        <tr>
+          <th scope="row">To</th>
+          <td>
+            <span class="placeholder-no-brackets background: #fd0;">Email address</span>
+          </td>
+        </tr>
+      
+      <tr class="email-message-meta">
+        <th scope="row">Subject</th>
+        <td>
+          Go to the Post Office within 5 days to finish proving your identity 
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="email-message-body govuk-!-margin-top-4 govuk-!-margin-bottom-0">
+
+    <p>Dear Jane Doe,</p>
+
+    <p>To finish proving your identity, you need to go to your chosen Post Office within the next 5 days.</p>
+
+  <h3 class="govuk-heading-s">What you need to take to the Post Office</h3>
+
+  <p class="govuk-body">When you go to the Post Office, make sure to take your:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>Your chosen photo ID</li>
+  <li>Post Office customer letter (you can find a link to download your letter in the confirmation email we sent you 5 days ago)</li>
+</ul>
+
+  <h3 class="govuk-heading-s">At the Post Office</h3>
+
+  <p>You'll need to show your Post Office customer letter on your phone or tablet, or take a printed copy with you.</p>
+
+  <p>A member of Post Office staff will scan your photo ID and take a photo of you.</p>
+
+  <p class="govuk-body">
+    You'll find details of your chosen Post Office in your customer letter. But you can go to any Post Office that offers in-branch verification: <a href="#" class="govuk-link">https://www.postoffice.co.uk/identity/in-branch-verification-service#bf-full-width</a>
+  </p>
+
+  <div class="govuk-inset-text govuk-!-margin-top-0 govuk-!-margin-bottom-4">
+    If you do not go to the Post Office within the next 5 days, you’ll need to start proving your identity again.
+  </div>
+
+  <h3 class="govuk-heading-s">After you've been to the Post Office</h3>
+
+  <p>We'll send you an email about the result of your identity check - usually within a day of going to the Post Office.</p>
+
+  <p>You’ll need to follow the link in the email to sign in to your GOV.UK One Login and view your result.</p>
+
+  <h3 class="govuk-heading-s">If you need help</h3>
+
+  <p class="govuk-body">
+    Contact the GOV.UK One Login support team: <a href="#" class="govuk-link">https://signin.account.gov.uk/contact-us</a>
+   </p>
+   <p>Regards,</p>
+   <p>GOV.UK One Login team</p>
+   <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-4">
+
+<p class="govuk-body govuk-!-margin-bottom-6">Do not reply to this email - it’s an automatic message from an unmonitored account.</p>
+</div>
+</div>
+
+{% endblock %}
+
+

@@ -13,13 +13,14 @@
         {% include '_includes/breadcrumbs.njk' %}
     {% endif %}
 
+    {% if languageToggle == 'true' %}
+        {% include '_includes/language-toggle.njk' %}
+    {% endif %}
+
     {% if backLink == 'true' %}
         {% include '_includes/back-link.njk' %}
     {% endif %}
 
-    {% if languageToggle == 'true' %}
-        {% include '_includes/language-toggle.njk' %}
-    {% endif %}
 {% endblock %}
 
 {% block content %}

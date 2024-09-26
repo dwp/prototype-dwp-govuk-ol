@@ -1,0 +1,122 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+
+{% set title =  "Prove your identity at a Post Office with one of the following types of photo ID - GOV.UK One Login" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+
+    <form class="form" action="/id-screener-2/answer" method="post">
+
+      {% if showErrorSummary %}
+      {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+              {
+                  text: "Select what you would like to do",
+                  href: "#post-office-id"
+              }
+          ]
+      }) }}
+      {% endif %}
+
+      <h1 class="govuk-heading-l">
+        Prove your identity at a Post Office with one of the following types of photo ID
+      </h1>
+
+      <p class="govuk-body">
+        Based on what you told us, you cannot prove your identity online.
+      </p>
+
+      <p class="govuk-body">
+        If you have any of the following types of photo ID, you can prove your identity at a Post Office instead.
+      </p>
+
+      <ul class="govuk-list">
+        <li>
+          <h2 class="govuk-heading-m">European Union (EU) photocard driving licence</h2>
+          <p class="govuk-body">You can use an EU driving licence if:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>it is a plastic photocard, not a paper or handwritten licence</li>
+            <li>it has not expired</li>
+            <li>the address on it is the same as your current address (if it has an address)</li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="govuk-heading-m">Non-UK passport</h2>
+          <p class="govuk-body">You can use a non-UK passport as long as it has not expired.</p>
+        </li>
+
+        <li>
+          <h2 class="govuk-heading-m">National identity card from a European Economic Area country</h2>
+          <p class="govuk-body">You can use a national identity card from a European Economic Area (EEA) country if:</p>
+          <ul class="govuk-list  govuk-list--bullet">
+            <li>it is a plastic photocard, not a paper or handwritten card</li>
+            <li>it has not expired</li>
+            <li>the address on it is the same as your current address (if it has an address)</li>
+          </ul>
+          <p class="govuk-body">The EEA includes EU countries, Norway, Iceland and Liechtenstein.</p>
+        </li>
+      </ul>
+
+      {% if showErrorSummary %}
+      {{ govukRadios({
+        name: "post-office-id",
+        fieldset: {
+          legend: {
+            text: "Do you have any of these types of photo ID?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+          ],
+          errorMessage: {
+              text: "Select what you would like to do"
+          }
+      }) }}
+      {% else %}
+      {{ govukRadios({
+        name: "post-office-id",
+        fieldset: {
+          legend: {
+            text: "Do you have any of these types of photo ID?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "Yes",
+            text: "Yes"
+          },
+          {
+            value: "No",
+            text: "No"
+          }
+          ]
+      }) }}
+      {% endif %}
+
+      {{ govukButton({
+          text: "Continue",
+          type: "Submit"
+      }) }}
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

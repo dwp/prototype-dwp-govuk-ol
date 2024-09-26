@@ -1,0 +1,106 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "Choose a Post Office where you can prove your identity" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l page-heading">
+      {{ title }}
+    </h1>
+
+    <h2 class="govuk-heading-m page-heading">Postcode</h2>
+
+    <h2 class="govuk-heading-m page-heading">SW2 1AA <a href="find-nearest-po" class="govuk-link govuk-link--no-visited-state">Change</a>
+    </h2>
+ 
+      <form class="form" method="post">
+
+ <input class="govuk-radios__input" id="offline-doc-check-2" name="offline-doc-check" type="radio" value="Other~./offline-passport-details" aria-describedby="offline-doc-check-2-item-hint">
+ 
+ <div id="offline-doc-check-2-item-hint" class="govuk-hint govuk-radios__hint">
+
+        <div class="govuk-form-group">
+<fieldset class="govuk-fieldset">
+<div class="govuk-radios" data-module="govuk-radios">
+<div class="govuk-radios__item">
+<input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
+<label class="govuk-label govuk-radios__label" for="where-do-you-live">
+ <b>Brixton Hill</b>
+</label>
+<div id="address1" class="govuk-body govuk-radios__hint">
+ 106 Brixton Hill, London, SW2 1AH
+</div>
+</div>
+
+
+<div class="govuk-radios__item">
+<input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+<label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+ <b>Elm Park</b>
+</label>
+<div id="address2" class="govuk-body govuk-radios__hint">
+ 66 Elm Park, London, SW2 2UB
+</div>
+</div>
+
+
+<div class="govuk-radios__item">
+<input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="wales">
+<label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+ <b>Herne Hill</b>
+</label>
+<div id="address3" class="govuk-body govuk-radios__hint">
+ 31-39 Norwood Road, London, SE24 9QG
+</div>
+</div>
+
+
+<div class="govuk-radios__item">
+<input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="wales">
+<label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+ <b>Clapham Common</b>
+</label>
+<div id="address3" class="govuk-body govuk-radios__hint">
+ 161-163 Clapham High Street, London, SW4 7ST
+</div>
+</div>
+
+<div class="govuk-radios__item">
+<input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="wales">
+<label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+ <b>Streatham Hill</b>
+</label>
+<div id="address3" class="govuk-body govuk-radios__hint">
+ 102 Streatham Hill, London, SW2 4UQ
+</div>
+</div>
+
+</div></fieldset>
+</div>
+
+
+
+      <a href="check-answers" type="submit" class="govuk-button" id="save-and-continue" role="button">Continue</a>
+
+      
+
+  </form>
+
+  <p class="govuk-body"><a href="/page-index/ipv-core/f2f-another-way" class="govuk-link govuk-link--no-visited-state">I want to prove my identity another way</a></p>
+
+
+
+
+
+
+
+</div>
+</div>
+
+{% endblock %}
