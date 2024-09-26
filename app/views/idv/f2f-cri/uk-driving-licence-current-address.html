@@ -1,0 +1,102 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "Does your driving licence have your current address on it?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/page-index/f2f-cri/uk-driving-licence-current-address/answer" method="post">
+
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Select if your driving licence has your current address on it",
+                    href: "#driving-licence-address"
+                }
+            ]
+        }) }}
+        {{ govukRadios({
+          name: "driving-licence-address",
+          fieldset: {
+            legend: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "If your driving licence has your previous address on it, you'll need to choose another type of photo ID."
+          },
+          items: [
+            {
+              value: "Yes, it has my current address on it",
+              text: "Yes, it has my current address on it"
+            },
+            {
+              value: "No, it has my previous address on it",
+              text: "No, it has my previous address on it"
+            }
+            ],
+            errorMessage: {
+                text: "Select if your driving licence has your current address on it"
+            }
+        }) }}
+        {% else %}
+        {{ govukRadios({
+          name: "driving-licence-address",
+          fieldset: {
+            legend: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "If your driving licence has your previous address on it, you'll need to choose another type of photo ID."
+          },
+          items: [
+            {
+              value: "Yes, it has my current address on it",
+              text: "Yes, it has my current address on it"
+            },
+            {
+              value: "No, it has my previous address on it",
+              text: "No, it has my previous address on it"
+            }
+            ]
+        }) }}
+    {% endif %}
+        
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              How do I change the address on my driving licence?
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p class="govuk-body">
+              You must update your driving licence when you move. <a href="#" class="govuk-link">Tell DVLA you’ve changed address (opens in new tab)</a>
+            </p>
+          </div>
+        </details>
+
+      </form>
+
+    </div>
+  </div>
+
+
+{% endblock %}
+

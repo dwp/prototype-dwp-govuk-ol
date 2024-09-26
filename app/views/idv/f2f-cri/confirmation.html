@@ -1,0 +1,146 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "Go to a Post Office within 10 days to finish proving your identity" %}
+
+{% block beforeContent %}
+<main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+          
+
+  <style type="text/css">
+      .govuk-panel--confirmation {
+          background-color: #f3f2f1;
+          color:#000000;
+  
+        }
+    </style>
+  
+  
+  <div class="govuk-grid-row">
+     <div class="govuk-grid-column-two-thirds">
+       
+  <div class="govuk-panel govuk-panel--confirmation">
+    <h1 class="govuk-panel__title">
+      {{ title }}
+    </h1>
+    
+  </div>
+  
+  
+       <p class="govuk-body">You’ve been sent a confirmation email with a link to download your Post Office customer letter.</p>
+  
+       <p class="govuk-body">To finish proving your identity, you need to go to your chosen Post Office within the next 10 days.</p>
+  
+  
+       <h2 class="govuk-heading-m">What you need to take to the Post Office</h2>
+  
+       <p>When you go to the Post Office, make sure to take your:</p>
+  
+  <ul class="govuk-list govuk-list--bullet">
+    <li>chosen photo ID</li>
+    <li>Post Office customer letter (you can download your letter from your confirmation email)</li>
+  </ul>
+  
+  <h2 class="govuk-heading-m">At the Post Office</h2>
+  
+            <p class="govuk-body">You'll need to show your Post Office customer letter on your phone or tablet, or take a printed copy with you.</p>
+  
+            <p>Then a member of Post Office staff will scan your photo ID and take a photo of you.</p>
+  
+            <p>You'll find details of your chosen Post Office in your customer letter. But you can <a href="https://www.postoffice.co.uk/identity/in-branch-verification-service#:~:text=Find%20your%20nearest%20branch" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">go to any Post Office that offers in-branch verification (opens in new tab).</a></p>
+  
+  
+            <div class="govuk-inset-text">
+              If you do not go to the Post Office within the next 10 days, you’ll need to start proving your identity again.</div>
+  
+  
+  
+  <!--
+            <p class="govuk-body">
+             You can bring your authenticaiton email as a printed copy or display your QR code attachment on your smartphone at the Post Office.
+            </p>
+  
+            <p class="govuk-body">
+           At the Post Office, a member of staff will scan the QR code to process your document.
+            </p>
+  -->
+            <h2 class="govuk-heading-m">After you've been to the Post Office</h2>
+  
+            <p>You’ll get an email about the result of your identity check - usually within a day of going to the Post Office.</p>
+  
+            <h2 class="govuk-heading-m">If you need help</h2>
+  <!--
+            <p>Once successfully verified, you will need to sign into your GOV. UK account online to continue your application.</p>
+  -->
+           
+  
+           <p class="govuk-body">
+             <a href="#" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener">Contact the GOV.UK One Login support team (opens in new tab)</a>
+           </p>
+  
+          
+  
+  
+  <!--
+       <br/><br/><br/>
+            <p class="govuk-body">
+              <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+            </p>
+            -->
+           <!-- <p> Link to  <a href="offline-email-confirmation">email</a> confirmation (for UR purpose)</p> -->
+  
+          </div>
+        </div>
+  
+  
+  
+      </main>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+          <form class="form" action="/idv/journey-transition/post-office" method="post">
+      
+          <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+          <div class="govuk-!-padding-bottom-3"></div>
+      
+          <div class="govuk-notification-banner govuk-notification-banner--journey-options" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header govuk-notification-banner__header--journey-options">
+              <h2 class="govuk-notification-banner__title govuk-notification-banner__title--journey_options" id="govuk-notification-banner-title">
+                Next step
+              </h2>
+            </div>
+            <div class="govuk-notification-banner__content">
+              <p class="govuk-notification-banner__heading">
+                Continue to prove your identity at the Post Office
+              </p>
+
+              <button class="govuk-button govuk-button--transition" data-module="govuk-button">Continue</button>
+
+              <p class="govuk-body">Or you can:</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>
+                  <p class="govuk-body">
+                    <a href="/idv/f2f-cri/emails/go-to-post-office-email" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">view Go to Post Office email (opens in new tab)</a>
+                    </p>
+                </li>
+                <li>
+                  <p class="govuk-body">
+                    <a href="/idv/f2f-cri/emails/go-to-post-office-email" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">view Go to Post Office reminder email (opens in new tab)</a>
+                    </p>
+                </li>
+              </ul>
+      
+            </div>
+          </div>
+      
+      <div class="govuk-!-padding-bottom-7"></div>
+      
+      </div>
+    </div>
+
+{% endblock %}
+
+

@@ -1,4 +1,11 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set serviceName %}
+    Confirm your identity
+{% endset %}
+{% set backLink = 'true' %}
+
+{% set title =  "Which smartphone are you using?" %}
 
 {% block pageTitle %}
 We need to know where you've lived for the last 3 months

@@ -1,0 +1,104 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "Does your national identity card have your current address on it?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/page-index/f2f-cri/national-identity-current-address/answer" method="post">
+
+
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Select if your national identity card has your current address on it",
+                    href: "#national-identity-address"
+                }
+            ]
+        }) }}
+        {{ govukRadios({
+          name: "national-identity-address",
+          fieldset: {
+            legend: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "If your national identity card has your previous address on it, you'll need to choose another type of photo ID."
+          },
+          items: [
+            {
+              value: "Yes, it has my current address on it",
+              text: "Yes, it has my current address on it"
+            },
+            {
+              value: "No, it has my previous address on it",
+              text: "No, it has my previous address on it"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "My national identity card does not have my address on it",
+              text: "My national identity card does not have my address on it"
+            }
+            ],
+            errorMessage: {
+                text: "Select if your national identity card has your current address on it"
+            }
+        }) }}
+        {% else %}
+        {{ govukRadios({
+          name: "national-identity-address",
+          fieldset: {
+            legend: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "If your national identity card has your previous address on it, you'll need to choose another type of photo ID."
+          },
+          items: [
+            {
+              value: "Yes, it has my current address on it",
+              text: "Yes, it has my current address on it"
+            },
+            {
+              value: "No, it has my previous address on it",
+              text: "No, it has my previous address on it"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "My national identity card does not have my address on it",
+              text: "My national identity card does not have my address on it"
+            }
+            ]
+        }) }}
+    {% endif %}
+        
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+
+{% endblock %}
+

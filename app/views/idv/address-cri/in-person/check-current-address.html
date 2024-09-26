@@ -1,27 +1,17 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+{% set backLink = 'true' %}
 
-{% block pageTitle %}
-Check your address
-{% endblock %}
 
-{% block header %}
-{% include "/includes/govuk-one-login-header.njk" %}
-{% endblock %}
-
-{% block beforeContent %}
-{% include "/includes/phase-banner.njk" %}
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:window.history.back()"
-  }) }}
-{% endblock %}
+{% set title =  "Check your address" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/page-index/address-cri/in-person/confirm-addresses" method="post">
+      <form class="form" action="confirm-addresses" method="post">
 
         <h1 class="govuk-heading-l">Check your address</h1>
 

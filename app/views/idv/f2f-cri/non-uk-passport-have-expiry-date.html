@@ -1,0 +1,81 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "Does your passport have an expiry date?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/page-index/f2f-cri/non-uk-passport-have-expiry-date/answer" method="post">
+
+        
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Select if your photo ID has an expiry date",
+                    href: "#has-expiry"
+                }
+            ]
+        }) }}
+        {{ govukRadios({
+          name: "has-expiry",
+          fieldset: {
+            legend: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+            ],
+            errorMessage: {
+                text: "Select if your photo ID has an expiry date"
+            }
+        }) }}
+        {% else %}
+        {{ govukRadios({
+          name: "has-expiry",
+          fieldset: {
+            legend: {
+              text: title,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes"
+            },
+            {
+              value: "No",
+              text: "No"
+            }
+            ]
+        }) }}
+    {% endif %}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
