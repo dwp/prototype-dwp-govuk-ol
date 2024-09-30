@@ -1,0 +1,87 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+
+{% set title =  "Find another way to prove your identity" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/find-another-way-answer" method="post">
+
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Select yes if you have any of these types of photo ID",
+                    href: "#another-way"
+                }
+            ]
+        }) }}
+        {% endif %}
+
+      <h1 class="govuk-heading-l">{{ title }}</h1>
+
+      {% if showErrorSummary %}
+      {{ govukRadios({
+        name: "another-way",
+        fieldset: {
+          legend: {
+            text: "What would you like to do?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "another way",
+            text: "Continue to the service you were trying to use to look for other ways to prove your identity"
+          },
+          {
+            value: "try again",
+            text: "Try proving your identity with GOV.UK One Login again"
+          }
+          ],
+          errorMessage: {
+              text: "Select yes if you have any of these types of photo ID"
+          }
+      }) }}
+      {% else %}
+      {{ govukRadios({
+        name: "another-way",
+        fieldset: {
+          legend: {
+            text: "What would you like to do?",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "another way",
+            text: "Continue to the service you were trying to use to look for other ways to prove your identity"
+          },
+          {
+            value: "try again",
+            text: "Try proving your identity with GOV.UK One Login again"
+          }
+          ]
+      }) }}
+      {% endif %}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+        <p class="govuk-body">
+        <a href="#" class="govuk-link">Contact the GOV.UK One Login team (opens in new tab)</a>
+        </p>
+        
+    </form>
+
+    </div>
+  </div>
+
+{% endblock %}
