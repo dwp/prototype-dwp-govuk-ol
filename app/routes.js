@@ -27,7 +27,7 @@ router.post('/id-screener/answer', (req, res) => {
         // Route user based on their selection
         if (selectedOption === "No") {
             // Send user to accepted ID types at Post Office
-            res.redirect('/idv/send-to-post-office');
+            res.redirect('/idv/id-screener-2');
         } else {
             // Send user to using phone or desktop
             res.redirect('/idv/computer-or-tablet');
@@ -120,7 +120,7 @@ router.post('/idv/web/continueProvingYourIdentityOnline', (req, res) => {
             res.redirect('/idv/web/passport/enter-passport-details');
         } else if (selectedOption === "another-way") {
             // Send user to prove identity at the post office
-            res.redirect('/idv/send-to-post-office');
+            res.redirect('/idv/prove-identity-at-post-office');
         }
     } else {
       // If no radio button is selected, redirect to /ineligible-next-steps/answer with error
@@ -1213,5 +1213,63 @@ router.post('/page-index/f2f-cri/national-identity-current-address/answer', (req
     } else {
         // If no radio button is selected, redirect to /computer-or-tablet/answer with error
         res.redirect('/page-index/f2f-cri/national-identity-current-address/answer?error=true');
+    }
+});
+
+// Routes for 'Prove your identity at a Post Office' IPV Core
+router.get('/prove-identity-at-post-office-answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('/idv/prove-identity-at-post-office.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/prove-identity-at-post-office-answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['at-post-office'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "Yes") {
+            // Send user to set up auth app
+            res.redirect('/idv/claimed-identity-cri/name');
+        } else {
+            // Send user to enter phone number
+            res.redirect('/idv/find-another-way');
+        }
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/prove-identity-at-post-office-answer?error=true');
+    }
+});
+
+// Routes for 'Find another way to prove your identity' IPV Core
+router.get('/find-another-way-answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('/idv/find-another-way.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/find-another-way-answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['another-way'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "another way") {
+            // Send user to set up auth app
+            res.redirect('/idv/return-to-service');
+        } else {
+            // Send user to enter phone number
+            res.redirect('/idv/filter-question');
+        }
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/find-another-way-answer?error=true');
     }
 });
