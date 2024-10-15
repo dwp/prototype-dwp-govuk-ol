@@ -218,7 +218,7 @@ router.post('/kbv-another-way-answer', (req, res) => {
     }
 });
 
-//Routes for Choosing a journey 
+//Routes for Choosing a journey
 router.get('/choose-journey/answer', (req, res) => {
     // Check if there was an error
     const showErrorSummary = req.query.error === 'true';
@@ -235,19 +235,19 @@ router.post('/choose-journey/answer', (req, res) => {
     if (selectedOption) {
         // If radio option is selected:
         if (selectedOption === "prove-identity") {
-            // Send user to 
-            res.redirect('/service-pages-routes/repay/start?userJourney=idv');
+            // Send user to
+            res.redirect('/service-pages-routes/maternity-allowance/start?userJourney=idv');
         } else if (selectedOption === "identity-reuse") {
-            // Send user to 
+            // Send user to
             res.redirect('/service-pages-routes/repay/start?userJourney=signin');
         } else if (selectedOption === "oidv-medium-user") {
-            // Send user to 
+            // Send user to
             res.redirect('/service-pages-routes/repay/start?userJourney=oidvMedium');
         } else if (selectedOption === "returning-ol-user") {
-            // Send user to 
+            // Send user to
             res.redirect('/service-pages-routes/repay/start?userJourney=returningOlUser');
         } else if (selectedOption === "returning-ol-and-oidv-medium-user") {
-            // Send user to 
+            // Send user to
             res.redirect('/service-pages-routes/repay/start?userJourney=returningOlAndOidvMediumUser');
         }
     } else {
@@ -879,7 +879,7 @@ router.post('/starting-device/ios/answer', function (req, res) {
 
     // Make a variable and give it the value from 'choose-security-codes'
     var startingdevice = req.session.data['computer-or-tablet']
-    
+
     // Check whether the variable matches a condition
     if (startingdevice == "No, I am on a smartphone"){
         // Send user to set up auth app
@@ -888,7 +888,7 @@ router.post('/starting-device/ios/answer', function (req, res) {
         // Send user to enter phone number
         res.redirect('/idv/app/document-checking/ios/send-and-exit/exit-app-desktop')
     }
-    
+
 })
 
 // Run this code when a form is submitted to '/driving-licence-app-journey/answer'
@@ -933,7 +933,7 @@ router.post('/driving-licence-app-journey/answer', function (req, res) {
     }
 })
 
-///exiting app routes 
+///exiting app routes
 // Run this code when a form is submitted to '/next-step'
 router.post('/exit-app-journey/answer', function (req, res) {
     // Retrieve the selected options from the session
@@ -946,7 +946,7 @@ router.post('/exit-app-journey/answer', function (req, res) {
         res.redirect('/idv/ipv-core/continuity-of-identity/name-address-success');
     } else if (selectedOptions.includes("Given names") || selectedOptions.includes("Last name") || selectedFraudCheckOptions.includes("Given names") || selectedFraudCheckOptions.includes("Last name")) {
         // Redirect to the new name update page if Given names or Last name was selected
-        res.redirect('/idv/ipv-core/continuity-of-identity/name-success'); 
+        res.redirect('/idv/ipv-core/continuity-of-identity/name-success');
     } else {
         // Redirect to match successful page if none of the above conditions are met
         res.redirect('/idv/ipv-core/match-successful');
@@ -1129,7 +1129,7 @@ router.post('/page-index/f2f-cri/eu-driving-licence-have-expiry-date/answer', (r
     }
 });
 
-// Routes for 'Does your driving licence have your current address on it?' 
+// Routes for 'Does your driving licence have your current address on it?'
 router.get('/page-index/f2f-cri/eu-driving-licence-current-address/answer', (req, res) => {
     // Check if there was an error
     const showErrorSummary = req.query.error === 'true';
@@ -1158,7 +1158,7 @@ router.post('/page-index/f2f-cri/eu-driving-licence-current-address/answer', (re
     }
 });
 
-// Routes for 'Does your national identity card have an expiry date?' 
+// Routes for 'Does your national identity card have an expiry date?'
 router.get('/page-index/f2f-cri/national-identity-card-have-expiry-date/answer', (req, res) => {
     // Check if there was an error
     const showErrorSummary = req.query.error === 'true';
@@ -1187,7 +1187,7 @@ router.post('/page-index/f2f-cri/national-identity-card-have-expiry-date/answer'
     }
 });
 
-// Routes for 'Does your national identity card have your current address on it?' 
+// Routes for 'Does your national identity card have your current address on it?'
 router.get('/page-index/f2f-cri/national-identity-current-address/answer', (req, res) => {
     // Check if there was an error
     const showErrorSummary = req.query.error === 'true';

@@ -1,0 +1,71 @@
+{% extends "layouts/_base.html" %}
+{% set phaseBanner = 'true' %}
+{% set breadcrumbs = 'false' %}
+
+{% set title =  "Apply for Maternity Allowance" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{ title }}
+      </h1>
+
+      <p class="govuk-body">
+        Maternity Allowance is a payment you can get when you take time off to have a baby.
+      </p>
+
+      <p class="govuk-body">
+        You could get it if you:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>are employed but cannot get Statutory Maternity Pay (SMP)</li>
+        <li>are self-employed</li>
+        <li>have recently stopped working</li>
+        <li>take part in unpaid work for the business of your spouse or civil partner</li>
+      </ul>
+
+      <p class="govuk-body">
+        You can get Maternity Allowance for up to 39 weeks.
+      </p>
+
+      <h2 class="govuk-heading-l">
+        Before you start
+      </h2>
+
+      <p class="govuk-body">
+        You will also need to upload evidence of:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Your maternity certificate (MAT B1)</li>
+        <li>an SMP1 form from each employer you had during the 15th week before the week your baby is due</li>
+        <li>Your baby's birth certificate, if relevant</li>
+      </ul>
+
+      <p class="govuk-body">
+        You will need to know your National Insurance number.
+      </p>
+
+      <p class="govuk-body">
+        You will not be able to save your claim.
+      </p>
+
+      <p class="govuk-body">
+        Maternity Allowance may affect other benefits or entitlements you are getting, including Universal Credit.
+      </p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "/transition/sign-in-with-govuk-one-login",
+        isStartButton: true
+      }) }}
+
+    </div>
+
+  </div>
+
+{% endblock %}
