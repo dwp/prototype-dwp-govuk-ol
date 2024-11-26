@@ -1,0 +1,28 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+{% set title =  "Continue to the service you need to use" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+         
+      <form class="form" action="/idv/return-to-service" method="post">
+
+      <h1 class="govuk-heading-l">
+        Continue to the service you need to use
+      </h1>
+
+      <p>We’ve checked your details. You can now continue to the service you need to use.</p>
+
+      <p>Some of the information you shared when you proved your identity might be used to automatically fill in forms within the service.</p>
+
+   
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

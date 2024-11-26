@@ -987,7 +987,7 @@ router.post('/id-screener-2/answer', (req, res) => {
         // Route user based on their selection
         if (selectedOption === "No") {
             // Send user to find another way
-            res.redirect('/idv/f2f-another-way');
+            res.redirect('/nophotoidv/no-photo-id-triage');
         } else {
             // Send user to claimed identity cri
             res.redirect('/idv/claimed-identity-cri/name');
@@ -997,6 +997,29 @@ router.post('/id-screener-2/answer', (req, res) => {
         res.redirect('/id-screener-2/answer?error=true');
     }
 });
+
+
+// Handle form submission
+router.post('/nophotoidv/no-photo-id-triage', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['no-photo-id-triage'];
+
+    if (selectedOption) {
+        // Route user based on their selection
+        if (selectedOption === "No") {
+            // Send user to find another way
+            res.redirect('/idv/find-another-way');
+        } else {
+            // Send user to claimed identity cri
+            res.redirect('/nophotoidv/name');
+        }
+    } else {
+        // If no radio button is selected, redirect to /id-screener-2/answer with error
+        res.redirect('/nophotoidv/no-photo-id-triage?error=true');
+    }
+});
+
+
 
 // Routes for Face to Face CRI
 router.get('/f2f-cri/choose-id/answer', (req, res) => {
@@ -1246,7 +1269,7 @@ router.post('/prove-identity-at-post-office-answer', (req, res) => {
 });
 
 // Routes for 'Find another way to prove your identity' IPV Core
-router.get('/find-another-way-answer', (req, res) => {
+router.get('/idv/find-another-way-answer', (req, res) => {
     // Check if there was an error
     const showErrorSummary = req.query.error === 'true';
 
@@ -1255,21 +1278,22 @@ router.get('/find-another-way-answer', (req, res) => {
 });
 
 // Handle form submission
-router.post('/find-another-way-answer', (req, res) => {
+router.post('/idv/find-another-way-answer', (req, res) => {
     // Check if a radio button is selected
-    const selectedOption = req.body['another-way'];
+    const selectedOption = req.body['no-photo-id-triage-exit'];
 
     if (selectedOption) {
         // If radio option is selected:
-        if (selectedOption === "another way") {
+        if (selectedOption === "no-photo-id-triage-exit") {
             // Send user to set up auth app
             res.redirect('/idv/return-to-service');
-        } else {
+        } else if (selectedOption === "no-photo-id-triage-exit-2") {
             // Send user to enter phone number
             res.redirect('/idv/filter-question');
         }
     } else {
         // If no radio button is selected, redirect to /computer-or-tablet/answer with error
-        res.redirect('/find-another-way-answer?error=true');
+        res.redirect('/idv/find-another-way-answer?error=true');
     }
 });
+

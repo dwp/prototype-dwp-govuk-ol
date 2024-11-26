@@ -1,0 +1,66 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+{% set title =  "Enter your date of birth" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+
+    <form class="form" action="/nophotoidv/check-details" method="post">
+
+      {% if showErrorSummary %}
+      {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+              {
+                  text: "Select what you would like to do",
+                  href: "#post-office-id"
+              }
+          ]
+      }) }}
+      {% endif %}
+
+<h1 class="govuk-heading-l" id="header">Enter your date of birth</h1>
+<div class="govuk-form-group ">
+  <fieldset class="govuk-fieldset">
+      <span class="govuk-hint govuk-!-margin-bottom-1">For example, 31 3 1980</span>
+      <br>
+      <br>
+
+  <div class="govuk-date-input">
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="date-of-birth-day">Day</label>
+        <input maxlength="2" id="date-of-birth-day" min="1" max="31" class="govuk-input govuk-date-input__input govuk-input--width-2 " type="text" inputmode="numeric" name="date-of-birth-day" autocomplete="bday-day">
+      </div>
+    </div>
+
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="date-of-birth-month">Month</label>
+        <input maxlength="2" id="date-of-birth-month" class="govuk-input govuk-date-input__input govuk-input--width-2 " type="text" inputmode="numeric" name="date-of-birth-month" autocomplete="bday-month">
+      </div>
+    </div>
+
+    <div class="govuk-date-input__item">
+      <div class="govuk-form-group">
+          <label class="govuk-label" for="date-of-birth-year">Year</label>
+        <input maxlength="4" id="date-of-birth-year" class="govuk-input govuk-date-input__input govuk-input--width-4 " type="text" inputmode="numeric" name="date-of-birth-year" autocomplete="bday-year">
+      </div>
+    </div>
+  </div>
+  </fieldset>
+</div>
+
+
+<button name="submitButton" class="govuk-button" data-module="govuk-button" id="submitButton">
+Continue
+</button>
+</form>
+
+
+
+
+{% endblock %}
