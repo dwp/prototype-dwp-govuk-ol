@@ -1,0 +1,97 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+{% set title =  "Enter your name as it appears on your bank or building society account" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+
+    <form class="form" action="/nophotoidv/dob" method="post">
+
+      {% if showErrorSummary %}
+      {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+              {
+                  text: "Select what you would like to do",
+                  href: "#post-office-id"
+              }
+          ]
+      }) }}
+      {% endif %}
+
+<h1 class="govuk-heading-l" id="header">Enter your name as it appears on your bank or building society account</h1>
+<p class="govuk-body">This needs to be the exact name registered to the account. If you’re using joint account details, you do not need to enter the other person’s name.</p>
+
+<div class="govuk-inset-text">
+  <p class="govuk-body">The name on your bank card might only use your initials.</p>
+  <p class="govuk-body">Check your banking app, online bank account or a bank statement for the full registered name. </p>
+</div>
+
+<div class="govuk-form-group">
+  <label class="govuk-label" id="surname-label" for="surname">
+  Last name
+  </label>
+  
+  <input class="govuk-input govuk-!-width-full" id="surname" name="surname" type="text">
+  </div>
+
+  <p class="govuk-body govuk-!-margin-bottom-0">Given names</p>
+  <div class="govuk-inset-text govuk-!-margin-top-2">
+
+    <div class="govuk-form-group">
+    <label class="govuk-label" id="firstName-label" for="firstName">
+    First name
+    </label>
+    <input class="govuk-input govuk-!-width-three-quarters" id="firstName" name="firstName" type="text">
+    </div>
+    
+    <div class="govuk-form-group">
+    <label class="govuk-label" id="middleName-label" for="middleName">
+    Middle name(s)
+    </label>
+    <div id="middleName-hint" class="govuk-hint">
+    Leave this blank if you do not have any middle names
+    </div>
+    <input class="govuk-input govuk-!-width-three-quarters" id="middleName" name="middleName" type="text" aria-describedby="middleName-hint" aria-required="false">
+    </div>
+    </div>
+
+
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Names and letters you cannot enter
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <p class="govuk-body">For technical reasons, we cannot accept:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>single letter names</li>
+          <li>names with special characters or accent marks</li>
+        </ul>
+        <p class="govuk-body">You can enter your name using letters without special characters. </p>
+        <p class="govuk-body">Use a, e, o, u instead of á, é, ó, ú. For example, if your name is Renée, enter it as Renee.</p>
+        <p class="govuk-body">You can include hyphens or apostrophes if your name has them. </p>
+        <p class="govuk-body">
+          If you’re having problems entering your name, you can also <a href="/journey-transition/leaving-prototype" class="govuk-link" rel="noreferrer noopener" target="_blank">contact the GOV.UK One Login team (opens in new tab)</a>.
+        </p>
+      </div>
+    </details>
+
+
+<button name="submitButton" class="govuk-button" data-module="govuk-button" id="submitButton">
+Continue
+</button>
+</form>
+
+<p class="govuk-!-padding-bottom-5">
+  <a href="#" class="govuk-link govuk-link--no-visited-state" id="confirmIdentityAnotherWay">Contact the GOV.UK account team (opens in a new tab)</a>
+</p>
+  </div>
+</div>
+
+
+{% endblock %}

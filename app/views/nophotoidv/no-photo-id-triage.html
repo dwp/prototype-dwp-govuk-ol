@@ -1,0 +1,97 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+
+{% set title =  "Prove your identity with bank or building society details and security questions" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds ">
+
+    <form class="form" action="/nophotoidv/no-photo-id-triage" method="post">
+
+      {% if showErrorSummary %}
+      {{ govukErrorSummary({
+          titleText: "There is a problem",
+          errorList: [
+              {
+                  text: "Select what you would like to do",
+                  href: "#no-photo-id-triage"
+              }
+          ]
+      }) }}
+      {% endif %}
+
+<h1 class="govuk-heading-l" id="header">Prove your identity with bank or building society details and security questions</h1>
+<p class="govuk-body">You can use any current account with a UK bank or building society to prove your identity. Your name must be on the account.</p>
+<p class="govuk-heading-m">Provide some personal details</p>
+<p class="govuk-body">We’ll ask you for your:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>name</li>
+  <li>date of birth</li>
+  <li>sort code and account number</li>
+  <li>National Insurance number</li>
+  <li>current address (you might also need your previous address if you’ve recently moved)</li>
+  </ul>
+
+  <p class="govuk-heading-m">Answer some security questions</p>
+  <p class="govuk-body">We’ll then ask you some security questions. This helps us check if the details you've given are being used by you.</p>
+
+{% if showErrorSummary %}
+{{ govukRadios({
+  name: "no-photo-id-triage",
+  fieldset: {
+    legend: {
+      text: "Do you have a UK bank or building society current account in your name?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes"
+    },
+    {
+      value: "No",
+      text: "No - prove my identity another way"
+    }
+    ],
+    errorMessage: {
+        text: "Select what you would like to do"
+    }
+}) }}
+{% else %}
+{{ govukRadios({
+  name: "no-photo-id-triage",
+  fieldset: {
+    legend: {
+      text: "Do you have a UK bank or building society current account in your name?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "Yes",
+      text: "Yes"
+    },
+    {
+      value: "No",
+      text: "No - prove my identity another way"
+    }
+    ]
+}) }}
+{% endif %}
+
+<button name="submitButton" class="govuk-button" data-module="govuk-button" id="submitButton">
+Continue
+</button>
+</form>
+
+  </div>
+</div>
+
+
+{% endblock %}
