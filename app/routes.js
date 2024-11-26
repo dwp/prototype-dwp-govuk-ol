@@ -235,8 +235,8 @@ router.post('/choose-journey/answer', (req, res) => {
     if (selectedOption) {
         // If radio option is selected:
         if (selectedOption === "prove-identity") {
-            // Send user to
-            res.redirect('/service-pages-routes/maternity-allowance/start?userJourney=idv');
+            // Send user tomatern
+            res.redirect('/service-pages-routes/repay/start?userJourney=idv');
         } else if (selectedOption === "identity-reuse") {
             // Send user to
             res.redirect('/service-pages-routes/repay/start?userJourney=signin');
