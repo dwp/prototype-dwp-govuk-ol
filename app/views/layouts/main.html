@@ -5,3 +5,13 @@ https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
+{% block beforeContent %}
+{% if phaseBanner == 'true' %}
+    {% include '_includes/phase-bannerz.njk' %}
+{% endif %}
+{% if backLink == 'true' %}
+{% include '_includes/back-link.njk' %}
+{% endif %}
+
+{% endblock %}
+
