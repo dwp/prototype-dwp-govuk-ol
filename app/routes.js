@@ -1284,12 +1284,15 @@ router.post('/idv/find-another-way-answer', (req, res) => {
 
     if (selectedOption) {
         // If radio option is selected:
-        if (selectedOption === "no-photo-id-triage-exit") {
+        if (selectedOption === "no-photo-id-triage-exit-1") {
             // Send user to set up auth app
             res.redirect('/idv/return-to-service');
         } else if (selectedOption === "no-photo-id-triage-exit-2") {
+            // Send back
+            res.redirect('/idv/id-screener-2');
+        } else if (selectedOption === "no-photo-id-triage-exit-4") {
             // Send user to enter phone number
-            res.redirect('/idv/filter-question');
+            res.redirect('/idv/nophotoid/no-photo-id-triage');
         }
     } else {
         // If no radio button is selected, redirect to /computer-or-tablet/answer with error
