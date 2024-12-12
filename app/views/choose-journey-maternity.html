@@ -11,7 +11,7 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
-    <form class="form" action="/choose-journey/answer" method="post">
+    <form class="form" action="/choose-journey-maternity/answer" method="post">
 
         {% if showErrorSummary %}
         {{ govukErrorSummary({
@@ -19,13 +19,13 @@
             errorList: [
                 {
                     text: "Choose a journey to continue",
-                    href: "#choose-journey"
+                    href: "#choose-journey-maternity"
                 }
             ]
         }) }}
 
         {{ govukRadios({
-          name: "choose-journey",
+          name: "choose-journey-maternity",
           fieldset: {
             legend: {
               text: "Choose a journey",
@@ -72,7 +72,7 @@
         }) }}
         {% else %}
         {{ govukRadios({
-          name: "choose-journey",
+          name: "choose-journey-maternity",
           fieldset: {
             legend: {
               text: "Choose a journey",

@@ -1,0 +1,143 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "DWP–GOV.UK One Login prototype" %}
+
+{% set serviceName %}
+  DWP – GOV.UK One Login prototype
+{% endset%}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <form class="form" action="/choose-journey-repay/answer" method="post">
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Choose a journey to continue",
+                    href: "#choose-journey-repay"
+                }
+            ]
+        }) }}
+
+        {{ govukRadios({
+          name: "choose-journey-repay",
+          fieldset: {
+            legend: {
+              text: "Choose a journey",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "prove-identity",
+              text: "Path A and B",
+              hint: {
+                text: "Citizen without a GOV.UK One Login credential."
+              }
+            },
+            {
+              value: "oidv-medium-user",
+              text: "Path C",
+              hint: {
+                text: "Citizen without a GOV.UK One Login but has OIDV medium level confidence."
+              }
+            },
+            {
+              value: "returning-ol-user",
+              text: "Path D",
+              hint: {
+                text: "Returning user with GOV.UK One Login credentials (users who previously gone through Path A or B)."
+              }
+            },
+            {
+              value: "returning-ol-and-oidv-medium-user",
+              text: "Path E",
+              hint: {
+                text: "Returning user with GOV.UK One Login credentials and OIDV medium confidence (users who have previously gone through Path C)."
+              }
+            }
+          ],
+            errorMessage: {
+                text: "Choose a journey to continue"
+            }
+        }) }}
+        {% else %}
+        {{ govukRadios({
+          name: "choose-journey-repay",
+          fieldset: {
+            legend: {
+              text: "Choose a journey",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "prove-identity",
+              text: "Path A and B",
+              hint: {
+                text: "Citizen without a GOV.UK One Login credential."
+              }
+            },
+            {
+              value: "oidv-medium-user",
+              text: "Path C",
+              hint: {
+                text: "Citizen without a GOV.UK One Login but has OIDV medium level confidence."
+              }
+            },
+            {
+              value: "returning-ol-user",
+              text: "Path D",
+              hint: {
+                text: "Returning user with GOV.UK One Login credentials (users who previously gone through Path A or B)."
+              }
+            },
+            {
+              value: "returning-ol-and-oidv-medium-user",
+              text: "Path E",
+              hint: {
+                text: "Returning user with GOV.UK One Login credentials and OIDV medium confidence (users who have previously gone through Path C)."
+              }
+            }
+          ]
+        }) }}
+        {% endif %}
+
+        {{ govukButton({
+            text: "Continue",
+            type: "Submit"
+        }) }}
+
+      </form>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+    <h2 class="govuk-heading-m">
+      High level user journeys
+    </h2>
+
+    <img class="object-fit--contain" src="/public/images/user-journey/user-journeys-ol-dwp.png">
+
+  </div>
+</div>
+
+{% endblock %}

@@ -218,19 +218,64 @@ router.post('/kbv-another-way-answer', (req, res) => {
     }
 });
 
-//Routes for Choosing a journey
-router.get('/choose-journey/answer', (req, res) => {
+
+// Handle form submission
+router.post('/service-pages-routes', (req, res) => {
+    const selectedOption = req.session.data['choose-service-line'];
+
+//If Repay was selected go to account home dashboard
+    if(selectedOption === 'repay') {
+      res.redirect('service-pages-routes/repay/account-home?repay=true')
+    }
+//If Maternity was selected go to task list
+    else if(selectedOption === 'maternity') {
+      res.redirect('service-pages-routes/maternity-allowance/task-list?maternity=true')
+    }
+
+});
+
+//Routes for Choosing a service line
+router.get('/choose-service-line/answer', (req, res) => {
     // Check if there was an error
     const showErrorSummary = req.query.error === 'true';
 
     // Render the template with the error condition
-    res.render('choose-journey.html', { showErrorSummary });
+    res.render('choose-service-line.html', { showErrorSummary });
+});
+
+// Handle form submission for service lines
+router.post('/choose-service-line/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['choose-service-line'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "repay") {
+            // Send user to repay my debt
+            res.redirect('/choose-journey-repay');
+        } else if (selectedOption === "maternity") {
+            // Send user to maternity allowance
+            res.redirect('/choose-journey-maternity');
+        }
+    } else {
+        // If no radio button is selected, redirect to /choose-service-line/answer with error
+        res.redirect('/choose-service-line/answer?error=true');
+    }
+});
+
+//Routes for Choosing repay journeys
+router.get('/choose-journey-repay/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('choose-journey-repay.html', { showErrorSummary });
 });
 
 // Handle form submission
-router.post('/choose-journey/answer', (req, res) => {
+router.post('/choose-journey-repay/answer', (req, res) => {
     // Check if a radio button is selected
-    const selectedOption = req.body['choose-journey'];
+    const selectedOption = req.body['choose-journey-repay'];
 
     if (selectedOption) {
         // If radio option is selected:
@@ -252,9 +297,49 @@ router.post('/choose-journey/answer', (req, res) => {
         }
     } else {
         // If no radio button is selected, redirect to /choose-journey/answer with error
-        res.redirect('/choose-journey/answer?error=true');
+        res.redirect('/choose-journey-repay/answer?error=true');
     }
 });
+
+
+//Routes for Choosing maternity journeys
+router.get('/choose-journey-maternity/answer', (req, res) => {
+    // Check if there was an error
+    const showErrorSummary = req.query.error === 'true';
+
+    // Render the template with the error condition
+    res.render('choose-maternity-repay.html', { showErrorSummary });
+});
+
+// Handle form submission
+router.post('/choose-journey-maternity/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['choose-journey-maternity'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "prove-identity") {
+            // Send user tomatern
+            res.redirect('/service-pages-routes/maternity-allowance/start?userJourney=idv');
+        } else if (selectedOption === "identity-reuse") {
+            // Send user to
+            res.redirect('/service-pages-routes/maternity-allowance/start?userJourney=signin');
+        } else if (selectedOption === "oidv-medium-user") {
+            // Send user to
+            res.redirect('/service-pages-routes/maternity-allowance/start?userJourney=oidvMedium');
+        } else if (selectedOption === "returning-ol-user") {
+            // Send user to
+            res.redirect('/service-pages-routes/rmaternity-allowance/start?userJourney=returningOlUser');
+        } else if (selectedOption === "returning-ol-and-oidv-medium-user") {
+            // Send user to
+            res.redirect('/service-pages-routes/maternity-allowance/start?userJourney=returningOlAndOidvMediumUser');
+        }
+    } else {
+        // If no radio button is selected, redirect to /choose-journey/answer with error
+        res.redirect('/choose-journey-maternity/answer?error=true');
+    }
+});
+
 
 //Routes for Which smartphone are you using?
 router.get('/on-a-smartphone/answer', (req, res) => {
