@@ -1,0 +1,102 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "DWP–GOV.UK One Login prototype" %}
+
+{% set serviceName %}
+  DWP – GOV.UK One Login prototype
+{% endset%}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <form class="form" action="/choose-service-line/answer" method="post">
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Choose a service line to continue",
+                    href: "#choose-service-line"
+                }
+            ]
+        }) }}
+
+        {{ govukRadios({
+          name: "choose-service-line",
+          fieldset: {
+            legend: {
+              text: "Choose a service line",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "repay",
+              text: "Repay and manage benefit money you owe",
+              hint: {
+                text: ""
+              }
+            },
+            {
+              value: "maternity",
+              text: "Maternity Allowance",
+              hint: {
+                text: ""
+              }
+            }
+          ],
+            errorMessage: {
+                text: "Choose a service line to continue"
+            }
+        }) }}
+        {% else %}
+        {{ govukRadios({
+          name: "choose-service-line",
+          fieldset: {
+            legend: {
+              text: "Choose a service line",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "repay",
+              text: "Repay and manage benefit money you owe",
+              hint: {
+                text: ""
+              }
+            },
+            {
+              value: "maternity",
+              text: "Maternity Allowance",
+              hint: {
+                text: ""
+              }
+            }
+          ]
+        }) }}
+        {% endif %}
+
+        {{ govukButton({
+            text: "Continue",
+            type: "Submit"
+        }) }}
+
+      </form>
+
+  </div>
+</div>
+
+
+{% endblock %}
