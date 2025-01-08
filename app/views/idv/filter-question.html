@@ -11,149 +11,96 @@
 
         <form class="form" action="/id-screener/answer" method="post">
 
-            {% if showErrorSummary %}
-            {{ govukErrorSummary({
-                titleText: "There is a problem",
-                errorList: [
-                    {
-                        text: "Select yes if you have any of these types of photo ID",
-                        href: "#have-photo-id"
-                    }
-                ]
-            }) }}
-            {% endif %}
 
-            <h1 class="govuk-heading-l">
-                {{ title }}
-            </h1>
-
-            <p class="govuk-body">
-                This will help us find the best way for you to prove your identity.
-            </p>
-
-            <ul class="govuk-list" role="list">
-                <li>
-                    <h2 class="govuk-heading-m govuk-!-margin-top-7">
-                        UK photocard driving licence
-                    </h2>
-                    <p class="govuk-body govuk-!-margin-bottom-2">
-                        You can use a full or provisional UK driving licence if it:
-                    </p>
-                    <ul class="govuk-list govuk-list--bullet ">
-                        <li>is a plastic photocard, not a paper licence</li>
-                        <li>has not expired</li>
-                    </ul>
-                </li>
-
-                <li>
-                    <h2 class="govuk-heading-m govuk-!-margin-top-7">
-                        UK passport
-                    </h2>
-                    <p class="govuk-body">
-                        You can use any UK passport if it has not expired.
-                    </p>
-                </li>
-
-                <li>
-                    <h2 class="govuk-heading-m govuk-!-margin-top-7">
-                        Non-UK passport with a biometric chip
-                    </h2>
-                    <p class="govuk-body govuk-!-margin-bottom-2">
-                        You can use a non-UK passport if it:
-                    </p>
-                    <ul class="govuk-list  govuk-list--bullet">
-                        <li>has a biometric chip</li>
-                        <li>has not expired</li>
-                    </ul>
-                    <p class="govuk-body">
-                        To check if your passport has a biometric chip, look for the rectangular biometric chip symbol on the front cover.
-                    </p>
-                    <picture>
-                        <source srcset="https://assets.integration.account.gov.uk/core-front/public/images/passport-icon.svg">
-                        <img width="174" height="121" loading="lazy" src="https://assets.integration.account.gov.uk/core-front/public/images/passport-icon-1x.png" srcset="https://assets.integration.account.gov.uk/core-front/public/images/passport-icon-2x.png 2x" alt="The front cover of a passport with the biometric chip symbol. The symbol is rectangular with a circle in the middle.">
-                    </picture>
-                </li>
-
-                <li>
-                    <h2 class="govuk-heading-m govuk-!-margin-top-7">
-                        UK biometric residence permit (BRP)
-                    </h2>
-                    <p class="govuk-body">
-                        You can use a UK biometric resident permit (BRP) that has not expired. You might have a BRP if you have a visa for longer than 6 months or indefinite leave to remain.
-                    </p>
-                </li>
-
-                <li>
-                    <h2 class="govuk-heading-m govuk-!-margin-top-7">
-                        UK biometric residence card (BRC)
-                    </h2>
-                    <p class="govuk-body">
-                        This is also called a UK residence card. You can use a BRC that has not expired. You might have a BRC if you’re in the UK as a family member of a citizen from a European Economic Area (EEA) country.
-                    </p>
-                </li>
-
-                <li>
-                    <h2 class="govuk-heading-m govuk-!-margin-top-7">
-                        UK Frontier Worker permit (FWP)
-                    </h2>
-                    <p class="govuk-body">
-                        You can use an FWP that has not expired. You might have an FWP if you work in the UK but live in another country.
-                    </p>
-                </li>
+      
+                
+            <h1 class="govuk-heading-l">Tell us if you have one of the following types of photo ID</h1>
+            <p>This will help us find the best way for you to prove your identity.</p>
+            <p>You can use one of the following types of photo ID:</p>
+            <ul class="govuk-list govuk-list--bullet">
+                <li>UK photocard driving licence</li>
+                <li>UK passport</li>
+                <li>non-UK passport with a biometric chip</li>
+                <li>UK biometric residence permit (BRP)</li>
+                <li>UK biometric residence card (BRC)</li>
+                <li>UK Frontier Worker permit (FWP)</li>
             </ul>
-
-            {% if showErrorSummary %}
-            {{ govukRadios({
-            name: "have-photo-id",
-            fieldset: {
-                legend: {
-                text: "Do you have one of these types of photo ID?",
-                isPageHeading: false,
-                classes: "govuk-fieldset__legend--m"
-                }
-            },
-            items: [
-                {
-                    value: "Yes",
-                    text: "Yes"
-                },
-                {
-                    value: "No",
-                    text: "No"
-                }
-                ],
-                errorMessage: {
-                    text: "Select yes if you have any of these types of photo ID"
-                }
-            }) }}
-            {% else %}
-            {{ govukRadios({
-                name: "have-photo-id",
-                fieldset: {
-                    legend: {
-                    text: "Do you have one of these types of photo ID?",
-                    isPageHeading: false,
-                    classes: "govuk-fieldset__legend--m"
-                    }
-                },
-                items: [
-                    {
-                        value: "Yes",
-                        text: "Yes"
-                    },
-                    {
-                        value: "No",
-                        text: "No"
-                    }
-                    ]
-            }) }}
-            {% endif %}
-
-            <button name="submitButton" class="govuk-button" data-module="govuk-button">
-                Continue
-            </button>
-
-        </form>
+            <div class="govuk-inset-text">
+              You can use an expired BRP, BRC or FWP up to 18 months after its expiry date if you have a smartphone.
+            </div>
+  
+            <p class="govuk-body">Find out more about the different types of <a href="/page-index/ipv-core/types-of-photo-id" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">photo ID we accept (opens in a new tab)</a>.</p>
+        
+          
+        
+  
+  
+  
+  
+  
+  <div class="govuk-form-group">
+  
+    <fieldset class="govuk-fieldset" aria-describedby="have-photo-id-hint">
+      
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      
+        Do you have any of these types of photo ID?
+      
+      </legend>
+      
+    
+      <div id="have-photo-id-hint" class="govuk-hint">
+        You’ll need to have your photo ID ready. You cannot use a photocopy or digital copy.
+      </div>
+    
+    
+      <div class="govuk-radios" data-module="govuk-radios">
+        
+        
+          
+      
+        
+        
+        
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="have-photo-id" name="have-photo-id" type="radio" value="Yes">
+          <label class="govuk-label govuk-radios__label" for="have-photo-id">
+            Yes
+          </label>
+          
+        </div>
+        
+      
+        
+          
+      
+        
+        
+        
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="have-photo-id-2" name="have-photo-id" type="radio" value="No">
+          <label class="govuk-label govuk-radios__label" for="have-photo-id-2">
+            No
+          </label>
+          
+        </div>
+        
+      
+        
+        
+      </div>
+    
+    </fieldset>
+  
+  </div>
+  
+  
+  
+  <button name="submitButton" class="govuk-button" data-module="govuk-button">
+  Continue
+  </button>
+  
+  </form>
 
     </div>
 </div>
