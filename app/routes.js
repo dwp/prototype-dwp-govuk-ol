@@ -1362,22 +1362,22 @@ router.get('/idv/find-another-way-answer', (req, res) => {
     res.render('/idv/find-another-way.html', { showErrorSummary });
 });
 
-// Handle form submission
+// Handle form submission for no photo id triage
 router.post('/idv/find-another-way-answer', (req, res) => {
     // Check if a radio button is selected
     const selectedOption = req.body['no-photo-id-triage-exit'];
 
     if (selectedOption) {
         // If radio option is selected:
-        if (selectedOption === "no-photo-id-triage-exit-1") {
+        if (selectedOption === "Find another way") {
             // Send user to set up auth app
             res.redirect('/idv/return-to-service');
-        } else if (selectedOption === "no-photo-id-triage-exit-2") {
+        } else if (selectedOption === "Use photo ID") {
             // Send back
             res.redirect('/idv/id-screener-2');
-        } else if (selectedOption === "no-photo-id-triage-exit-4") {
+        } else if (selectedOption === "Use bank details") {
             // Send user to enter phone number
-            res.redirect('/idv/nophotoid/no-photo-id-triage');
+            res.redirect('/nophotoidv/no-photo-id-triage');
         }
     } else {
         // If no radio button is selected, redirect to /computer-or-tablet/answer with error
@@ -1385,3 +1385,61 @@ router.post('/idv/find-another-way-answer', (req, res) => {
     }
 });
 
+
+// Handle form submission for no photo id escape
+router.post('/no-photo-id-escape/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['no-photo-id-escape'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "id-check-app") {
+            // Send user to set up auth app
+            res.redirect('/idv/computer-or-tablet');
+        } else if (selectedOption === "passport-web") {
+            // Send back
+            res.redirect('/idv/web/passport/enter-passport-details');
+        } else if (selectedOption === "driving-licence-web") {
+            // Send user to enter phone number
+            res.redirect('/idv/web/driving-licence/whoIssuedLicence');
+        }
+          else if (selectedOption === "post-office") {
+        // Send user to enter phone number
+        res.redirect('/idv/claimed-identity-cri/name');
+    }
+    else if (selectedOption === "another way") {
+        // Send user to enter phone number
+        res.redirect('/idv/return-to-service');
+    }
+        
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/no-photo-id-escape/answer?error=true');
+    }
+});
+
+
+
+
+
+
+// Handle form submission for bank account escape
+router.post('/bank-account-escape-answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['escape'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "another way") {
+            // Send back
+            res.redirect('/idv/ipv-core/no-photo-id-escape');
+        }  else if (selectedOption === "try again") {
+            // Send user to enter phone number
+            res.redirect('/idv/bank-account-cri/before-you-continue');
+        }
+        
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/bank-account-escape-answer?error=true');
+    }
+});
