@@ -1443,3 +1443,85 @@ router.post('/bank-account-escape-answer', (req, res) => {
         res.redirect('/bank-account-escape-answer?error=true');
     }
 });
+
+
+
+
+// Handle form submission for bank account escape
+router.post('/bank-account-escape-answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['escape'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "another way") {
+            // Send back
+            res.redirect('/idv/ipv-core/no-photo-id-escape');
+        }  else if (selectedOption === "try again") {
+            // Send user to enter phone number
+            res.redirect('/idv/bank-account-cri/before-you-continue');
+        }
+        
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/bank-account-escape-answer?error=true');
+    }
+});
+
+
+
+
+// Handle form submission for update details
+router.post('/update-your-details/answer', (req, res) => {
+    var updatedetails = req.session.data['update-details'];
+       // First name
+    if(updatedetails.includes('Given names')) {
+    res.redirect('/idv/ipv-core/continuity-of-identity/update-name-app?firstnameorlastname=true')
+  }
+   // Last name
+   else if(updatedetails.includes('Last name')) {
+    res.redirect('/idv/ipv-core/continuity-of-identity/update-name-app?lastnameorfirstname=true')
+  }
+   // Last name
+   else if(updatedetails.includes('Given names','Last name')) {
+    res.redirect('/idv/ipv-core/continuity-of-identity/update-name-date-birth?firstnameandlastname=true')
+  }
+  // Address
+  else if (updatedetails.includes('Address')) {
+    res.redirect('/idv/address-cri/repeat-fraud-check/find-current-address?addr=true')
+  }
+  // DOB
+  else if (updatedetails.includes('dob')) {
+    res.redirect('/idv/ipv-core/continuity-of-identity/update-name-date-birth?birth=true')
+  }
+  // No need to update details
+  else if (updatedetails.includes('none')) {
+    res.redirect('/ol-credential-create-and-signin/returning/returning-you-have-already-proved-your-identity?not=true')
+  }
+  else {
+    res.redirect('/idv/ipv-core/continuity-of-identity/update-your-details?error=true')
+  }
+});
+
+
+
+// Handle form submission for updating full name, dob or address
+router.post('/continuity-of-identity/update-name-or-dob-answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['update-name-or-dob'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "Contact us") {
+            // Send back
+            res.redirect('/leaving-prototype');
+        }  else if (selectedOption === "Check details") {
+            // Send user to enter phone number
+            res.redirect('/idv/ipv-core/continuity-of-identity/update-your-details');
+        }
+        
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/continuity-of-identity/update-name-or-dob-answer?error=true');
+    }
+});
