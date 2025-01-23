@@ -1473,35 +1473,35 @@ router.post('/bank-account-escape-answer', (req, res) => {
 
 // Handle form submission for update details
 router.post('/update-your-details/answer', (req, res) => {
-    var updatedetails = req.session.data['update-details'];
-       // First name
-    if(updatedetails.includes('Given names')) {
-    res.redirect('/idv/ipv-core/continuity-of-identity/update-name-app?firstnameorlastname=true')
-  }
-   // Last name
-   else if(updatedetails.includes('Last name')) {
-    res.redirect('/idv/ipv-core/continuity-of-identity/update-name-app?lastnameorfirstname=true')
-  }
-   // Last name
-   else if(updatedetails.includes('Given names','Last name')) {
-    res.redirect('/idv/ipv-core/continuity-of-identity/update-name-date-birth?firstnameandlastname=true')
-  }
+    var update = req.session.data['update-details'];
+
+
+       //First name & Last name
+   if (update == "Given names", "Last name")  {
+        res.redirect('/idv/ipv-core/continuity-of-identity/update-name-date-birth?firstnameandlastname=true');
+      }
+      // First name or Last name
+   else if( update == "Given names" || update == "Last name" ) {
+    res.redirect('/idv/ipv-core/continuity-of-identity/update-name-app?firstnameorlastname=true');
+   }
   // Address
-  else if (updatedetails.includes('Address')) {
-    res.redirect('/idv/address-cri/repeat-fraud-check/find-current-address?addr=true')
+  else if (update == "Address") {
+    res.redirect('/idv/address-cri/repeat-fraud-check/find-current-address?addr=true');
   }
   // DOB
-  else if (updatedetails.includes('dob')) {
-    res.redirect('/idv/ipv-core/continuity-of-identity/update-name-date-birth?birth=true')
+  else if (update == "dob") {
+    res.redirect('/idv/ipv-core/continuity-of-identity/update-name-date-birth?birth=true');
   }
   // No need to update details
-  else if (updatedetails.includes('none')) {
-    res.redirect('/ol-credential-create-and-signin/returning/returning-you-have-already-proved-your-identity?not=true')
+  else if (update == "none") {
+    res.redirect('/ol-credential-create-and-signin/returning/returning-you-have-already-proved-your-identity?not=true');
   }
   else {
-    res.redirect('/idv/ipv-core/continuity-of-identity/update-your-details?error=true')
+    res.redirect('/idv/ipv-core/continuity-of-identity/update-your-details?error=true');
   }
 });
+
+
 
 
 
