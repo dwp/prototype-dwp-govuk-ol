@@ -4,12 +4,10 @@
 You have a GOV.UK One Login - GOV.UK One Login
 {% endblock %}
 
-{% block header %}
-{% include "/includes/govuk-one-login-header.njk" %}
-{% endblock %}
+
 
 {% block beforeContent %}
-{% include "/includes/phase-banner.njk" %}
+{% include "/_includes/phase-banner.njk" %}
 {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
