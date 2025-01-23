@@ -97,7 +97,10 @@ Update your details - GOV.UK One Login
         Select all that apply.
       </div>
     
-    
+
+
+      
+
       <div class="govuk-checkboxes" data-module="govuk-checkboxes">
         
         
@@ -110,7 +113,7 @@ Update your details - GOV.UK One Login
         
         
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="update-details-1" name="update-details" type="checkbox" value="Given names" aria-describedby="update-details-item-hint">
+          <input class="govuk-checkboxes__input option" id="update-details-1" name="update-details-1" type="checkbox" value="Given names" aria-describedby="update-details-item-hint">
           <label class="govuk-label govuk-checkboxes__label" for="update-details">
             Given names
           </label>
@@ -122,7 +125,10 @@ Update your details - GOV.UK One Login
         </div>
         
       
-    
+    </div>
+
+
+
         
           
       
@@ -132,33 +138,35 @@ Update your details - GOV.UK One Login
         
         
         
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="update-details-2" name="update-details" type="checkbox" value="Last name">
+          <input class="govuk-checkboxes__input option" id="update-details-2" name="update-details-2" type="checkbox" value="Last name">
           <label class="govuk-label govuk-checkboxes__label" for="update-details-2">
             Last name
           </label>
           
         </div>
-        
+        </div>
       
     
         
           
       
       
+        <br>
         
         
         
         
-        
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="update-details-3" name="update-details" type="checkbox" value="Address">
+          <input class="govuk-checkboxes__input option" id="update-details-3" name="update-details-3" type="checkbox" value="Address">
           <label class="govuk-label govuk-checkboxes__label" for="update-details-3">
             Address
           </label>
           
         </div>
-        
+        </div>
       
     
         
@@ -168,36 +176,25 @@ Update your details - GOV.UK One Login
         
         
         
+        <br>
         
-        
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="update-details-4" name="update-details" type="checkbox" value="dob">
+          <input class="govuk-checkboxes__input option" id="update-details-4" name="update-details-4" type="checkbox" value="dob">
           <label class="govuk-label govuk-checkboxes__label" for="update-details-4">
             Date of birth
           </label>
           
         </div>
+        </div>
         
-      
-    
-        
-          
-      
-      
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+    <br>
         <div class="govuk-checkboxes__divider">or</div>
       
-    
-        
-          
-      
-      
-        
-        
-        
-        
-        
+  
         <div class="govuk-checkboxes__item">
-          <input class="govuk-checkboxes__input" id="update-details-5" name="update-details" type="checkbox" value="none" data-behaviour="exclusive">
+          <input class="govuk-checkboxes__input none" id="update-details-5" name="update-details-5" type="checkbox" value="none" data-behaviour="exclusive">
           <label class="govuk-label govuk-checkboxes__label" for="update-details-5">
             I do not need to update my details
           </label>
@@ -218,7 +215,7 @@ Update your details - GOV.UK One Login
   
   
   
-          <button class="govuk-button" data-module="govuk-button">Continue</button>
+          <button class="govuk-button" data-module="govuk-button" data-behaviour="clear">Continue</button>
   
         </form>
 
