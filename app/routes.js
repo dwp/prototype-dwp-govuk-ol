@@ -1480,20 +1480,28 @@ router.post('/update-your-details/answer', (req, res) => {
     const update5 = req.session.data['update-details-5'];
 
 
+      //First name & Last name & Address
+ if (update1 == "Given names" && update2 == "Last name" && update3 == "Address")  {
+    res.redirect('/idv/ipv-core/continuity-of-identity/update-name-date-birth?firstnameandlastnameandaddress=true');
+  }
        //First name & Last name
-   if (update1 == "Given names" && update2 == "Last name")  {
+   else if (update1 == "Given names" && update2 == "Last name")  {
         res.redirect('/idv/ipv-core/continuity-of-identity/update-name-date-birth?firstnameandlastname=true');
-      }
+  }
       // First name or Last name
    else if( update1 == "Given names" || update2 == "Last name" ) {
     res.redirect('/idv/ipv-core/continuity-of-identity/update-name-app?firstnameorlastname=true');
-   }
-  // Address
-  else if (update3 == "Address") {
+  }
+    // DOB & address
+else if (update3 == "Address" && update4 == "dob") {
+        res.redirect('/idv/ipv-core/continuity-of-identity/update-name-date-birth?address&birth=true');
+ }
+   // Address
+   else if (update3 == "Address") {
     res.redirect('/idv/address-cri/repeat-fraud-check/find-current-address?addr=true');
   }
-  // DOB
-  else if (update4 == "dob") {
+   // DOB
+   else if (update4 == "dob") {
     res.redirect('/idv/ipv-core/continuity-of-identity/update-name-date-birth?birth=true');
   }
   // No need to update details
@@ -1529,3 +1537,5 @@ router.post('/continuity-of-identity/update-name-or-dob-answer', (req, res) => {
         res.redirect('/continuity-of-identity/update-name-or-dob-answer?error=true');
     }
 });
+
+
