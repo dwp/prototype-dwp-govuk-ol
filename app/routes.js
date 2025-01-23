@@ -329,7 +329,7 @@ router.post('/choose-journey-maternity/answer', (req, res) => {
             res.redirect('/service-pages-routes/maternity-allowance/start?userJourney=oidvMedium');
         } else if (selectedOption === "returning-ol-user") {
             // Send user to
-            res.redirect('/service-pages-routes/rmaternity-allowance/start?userJourney=returningOlUser');
+            res.redirect('/service-pages-routes/maternity-allowance/start?userJourney=returningOlUser');
         } else if (selectedOption === "returning-ol-and-oidv-medium-user") {
             // Send user to
             res.redirect('/service-pages-routes/maternity-allowance/start?userJourney=returningOlAndOidvMediumUser');
