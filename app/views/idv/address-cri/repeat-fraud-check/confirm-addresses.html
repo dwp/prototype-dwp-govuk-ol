@@ -4,12 +4,10 @@
 Confirm your details
 {% endblock %}
 
-{% block header %}
-{% include "/includes/govuk-one-login-header.njk" %}
-{% endblock %}
+
 
 {% block beforeContent %}
-{% include "/includes/phase-banner.njk" %}
+{% include "/_includes/phase-banner.njk" %}
 {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
@@ -21,7 +19,7 @@ Confirm your details
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/page-index/fraud-cri/repeat-fraud-check/fraud-check" method="post">
+      <form class="form" action="/idv/fraud-cri/repeat-fraud-check/fraud-check" method="post">
 
       <h1 class="govuk-heading-l">Confirm your details</h1>
 

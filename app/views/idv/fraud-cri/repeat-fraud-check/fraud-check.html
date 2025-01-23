@@ -4,12 +4,9 @@
 We need to check your details  - GOV.UK One Login
 {% endblock %}
 
-{% block header %}
-{% include "/includes/govuk-one-login-header.njk" %}
-{% endblock %}
 
 {% block beforeContent %}
-{% include "/includes/phase-banner.njk" %}
+{% include "/_includes/phase-banner.njk" %}
 {% endblock %}
 
 {% block content %}
@@ -18,7 +15,7 @@ We need to check your details  - GOV.UK One Login
     <div class="govuk-grid-column-two-thirds">
 
          
-      <form class="form" action="/page-index/ipv-core/repeat-fraud-check-success" method="post">
+      <form class="form" action="/idv/ipv-core/repeat-fraud-check/repeat-fraud-check-success" method="post">
 
       <h1 class="govuk-heading-l">
         We need to check your details

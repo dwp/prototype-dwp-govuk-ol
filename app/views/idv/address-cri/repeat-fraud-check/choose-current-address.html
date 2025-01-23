@@ -4,12 +4,10 @@
 Choose your address
 {% endblock %}
 
-{% block header %}
-{% include "/includes/govuk-one-login-header.njk" %}
-{% endblock %}
+
 
 {% block beforeContent %}
-{% include "/includes/phase-banner.njk" %}
+{% include "/_includes/phase-banner.njk" %}
 {{ govukBackLink({
   text: "Back",
   href: "javascript:window.history.back()"
@@ -21,7 +19,7 @@ Choose your address
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/page-index/address-cri/repeat-fraud-check/check-current-address" method="post">
+      <form class="form" action="/idv/address-cri/repeat-fraud-check/check-current-address" method="post">
 
           <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
