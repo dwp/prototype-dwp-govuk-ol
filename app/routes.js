@@ -1473,27 +1473,31 @@ router.post('/bank-account-escape-answer', (req, res) => {
 
 // Handle form submission for update details
 router.post('/update-your-details/answer', (req, res) => {
-    var update = req.session.data['update-details'];
+    const update1 = req.session.data['update-details-1'];
+    const update2 = req.session.data['update-details-2'];
+    const update3 = req.session.data['update-details-3'];
+    const update4 = req.session.data['update-details-4'];
+    const update5 = req.session.data['update-details-5'];
 
 
        //First name & Last name
-   if (update == "Given names", "Last name")  {
+   if (update1 == "Given names" && update2 == "Last name")  {
         res.redirect('/idv/ipv-core/continuity-of-identity/update-name-date-birth?firstnameandlastname=true');
       }
       // First name or Last name
-   else if( update == "Given names" || update == "Last name" ) {
+   else if( update1 == "Given names" || update2 == "Last name" ) {
     res.redirect('/idv/ipv-core/continuity-of-identity/update-name-app?firstnameorlastname=true');
    }
   // Address
-  else if (update == "Address") {
+  else if (update3 == "Address") {
     res.redirect('/idv/address-cri/repeat-fraud-check/find-current-address?addr=true');
   }
   // DOB
-  else if (update == "dob") {
+  else if (update4 == "dob") {
     res.redirect('/idv/ipv-core/continuity-of-identity/update-name-date-birth?birth=true');
   }
   // No need to update details
-  else if (update == "none") {
+  else if (update5 == "none") {
     res.redirect('/ol-credential-create-and-signin/returning/returning-you-have-already-proved-your-identity?not=true');
   }
   else {
