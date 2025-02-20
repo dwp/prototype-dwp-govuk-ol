@@ -1,0 +1,103 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+
+{% set title =  "You need to prove your identity using a GOV.UK app" %}
+
+
+{% block beforeContent %}
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="/non-uk-app-intro/answer" method="post">
+
+      
+
+<h1 class="govuk-heading-l">You need to prove your identity using a GOV.UK app</h1>
+
+<p class="govuk-body">You’ll need a:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>passport with a biometric chip</li>
+  <li>smartphone - this must be an iPhone 7 or newer or an Android smartphone</li>
+</ul>
+
+
+
+
+
+
+<div class="govuk-form-group">
+
+  <fieldset class="govuk-fieldset">
+    
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+    
+      What would you like to do?
+    
+    </legend>
+    
+  
+    <div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-init="">
+      
+      
+        
+    
+      
+      
+      
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="non-uk-app-intro" name="non-uk-app-intro" type="radio" value="id-check-app" aria-describedby="non-uk-app-intro-item-hint">
+        <label class="govuk-label govuk-radios__label" for="non-uk-app-intro">
+          Prove your identity with the GOV.UK ID Check app
+        </label>
+        
+        <div id="non-uk-app-intro-item-hint" class="govuk-hint govuk-radios__hint">
+          You’ll be told how to download and use the app
+        </div>
+        
+      </div>
+      
+    
+      
+        
+    
+      
+      
+      
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="non-uk-app-intro-2" name="non-uk-app-intro" type="radio" value="another way" aria-describedby="non-uk-app-intro-2-item-hint">
+        <label class="govuk-label govuk-radios__label" for="non-uk-app-intro-2">
+          Go to the service you were trying to use
+        </label>
+        
+        <div id="non-uk-app-intro-2-item-hint" class="govuk-hint govuk-radios__hint">
+          Look for other ways to access the service if you cannot use the app.
+        </div>
+        
+      </div>
+      
+    
+      
+      
+    </div>
+  
+  </fieldset>
+
+</div>
+
+
+
+<button name="submitButton" class="govuk-button" data-module="govuk-button" id="submitButton" data-govuk-button-init="">
+Continue
+</button>
+  
+</form>
+
+  </div>
+</div>
+{% endblock %}

@@ -1539,3 +1539,49 @@ router.post('/continuity-of-identity/update-name-or-dob-answer', (req, res) => {
 });
 
 
+
+
+
+// Handle form submission for updating full name, dob or address
+router.post('/live-in-uk/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['live-in-uk'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "Yes") {
+            // Send to filter querstion
+            res.redirect('/idv/filter-question');
+        }  else if (selectedOption === "No") {
+            // Send user to non uk app intro
+            res.redirect('/idv/ipv-core/triage/non-uk-app-intro');
+        }
+        
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/live-in-uk/answer?error=true');
+    }
+});
+
+
+
+// Handle form submission for updating full name, dob or address
+router.post('/non-uk-app-intro/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['non-uk-app-intro'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "id-check-app") {
+            // Send to app intro
+            res.redirect('/idv/computer-or-tablet');
+        }  else if (selectedOption === "another way") {
+            // Return to service
+            res.redirect('/idv/return-to-service');
+        }
+        
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/non-uk-app-intro/answer?error=true');
+    }
+});
