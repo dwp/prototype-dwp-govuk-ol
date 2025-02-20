@@ -1,0 +1,86 @@
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+
+{% set title =  "Do you live in the UK, the Channel Islands or the Isle of Man?" %}
+
+
+
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/live-in-uk/answer" method="post">
+
+        
+        
+
+
+
+<div class="govuk-form-group">
+
+  <fieldset class="govuk-fieldset" aria-describedby="live-in-uk-hint">
+    
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+    
+      <h1 class="govuk-fieldset__heading">
+        Do you live in the UK, the Channel Islands or the Isle of Man?
+      </h1>
+    
+    </legend>
+    
+  
+    <div id="live-in-uk-hint" class="govuk-hint">
+      How you can prove your identity depends on where you live.
+    </div>
+  
+  
+    <div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-init="">
+      
+      
+        
+    
+      
+      
+      
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="live-in-uk" name="live-in-uk" type="radio" value="Yes">
+        <label class="govuk-label govuk-radios__label" for="live-in-uk">
+          Yes
+        </label>
+        
+      </div>
+      
+    
+      
+        
+    
+      
+      
+      
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="live-in-uk-2" name="live-in-uk" type="radio" value="No">
+        <label class="govuk-label govuk-radios__label" for="live-in-uk-2">
+          No
+        </label>
+        
+      </div>
+      
+    
+      
+      
+    </div>
+  
+  </fieldset>
+
+</div>
+
+    
+        
+        <button class="govuk-button" data-module="govuk-button" data-govuk-button-init="">
+          Continue
+        </button>
+
+      </form>
+    </div>
+  </div>
+{% endblock %}
