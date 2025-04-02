@@ -1,3 +1,4 @@
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
 {% extends "layouts/_base-one-login.html" %}
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
@@ -46,7 +47,7 @@
             },
             {
               value: "oidv-medium-user",
-              text: "Path C",
+              text: "Path C (To be phased out)",
               hint: {
                 text: "Citizen without a GOV.UK One Login but has OIDV medium level confidence."
               }
@@ -93,7 +94,7 @@
             },
             {
               value: "oidv-medium-user",
-              text: "Path C",
+              text: "Path C (To be phased out)",
               hint: {
                 text: "Citizen without a GOV.UK One Login but has OIDV medium level confidence."
               }
