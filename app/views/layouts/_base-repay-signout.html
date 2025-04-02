@@ -29,7 +29,7 @@
 
 
 {% block header %}
-<header class="govuk-header service-name-formatting" role="banner" data-module="govuk-header">
+<header class="govuk-header service-name-formatting" style="border-bottom: 10px solid #1d70b8;" role="banner" data-module="govuk-header">
     <div class="govuk-header__container govuk-width-container">
       <div class="govuk-header__logo">
         <a href="/" class="govuk-header__link govuk-header__link--homepage">
@@ -81,25 +81,42 @@
   </header>
   <section aria-label="Service information" class="govuk-service-navigation" data-module="govuk-service-navigation" data-govuk-service-navigation-init="">
     
-    <div class="govuk-width-container">
+
   
-      <div class="govuk-service-navigation__container">
+
         
         
-          <span class="govuk-service-navigation__service-name">
-            
-              <a href="/service-pages-routes/repay/account-home" class="govuk-service-navigation__link">
-                Repay and manage benefit money you owe
-              </a>
-            
-          </span>
+      
         
-  
+          <section aria-label="Service information" class="govuk-service-navigation"
+          data-module="govuk-service-navigation">
+          <div class="govuk-width-container">
+            <div class="govuk-service-navigation__container">
+              <span class="govuk-service-navigation__service-name">
+                <a href="/service-pages-routes/repay/start" class="govuk-service-navigation__link">
+                  Repay and manage benefit money you owe
+                </a>
+              </span>
+              <nav aria-label="Menu" class="govuk-service-navigation__wrapper">
+                <button type="button" class="govuk-service-navigation__toggle govuk-js-service-navigation-toggle" aria-controls="navigation" hidden>
+                  Menu
+                </button>
+                <ul class="govuk-service-navigation__list" id="navigation">
+                  <li class="govuk-service-navigation__item govuk-service-navigation__item--active">
+                    <a class="govuk-service-navigation__link" href="#">
+                      Account home
+                    </a>
+                  </li>
+           
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </section>
         
         
-      </div>
-  
-      </div>
+    
+
   
     </section>
 
