@@ -1345,7 +1345,7 @@ router.post('/prove-identity-at-post-office-answer', (req, res) => {
             res.redirect('/idv/claimed-identity-cri/name');
         } else {
             // Send user to enter phone number
-            res.redirect('/idv/find-another-way');
+            res.redirect('/idv/find-another-way2');
         }
     } else {
         // If no radio button is selected, redirect to /computer-or-tablet/answer with error
@@ -1374,7 +1374,7 @@ router.post('/idv/find-another-way-answer', (req, res) => {
             res.redirect('/idv/return-to-service');
         } else if (selectedOption === "Use photo ID") {
             // Send back
-            res.redirect('/idv/id-screener-2');
+            res.redirect('/idv/filter-question');
         } else if (selectedOption === "Use bank details") {
             // Send user to enter phone number
             res.redirect('/nophotoidv/no-photo-id-triage');
@@ -1385,6 +1385,26 @@ router.post('/idv/find-another-way-answer', (req, res) => {
     }
 });
 
+
+// Handle form submission for no photo id triage
+router.post('/idv/find-another-way-answer-2', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['no-photo-id-triage-exit-2'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "Continue to the service") {
+            // Send user to set up auth app
+            res.redirect('/idv/return-to-service');
+        } else if (selectedOption === "Try proving") {
+            // Send back
+            res.redirect('/idv/filter-question');
+        }
+    } else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/idv/find-another-way-answer?error=true');
+    }
+});
 
 // Handle form submission for no photo id escape
 router.post('/no-photo-id-escape/answer', (req, res) => {
