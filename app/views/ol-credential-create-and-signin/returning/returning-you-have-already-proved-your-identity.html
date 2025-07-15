@@ -7,7 +7,7 @@
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-
+            <form class="form" action="/return/service-linez" method="post">
             <h1 class="govuk-heading-l">
                 {{ title }}
             </h1>
@@ -84,10 +84,7 @@
                 </div>
               </details>
 
-            {{ govukButton({
-                text: "Continue",
-                href: "/"
-            }) }}
+              <button class="govuk-button" data-module="govuk-button">Continue</button>
 
         </div>
 

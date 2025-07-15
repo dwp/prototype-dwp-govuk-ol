@@ -1,0 +1,108 @@
+{% extends "layouts/_base" %}
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "Get a proof of benefit letter" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="./download" method="post">
+
+
+
+      <!-- Different text shown based on research setup address type:
+           - If researchSetUpAddress is 'home', shows "Your address is saved as:"
+           - If researchSetUpAddress is anything else, shows "The address we send your letters to is saved as:"
+           This allows us to test  different content variations during research sessions -->
+
+           <h1 class="govuk-heading-l">Where we send your letters</h1>
+
+
+             <p>The address we send your letters to is saved as:</p>
+
+
+      <div class="govuk-inset-text">
+
+          <p>12 Gregg Lane
+                <br>London
+                <br>SE12 SFH
+              </p>
+
+      </div>
+
+      <!-- Radio button group to confirm if address is correct
+           If user selects 'No', they will be redirected to cannot-use-service page
+           If user selects 'Yes', they will proceed to check-your-answers page -->
+
+
+
+
+<div class="govuk-form-group">
+
+<fieldset class="govuk-fieldset">
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+
+    Is your address correct?
+
+  </legend>
+
+
+  <div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-init="">
+
+
+
+
+
+
+
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="confirmLetterSend" name="confirmLetterSend" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="confirmLetterSend">
+        Yes
+      </label>
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="confirmLetterSend-2" name="confirmLetterSend" type="radio" value="no">
+      <label class="govuk-label govuk-radios__label" for="confirmLetterSend-2">
+        No
+      </label>
+
+    </div>
+
+
+
+
+  </div>
+
+</fieldset>
+
+</div>
+
+
+
+
+
+
+
+<button type="submit" class="govuk-button" data-module="govuk-button" data-govuk-button-init="">
+Continue
+</button>
+
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

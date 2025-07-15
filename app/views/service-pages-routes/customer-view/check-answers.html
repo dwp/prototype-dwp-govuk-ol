@@ -1,0 +1,103 @@
+{% extends "layouts/_base" %}
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "Get a proof of benefit letter" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Check your answers before sending your request</h1>
+
+    <form class="form" action="./complete" method="post" novalidate="">
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Your request
+          </h2>
+          <!-- Show 'Change' link only if user has selected multiple benefits -->
+
+
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <!-- Benefits section - displays differently based on number of benefits selected -->
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Benefits
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <!--
+                    This section displays the benefits the user wants proof of:
+                    - When user picks multiple benefits: Shows each benefit on a new line
+                    - When user picks one benefit: Shows just that benefit
+                    - When nothing is picked: Shows "No benefit selected"
+                -->
+
+                <!-- Show single benefit -->
+                <p>Attendance Allowance</p>
+
+
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                How you want to get proof of your benefits
+              </dt>
+              <dd class="govuk-summary-list__value">
+
+
+                <p>Download a file</p>
+                <p>Get a letter in the post</p>
+
+
+
+              </dd>
+            </div>
+
+
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                <!-- Conditional text based on number of benefits -->
+
+                Address we send letters to
+
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <!-- Display address based on research setup value -->
+
+                <p>12 Gregg Lane
+                  <br>London
+                  <br>SE12 6FH
+                </p>
+
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+<a href="./complete" role="button" draggable="false" class="govuk-button" data-module="govuk-button" data-govuk-button-init="">
+  Confirm and send
+</a>
+
+
+
+
+
+    </form>
+
+    </div>
+  </div>
+{% endblock %}

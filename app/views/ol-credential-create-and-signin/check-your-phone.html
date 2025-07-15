@@ -1,7 +1,7 @@
 {% extends "layouts/_base-one-login.html" %}
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
-
+{% set languageToggle = 'true' %}
 {% set title =  "Check your phone" %}
 
 {% set insetTextHtml %}
@@ -48,7 +48,24 @@
             {{ govukButton({
                 text: "Continue"
             }) }}
-
+            <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Problems with the code?
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <p class="govuk-body">
+                    We can
+                    <a href="/page-index/authentication/create-account/resend-code-sms" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener">send the code again</a>
+                     or you can
+                    <a href="enter-phone-number" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener">use a different phone number</a>.
+                  </p>
+                    <p class="govuk-body">
+                      <a href="get-security-code" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener">Get a code another way</a>.
+                    </p>
+                </div>
+              </details>
         </form>
 
     </div>

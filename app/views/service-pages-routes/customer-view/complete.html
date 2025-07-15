@@ -1,0 +1,110 @@
+{% extends "layouts/_base" %}
+{% set phaseBanner = 'true' %}
+
+
+{% set title =  "Get a proof of benefit letter" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-panel govuk-panel--confirmation">
+      <h1 class="govuk-panel__title">
+        Request complete
+      </h1>
+    </div>
+
+
+
+
+
+
+
+    <h2 class="govuk-heading-m">
+      Save proof of your benefits to your device
+    </h2>
+
+
+
+    <p><a href="">Download proof of Attendance Allowance (PDF, 4.2KB)</a></p>
+
+
+
+
+
+
+
+    <h2 class="govuk-heading-m">
+      What happens next
+    </h2>
+
+
+
+    <!-- Shows different messages based on number of benefits requested:
+         - Single benefit: Shows simple message
+         - Two benefits: Uses formatList filter to show both
+         - Three or more: Shows as bullet points -->
+
+         <!-- If user has one in scope benefits, and has chosen letter / digital or both-->
+
+      <p>You have requested proof of Attendance Allowance.</p>
+
+
+          <p>Your letter should arrive within one week.</p>
+
+
+<!-- If user has two in scope benefits, and has chosen letter / digital or both-->
+
+
+
+    <!-- Shows different messages and layouts based on number of out-of-scope benefits:
+         - Single benefit: Simple message with link
+         - Two benefits: Uses formatList filter to show both
+         - Three or more: Bullet point list -->
+
+      <h2 class="govuk-heading-m">
+        How to get proof of your other benefits
+      </h2>
+
+      <p>To get proof of Bereavement Benefit, you need to contact them.</p>
+
+
+      <p>Find their details for in a letter they have sent to you, or in <a href="https://www.gov.uk/browse/benefits" class="govuk-link" rel="noreferrer noopener" target="_blank">guidance about the benefit on GOV.UK (opens in a new tab)</a>.</p>
+
+
+
+    <!-- Special handling for Universal Credit (uCBenefit flag)
+         Shows UC guidance either with or without a heading depending on
+         whether there are other out-of-scope benefits -->
+
+
+
+    <div class="govuk-button-group">
+
+
+
+
+
+
+
+<a href="signout" role="button" draggable="false" class="govuk-button govuk-button" data-module="govuk-button" data-govuk-button-init="">
+Sign out
+</a>
+
+
+
+
+
+
+
+
+
+<a href="account-home" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button" data-govuk-button-init="">
+Go back to account home
+</a>
+
+    </div>
+
+</div>
+</div>
+{% endblock %}

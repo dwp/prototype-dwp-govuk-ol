@@ -1,7 +1,9 @@
 {% extends "layouts/main.html" %}
 {% set phaseBanner = 'true' %}
-
+{% set govukRebrand = 'true' %}
 {% set title =  "DWP–GOV.UK One Login prototype" %}
+
+
 
 {% set serviceName %}
   DWP – GOV.UK One Login prototype
@@ -89,6 +91,9 @@
           </li>
           <li>
             <a class="govuk-link" href="/dev-ready/pyi-attempt-recovery">Sorry, you cannot go back (GOV.UK One Login)</a>
+          </li>
+          <li>
+            <a class="govuk-link" href="/dev-ready/error/interstitial">Interstitial screen</a>
           </li>
           
         </ul>

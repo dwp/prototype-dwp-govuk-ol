@@ -2,6 +2,7 @@
 // For guidance on how to add CSS and SCSS see:
 // https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
 //
+
 @import "includes/panel";
 @import "patterns/post-office-start-page";
 @import "patterns/interruption-card";
@@ -680,4 +681,19 @@
 //dark mode
 .govuk-dark-mode {
     background-color: black;
+}
+
+
+.govuk-footer {
+    font-family: "GDS Transport", arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 1.1875rem;
+    line-height: 1.3157894737;
+    padding-top: 25px;
+    padding-bottom: 15px;
+    border-top: 10px solid #1d70b8;
+    color: #0b0c0c;
+    background: #f3f2f1;
 }
