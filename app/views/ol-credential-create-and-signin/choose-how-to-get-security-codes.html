@@ -1,11 +1,11 @@
 {% extends "layouts/_base-one-login.html" %}
 {% set phaseBanner = 'true' %}
-
+{% set languageToggle = 'true' %}
 {% set title =  "Choose how to get security codes" %}
 
 {% set detailsTextHtml %}
     <p class="govuk-body">
-        An authenticator app creates a security code that helps confirm it’s you when you sign in.
+        An authenticator app creates security codes that you can use to sign in to websites or online services.
     </p>
 
     <p class="govuk-body">
@@ -29,7 +29,7 @@
                     }
                 },
                 hint: {
-                    text: "To finish creating your GOV.UK One Login, choose a way to prove it’s you when you sign in."
+                    text: "You'll need to enter a security code when you sign in to GOV.UK One Login."
                 },
                 items: [
                     {

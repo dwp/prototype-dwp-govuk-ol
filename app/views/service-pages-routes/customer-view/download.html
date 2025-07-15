@@ -1,0 +1,112 @@
+{% extends "layouts/_base" %}
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "Get a proof of benefit letter" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="./check-answers" method="post">
+
+
+
+
+
+<div class="govuk-form-group">
+
+<fieldset class="govuk-fieldset">
+
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+    <h1 class="govuk-fieldset__heading">
+      Tell us how you want to get proof of your benefits
+    </h1>
+
+  </legend>
+
+
+  <div class="govuk-radios" data-module="govuk-radios" data-govuk-radios-init="">
+
+
+
+
+
+
+
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="digitalOrLetter" name="digitalOrLetter" type="radio" value="Download a file" aria-describedby="digitalOrLetter-item-hint">
+      <label class="govuk-label govuk-radios__label" for="digitalOrLetter">
+        Download a file
+      </label>
+
+      <div id="digitalOrLetter-item-hint" class="govuk-hint govuk-radios__hint">
+        Save to your device within minutes.
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="digitalOrLetter-2" name="digitalOrLetter" type="radio" value="Letter in the post" aria-describedby="digitalOrLetter-2-item-hint">
+      <label class="govuk-label govuk-radios__label" for="digitalOrLetter-2">
+        Letter in the post
+      </label>
+
+      <div id="digitalOrLetter-2-item-hint" class="govuk-hint govuk-radios__hint">
+        Arrives within one week.
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="digitalOrLetter-3" name="digitalOrLetter" type="radio" value="Download a file and get a letter in the post" aria-describedby="digitalOrLetter-3-item-hint">
+      <label class="govuk-label govuk-radios__label" for="digitalOrLetter-3">
+        Download a file and get a letter in the post
+      </label>
+
+      <div id="digitalOrLetter-3-item-hint" class="govuk-hint govuk-radios__hint">
+        Save your file within minutes and get a letter within one week.
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+
+</fieldset>
+
+</div>
+
+
+
+
+
+
+
+<button type="submit" class="govuk-button" data-module="govuk-button" data-govuk-button-init="">
+Continue
+</button>
+
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

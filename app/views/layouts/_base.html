@@ -1,5 +1,5 @@
 {% extends "layouts/main.html" %}
-
+{% set govukRebrand = 'true' %}
 {% block pageTitle %}
     {{title}} – GOV.UK
 {% endblock %}
@@ -33,6 +33,7 @@
 
 {% block footer %}
     {{ govukFooter({
+    rebrand: true,
     meta: {
         items: [
             {

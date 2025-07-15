@@ -1,0 +1,114 @@
+{% extends "layouts/_base" %}
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "Get a proof of benefit letter" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="./where-we-send-your-letter" method="post">
+
+      <!-- SECTION 1: Out of Scope Benefits -->
+      <!-- This section displays information about benefits that cannot be handled by this service -->
+      <!-- It shows different messages based on whether the user has Universal Credit or other out-of-scope benefits -->
+
+
+      <h1 class="govuk-heading-l">Getting proof of your benefits</h1>
+
+      <p>You can get proof of some of your benefits using this service, but not all of them. </p>
+
+
+
+      <p>This is because not all of your benefits are online yet.</p>
+
+
+
+      <h2 class="govuk-heading-m">Benefits you cannot get proof of using this service</h2>
+
+      <!-- SECTION 2: Universal Credit Special Handling -->
+      <!-- Universal Credit is handled separately with a direct link to their account -->
+
+
+      <!-- SECTION 3: Dynamic Content for Out of Scope Benefits -->
+      <!-- This section generates different messages based on how many out-of-scope benefits the user has -->
+      <!-- It handles cases for 1, 2, or more than 2 benefits differently -->
+
+        <p>To get proof of Bereavement Benefit, you need to contact them.</p>
+
+
+
+
+
+      <p>Find their contact details in a letter they have sent to you, or in <a href="https://www.gov.uk/browse/benefits" class="govuk-link" rel="noreferrer noopener" target="_blank">guidance about the benefit on GOV.UK (opens in a new tab)</a>.
+
+
+      <!-- SECTION 4: In-Scope Benefits Display -->
+      <!-- Shows the benefits that can be handled by this service -->
+      <!-- Uses different formats based on the number of benefits (1, 2, or more) -->
+      </p><h2 class="govuk-heading-m">Benefits you can get proof of using this service</h2>
+
+
+        <p>If you continue, you can request proof of Attendance Allowance.</p>
+
+
+
+
+
+      <!-- SECTION 5: Multiple Benefits Selection -->
+
+
+      <!-- SECTION 6: Single Benefit Confirmation -->
+      <!-- If user has only one eligible benefit, shows yes/no radio buttons -->
+      <!-- Special handling for State Pension with slightly different wording -->
+
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="doYouWantLetterFor-hint">
+
+          <!-- If the user only receives in scope benefits, this makes sure the page title is the question and not the h1 above -->
+
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+
+                Do you need proof of Attendance Allowance?
+
+              </h2>
+
+
+          </legend>
+          <div class="govuk-radios govuk-radios" data-module="govuk-radios" data-govuk-radios-init="">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="doYouWantLetterFor" name="doYouWantLetterFor" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="doYouWantLetterFor">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="doYouWantLetterFor-2" name="doYouWantLetterFor" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="doYouWantLetterFor-2">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+
+
+
+
+
+
+
+<button type="submit" class="govuk-button" data-module="govuk-button" data-govuk-button-init="">
+Continue
+</button>
+
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}
