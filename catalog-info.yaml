@@ -43,7 +43,6 @@ spec:
     - component:default/pipeline-solutions.gitlab.functions.base-mr
     - component:default/external.adam-moss.git-trailer.add-pre-commit-trailer
     - component:default/external.adam-moss.git-trailer.add-user-skipped-trailer
-    - component:default/external.alessandrojcm.commitlint-pre-commit-hook.commitlint
     - component:default/external.davidanson.markdownlint-cli2.markdownlint-cli2
     - component:default/external.gitleaks.gitleaks.gitleaks
     - component:default/external.pre-commit.pre-commit-hooks.check-added-large-files
