@@ -290,7 +290,7 @@ router.post('/choose-journey-repay/answer', (req, res) => {
 
 
 // Handle form submission for service lines
-router.post('/returning-user', (req, res) => {
+router.post(['/returning-user','/return/service-line'], (req, res) => {
  // Make a variable and give it the value from 'computer-or-tablet'
  var selectedservice = req.session.data['choose-service-line'];
 
@@ -312,15 +312,6 @@ router.post('/returning-user', (req, res) => {
         res.redirect('/choose-service-line/answer?error=true');
     }
 });
-
-
-
-
-
-
-
-
-
 
 
 
