@@ -8,6 +8,9 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Add your routes here
 
+
+
+
 //Routes for Filter question
 
 router.get('/id-screener/answer', (req, res) => {
@@ -238,15 +241,6 @@ router.post('/service-pages-routes', (req, res) => {
 
 });
 
-//Routes for Choosing a service line
-router.get('/choose-service-line/answer', (req, res) => {
-    // Check if there was an error
-    const showErrorSummary = req.query.error === 'true';
-
-    // Render the template with the error condition
-    res.render('choose-service-line.html', { showErrorSummary });
-});
-
 // Handle form submission for service lines
 router.post('/choose-service-line/answer', (req, res) => {
     // Check if a radio button is selected
@@ -271,14 +265,6 @@ router.post('/choose-service-line/answer', (req, res) => {
     }
 });
 
-//Routes for Choosing repay journeys
-router.get('/choose-journey-repay/answer', (req, res) => {
-    // Check if there was an error
-    const showErrorSummary = req.query.error === 'true';
-
-    // Render the template with the error condition
-    res.render('choose-journey-repay.html', { showErrorSummary });
-});
 
 // Handle form submission
 router.post('/choose-journey-repay/answer', (req, res) => {
@@ -287,12 +273,12 @@ router.post('/choose-journey-repay/answer', (req, res) => {
 
     if (selectedOption) {
         // If radio option is selected:
-        if (selectedOption === "prove-identity") {
+        if (selectedOption === "prove-identity-repay") {
             // Send user tomatern
             res.redirect('/service-pages-routes/repay/start?userJourney=idv');
-        } else if (selectedOption === "returning-ol-user") {
+        } else if (selectedOption === "returning-ol-user-repay") {
             // Send user to
-            res.redirect('/service-pages-routes/repay/start?userJourney=returningOlUser');
+            res.redirect('/idv/ipv-core/already-proved-identity');
         }
     } else {
         // If no radio button is selected, redirect to /choose-journey/answer with error
@@ -304,7 +290,7 @@ router.post('/choose-journey-repay/answer', (req, res) => {
 
 
 // Handle form submission for service lines
-router.post('/return/service-line', (req, res) => {
+router.post('/returning-user', (req, res) => {
  // Make a variable and give it the value from 'computer-or-tablet'
  var selectedservice = req.session.data['choose-service-line'];
 
@@ -315,11 +301,11 @@ router.post('/return/service-line', (req, res) => {
             res.redirect('/service-pages-routes/repay/account-home?repay=true');
         } else if (selectedservice === "maternity") {
             // Send user to maternity allowance
-            res.redirect('/service-pages-routes/maternity-allowance/task-list#');
+            res.redirect('/service-pages-routes/maternity-allowance/task-list?maternity=true');
         }
         else if (selectedservice === "cview") {
             // Send user to maternity allowance
-            res.redirect('/service-pages-routes/customer-view/account-home');
+            res.redirect('/service-pages-routes/customer-view/account-home?cview=true');
         }
     } else {
         // If no radio button is selected, redirect to /choose-service-line/answer with error
@@ -329,38 +315,16 @@ router.post('/return/service-line', (req, res) => {
 
 
 
-// Handle form submission for service lines
-router.post('/return/service-linez', (req, res) => {
-    // Make a variable and give it the value from 'computer-or-tablet'
-    var selectedservicez = req.session.data['choose-service-line'];
 
-       if (selectedservicez) {
-           // If radio option is selected:
-           if (selectedservicez === "repay") {
-               // Send user to repay my debt
-               res.redirect('/service-pages-routes/repay/account-home?repay=true');
-           } else if (selectedservicez === "maternity") {
-               // Send user to maternity allowance
-               res.redirect('/service-pages-routes/maternity-allowance/task-list#');
-           }
-           else if (selectedservicez === "cview") {
-               // Send user to maternity allowance
-               res.redirect('/service-pages-routes/customer-view/account-home');
-           }
-       } else {
-           // If no radio button is selected, redirect to /choose-service-line/answer with error
-           res.redirect('/choose-service-line/answer?error=true');
-       }
-   });
 
-//Routes for Choosing maternity journeys
-router.get('/choose-journey-maternity/answer', (req, res) => {
-    // Check if there was an error
-    const showErrorSummary = req.query.error === 'true';
 
-    // Render the template with the error condition
-    res.render('choose-maternity-repay.html', { showErrorSummary });
-});
+
+
+
+
+
+
+
 
 // Handle form submission
 router.post('/choose-journey-maternity/answer', (req, res) => {
@@ -369,12 +333,12 @@ router.post('/choose-journey-maternity/answer', (req, res) => {
 
     if (selectedOption) {
         // If radio option is selected:
-        if (selectedOption === "prove-identity") {
+        if (selectedOption === "prove-identity-maternity") {
             // Send user tomatern
             res.redirect('/service-pages-routes/maternity-allowance/start?userJourney=idv');
-        } else if (selectedOption === "returning-ol-user") {
+        } else if (selectedOption === "returning-ol-user-maternity") {
             // Send user to
-            res.redirect('/service-pages-routes/maternity-allowance/start?userJourney=returningOlUser');
+            res.redirect('/idv/ipv-core/already-proved-identity?maternity=true');
         }
     } else {
         // If no radio button is selected, redirect to /choose-journey/answer with error
@@ -384,14 +348,7 @@ router.post('/choose-journey-maternity/answer', (req, res) => {
 
 
 
-//Routes for Choosing Customer View journeys
-router.get('/choose-journey-customer-view/answer', (req, res) => {
-    // Check if there was an error
-    const showErrorSummary = req.query.error === 'true';
 
-    // Render the template with the error condition
-    res.render('choose-journey-customer-view.html', { showErrorSummary });
-});
 
 // Handle form submission
 router.post('/choose-journey-customer-view/answer', (req, res) => {
@@ -400,12 +357,12 @@ router.post('/choose-journey-customer-view/answer', (req, res) => {
 
     if (selectedOption) {
         // If radio option is selected:
-        if (selectedOption === "prove-identity") {
+        if (selectedOption === "prove-identity-cview") {
             // Send user tomatern
             res.redirect('/service-pages-routes/customer-view/start?userJourney=idv');
-        } else if (selectedOption === "returning-ol-user") {
+        } else if (selectedOption === "returning-ol-user-cview") {
             // Send user to
-            res.redirect('/service-pages-routes/customer-view/start?userJourney=returningOlUser');
+            res.redirect('/idv/ipv-core/already-proved-identity');
         }
     } else {
         // If no radio button is selected, redirect to /choose-journey/answer with error
@@ -415,7 +372,43 @@ router.post('/choose-journey-customer-view/answer', (req, res) => {
 
 
 
+// Handle form submission for service lines
+router.post('/sign-in-create', (req, res) => {
+    // Make a variable and give it the value from 'computer-or-tablet'
+    const signincreate1 = req.session.data['choose-journey-repay'] ;
+    const signincreate2 = req.session.data['choose-journey-maternity'] ;
+    const signincreate3 = req.session.data['choose-journey-customer-view'] ;
 
+    // If radio option is selected:
+               if (signincreate1 === "prove-identity-repay") {
+                // Send user to repay my debt
+                res.redirect('/transition/ol-journey?repay=true');
+            } else if (signincreate1 === "returning-ol-user-repay") {
+                // Send user to maternity allowance
+                res.redirect('/idv/ipv-core/already-proved-identity?repay=true');
+            }
+            else if(signincreate2 === "prove-identity-maternity") {
+                // Send user to repay my debt
+                res.redirect('/transition/ol-journey?maternity=true');
+            } else if (signincreate2 === "returning-ol-user-maternity") {
+                // Send user to maternity allowance
+                res.redirect('/idv/ipv-core/already-proved-identity?maternity=true');
+            }
+            else if(signincreate3 === "prove-identity-cview") {
+                // Send user to repay my debt
+                res.redirect('/transition/ol-journey?cview=true');
+            } else if (signincreate3 === "returning-ol-user-cview") {
+                // Send user to maternity allowance
+                res.redirect('/idv/ipv-core/already-proved-identity?cview=true');
+            }
+
+            else {
+                res.redirect('/transition/ol-journey?error=true');
+              }
+         
+    });
+
+    
 
 
 //Routes for Which smartphone are you using?
