@@ -290,7 +290,7 @@ router.post('/choose-journey-repay/answer', (req, res) => {
 
 
 // Handle form submission for service lines
-router.post(['/returning-user','/return/service-line'], (req, res) => {
+router.post(['/return/service-line'], (req, res) => {
  // Make a variable and give it the value from 'computer-or-tablet'
  var selectedservice = req.session.data['choose-service-line'];
 
@@ -374,25 +374,15 @@ router.post('/sign-in-create', (req, res) => {
                if (signincreate1 === "prove-identity-repay") {
                 // Send user to repay my debt
                 res.redirect('/transition/ol-journey?repay=true');
-            } else if (signincreate1 === "returning-ol-user-repay") {
-                // Send user to maternity allowance
-                res.redirect('/idv/ipv-core/already-proved-identity?repay=true');
             }
             else if(signincreate2 === "prove-identity-maternity") {
                 // Send user to repay my debt
                 res.redirect('/transition/ol-journey?maternity=true');
-            } else if (signincreate2 === "returning-ol-user-maternity") {
-                // Send user to maternity allowance
-                res.redirect('/idv/ipv-core/already-proved-identity?maternity=true');
-            }
+            } 
             else if(signincreate3 === "prove-identity-cview") {
                 // Send user to repay my debt
                 res.redirect('/transition/ol-journey?cview=true');
-            } else if (signincreate3 === "returning-ol-user-cview") {
-                // Send user to maternity allowance
-                res.redirect('/idv/ipv-core/already-proved-identity?cview=true');
-            }
-
+            } 
             else {
                 res.redirect('/transition/ol-journey?error=true');
               }
