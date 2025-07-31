@@ -15,42 +15,47 @@
         <div class="govuk-panel govuk-panel--interruption govuk-!-padding-left-8 govuk-!-padding-top-8 govuk-!-padding-right-8">
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-two-thirds">
-                    <form class="form" action="/idv/return-to-service" method="post">
+                 
 
                         <h1 class="govuk-heading-xl govuk-!-margin-bottom-6 white-text">
-                            The GOV.UK One Login journey
+                            GDS screens for GOV.UK One Login
                         </h1>
 
                         <p class="govuk-body govuk-!-margin-bottom-6 white-text">
-                           Because as DWP we do not own the screens in the GOV.UK One Login journey we decided to keep them separate from our work. This way we ensure that the journey is always up to date.
+                            At this point in the GOV.UK One Login journey, users will create an account and prove their identity. 
                            
                         </p>
                         
                         <p class="govuk-body govuk-!-margin-bottom-6 white-text">
-                            The starting point for GOV.UK One Login account creation and identity check <a href="https://govuk-one-login-prototype-6d2545e2d700.herokuapp.com/page-index/authentication/create-account" target="_blank" class="govuk-link govuk-link--no-visited-state" style="color: white;">can be found here in their prototype.</a>
+                            These screen designs are owned by GDS, and are not included in this prototype. You can view the most up to date version of them in the GDS prototype.</a>
                       
                         </p>
-                        <p class="govuk-body govuk-!-font-weight-bold govuk-!-margin-bottom-6 white-text">
+                        <h3 class="govuk-heading-m govuk-!-margin-bottom-6 white-text">
                             prototype password: pr0t0type
                             
-                         </p>
+                        </h3>
 
 
-                         <p class="govuk-body govuk-!-margin-bottom-6 white-text">
-                            What follows is what users see after they successfully proved their identity.
-                            
-                         </p>
 
                         {{ govukButton({
                             text: "Continue",
                             classes: "govuk-button--inverse, govuk-button--inverse-transition",
-                            type: "Submit"
+                            href: "https://govuk-one-login-prototype-6d2545e2d700.herokuapp.com/page-index/authentication/create-account",
+                            target: "_blank"
+
+                           
                         }) }}
         
+
+
+                        <p class="govuk-body govuk-!-margin-bottom-6 white-text">
+                            You can also continue in our prototype. <a href="/idv/return-to-service" class="govuk-link govuk-link--no-visited-state" style="color: white;">This shows what users would see </a> after they have successfully created an account and proved their identity.
+                            
+                         </p>
                         <p class="govuk-body">
                             <a href="/index" class="govuk-link govuk-link--inverse">Go back to prototype home</a>
                         </p>
-                    </form>
+                   
                 </div>
             </div>
         </div>
