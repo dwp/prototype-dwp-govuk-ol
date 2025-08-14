@@ -1,0 +1,30 @@
+{% extends "layouts/_base-matching-screens.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+
+{% set title =  "What is your postcode?" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form class="form" action="start-of-pip-placeholder" method="post">
+                {{ govukInput({
+                label: {
+                    text: title,
+                    classes: "govuk-label--l",
+                    isPageHeading: true
+                },
+                classes: "govuk-input--width-10",
+                id: "event-name",
+                name: "eventName"
+                }) }}
+
+                <button name="submitButton" class="govuk-button" data-module="govuk-button" id="submitButton">
+                    Continue
+                </button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

@@ -248,8 +248,11 @@ router.post('/choose-service-line/answer', (req, res) => {
 
     if (selectedOption) {
         // If radio option is selected:
-        if (selectedOption === "repay") {
-            // Send user to repay my debt
+        if (selectedOption === "pip-apply") {
+            // Send user to One Login for zero confidence journey
+            res.redirect('/pip-apply/ol-journey');
+        } else if (selectedOption === "repay") {
+            // Send user to maternity allowance
             res.redirect('/choose-journey-repay');
         } else if (selectedOption === "maternity") {
             // Send user to maternity allowance

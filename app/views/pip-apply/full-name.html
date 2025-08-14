@@ -1,0 +1,51 @@
+{% extends "layouts/_base-matching-screens.html" %}
+{% set phaseBanner = 'true' %}
+{% set languageToggle = 'true' %}
+
+{% set title =  "What is your name?" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <form class="form" action="dob" method="post">
+                <h1 class="govuk-heading-l">
+                    {{title}}
+                </h1>
+
+                <p class="govuk-body">
+                    Enter your name as it is shown in official documents, for example your passport or driving licence.
+                </p>
+
+                {{ govukInput({
+                label: {
+                    text: "First name"
+                },
+                id: "first-name",
+                name: "firstName"
+                }) }}
+
+                {{ govukInput({
+                label: {
+                    text: "Middle name(s)"
+                },
+                id: "middle-name",
+                name: "middleName"
+                }) }}
+
+                {{ govukInput({
+                label: {
+                    text: "Last name"
+                },
+                id: "last-name",
+                name: "lastName"
+                }) }}
+
+                <button name="submitButton" class="govuk-button" data-module="govuk-button" id="submitButton">
+                    Continue
+                </button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

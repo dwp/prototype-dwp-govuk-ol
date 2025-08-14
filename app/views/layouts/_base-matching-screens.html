@@ -1,0 +1,51 @@
+{% extends "layouts/main-without-service-name.html" %}
+{% set govukRebrand = 'true' %}
+{% block pageTitle %}
+    {{title}} – GOV.UK
+{% endblock %}
+
+{% set html %}
+    <p class="govuk-body">We use some essential cookies to make this service work.</p>
+    <p class="govuk-body">We’d also like to use analytics cookies so we can understand how you use the service and make improvements.</p>
+{% endset %}
+
+{% block beforeContent %}
+    {% if phaseBanner == 'true' %}
+        {% include '_includes/phase-banner.njk' %}
+    {% endif %}
+
+    {% if breadcrumbs == 'true' %}
+        {% include '_includes/breadcrumbs.njk' %}
+    {% endif %}
+
+    {% if backLink == 'true' %}
+        {% include '_includes/back-link.njk' %}
+    {% endif %}
+
+    {% if languageToggle == 'true' %}
+        {% include '_includes/language-toggle.njk' %}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+{% endblock %}
+
+{% block footer %}
+    {{ govukFooter({
+    rebrand: true,
+    meta: {
+        items: [
+            {
+                href: "/footer/accessibility-statement",
+                text: "Accessibility"
+            },
+            {
+                href: "/footer/cookies",
+                text: "Cookies"
+            }
+        ],
+        visuallyHiddenTitle: "Footer links"
+    }
+    }) }}
+{% endblock %}

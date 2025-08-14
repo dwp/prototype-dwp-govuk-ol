@@ -1,0 +1,47 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+{% block pageTitle %}
+    The GOV.UK ID Check app journey
+{% endblock %}
+
+{% block headIcons %}
+<link rel="icon" sizes="48x48" href="/plugin-assets/govuk-frontend/dist/govuk/assets/images/favicon.ico">
+<link rel="icon" sizes="any" href="/plugin-assets/govuk-frontend/dist/govuk/assets/images/favicon.svg" type="image/svg+xml">
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <div class="govuk-panel govuk-panel--interruption govuk-!-padding-left-8 govuk-!-padding-top-8 govuk-!-padding-right-8">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6 white-text">
+                        GDS screens for GOV.UK One Login
+                    </h1>
+
+                    <p class="govuk-body govuk-!-margin-bottom-6 white-text">
+                        User will start on the PIP pages. They’ll then go to One Login to create an account as part of this application.
+                    </p>
+                        
+                    <p class="govuk-body govuk-!-margin-bottom-6 white-text">
+                        One Login screen designs are owned by GDS, and are not included in this prototype. You can view the most up to date version of them in the GDS prototype.
+                    </p>
+                    <h3 class="govuk-heading-m govuk-!-margin-bottom-6 white-text">
+                        prototype password: pr0t0type
+                    </h3>
+
+                    <p class="govuk-body">
+                        <a href="https://govuk-one-login-prototype-6d2545e2d700.herokuapp.com/page-index/authentication/create-account" class="govuk-button govuk-button--inverse" rel="noreferrer noopener" target="_blank">Create an account (opens in new tab)</a>
+                    </p>
+        
+
+                    <p class="govuk-body govuk-!-margin-bottom-6 white-text">
+                        Once account creation is completed, you can come back to this screen and <a href="/pip-apply/full-name" class="govuk-link govuk-link--no-visited-state" style="color: white;">continue on the PIP apply journey</a>.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
