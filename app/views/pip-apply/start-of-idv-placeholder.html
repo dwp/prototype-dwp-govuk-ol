@@ -9,26 +9,22 @@
             <div class="govuk-grid-row">
                 <div class="govuk-grid-column-two-thirds">
 
-                    <form class="form" action="send-back-to-pip-to-complete-journey-placeholder" method="post" rel="noreferrer noopener">
+                    <h1 class="govuk-heading-xl govuk-!-margin-bottom-6 white-text">
+                        Continue to prove your identity journey
+                    </h1>
 
-                        <h1 class="govuk-heading-xl govuk-!-margin-bottom-6 white-text">
-                            Continue to prove your identity journey
-                        </h1>
+                    <p class="govuk-body white-text">
+                        Once the application is complete, the journey will continue at GOV.UK One Login to verify user's identity.
+                    </p>
 
-                        <p class="govuk-body white-text">
-                            Once the application is complete, the journey will continue at GOV.UK One Login to verify user's identity.
-                        </p>
+                    <p class="govuk-body">
+                        <a href="https://govuk-one-login-prototype-6d2545e2d700.herokuapp.com/page-index/ipv-core/triage/live-in-uk" class="govuk-button govuk-button--inverse" rel="noreferrer noopener" target="_blank">Verify your identity (opens in new tab)</a>
+                    </p>
 
-                        {{ govukButton({
-                            text: "Continue",
-                            classes: "govuk-button--inverse, govuk-button--inverse-transition"
-                        }) }}
+                    <p class="govuk-body govuk-!-margin-bottom-6 white-text">
+                        Once identity verification journey is complete, you can come back to this screen and <a href="send-back-to-pip-to-complete-journey-placeholder" class="govuk-link govuk-link--no-visited-state" style="color: white;">continue on the PIP apply journey</a>.
+                    </p>
 
-                        <p class="govuk-body">
-                            <a href="/index" class="govuk-link govuk-link--inverse">Prototype home</a>
-                        </p>
-
-                    </form>
                 </div>
             </div>
         </div>
