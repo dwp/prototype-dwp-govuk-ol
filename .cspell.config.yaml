@@ -5,7 +5,7 @@ $schema: https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell
 
 version: "0.2"
 
-name: dwp-govuk-ol-prototype
+name: prototype-dwp-govuk-ol
 
 failFast: true
 noConfigSearch: true
