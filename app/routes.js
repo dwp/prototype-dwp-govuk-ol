@@ -238,6 +238,10 @@ router.post('/service-pages-routes', (req, res) => {
     else if(selectedOption === 'cview') {
         res.redirect('service-pages-routes/customer-view/start?cview=true')
       }
+       //If Customer view was selected go to start page
+    else if(selectedOption === 'a2w') {
+        res.redirect('service-pages-routes/a2w/start?a2w=true')
+      }
 
 });
 
@@ -248,18 +252,21 @@ router.post('/choose-service-line/answer', (req, res) => {
 
     if (selectedOption) {
         // If radio option is selected:
-        if (selectedOption === "pip-apply") {
-            // Send user to One Login for zero confidence journey
+        // Send user to Access to work
+        if (selectedOption === "a2w") {
+            res.redirect('/choose-journey-a2w');
+        // Send user to One Login for zero confidence journey
+        }else if (selectedOption === "pip-apply") {
             res.redirect('/pip-apply/ol-journey');
+                // Send user to repay
         } else if (selectedOption === "repay") {
-            // Send user to maternity allowance
             res.redirect('/choose-journey-repay');
-        } else if (selectedOption === "maternity") {
             // Send user to maternity allowance
+        } else if (selectedOption === "maternity") {
             res.redirect('/choose-journey-maternity');
         }
+         // Send user to customer view
         else if (selectedOption === "cview") {
-            // Send user to maternity allowance
             res.redirect('/choose-journey-customer-view');
         }
     } else {
@@ -281,7 +288,7 @@ router.post('/choose-journey-repay/answer', (req, res) => {
             res.redirect('/service-pages-routes/repay/start?userJourney=idv');
         } else if (selectedOption === "returning-ol-user-repay") {
             // Send user to
-            res.redirect('/idv/ipv-core/already-proved-identity');
+            res.redirect('/idv/ipv-core/already-proved-identity?repay=true');
         }
     } else {
         // If no radio button is selected, redirect to /choose-journey/answer with error
@@ -298,8 +305,14 @@ router.post(['/return/service-line'], (req, res) => {
  var selectedservice = req.session.data['choose-service-line'];
 
     if (selectedservice) {
-        // If radio option is selected:
-        if (selectedservice === "repay") {
+      
+
+        //If radio option is selected:
+        if (selectedservice === "a2w") {
+            // Send user to repay my debt
+            res.redirect('/service-pages-routes/a2w/account-home?a2w=true');
+             // Send user to repay my debt
+         } else if (selectedservice === "repay") {
             // Send user to repay my debt
             res.redirect('/service-pages-routes/repay/account-home?repay=true');
         } else if (selectedservice === "maternity") {
@@ -317,6 +330,26 @@ router.post(['/return/service-line'], (req, res) => {
 });
 
 
+
+// Handle form submission
+router.post('/choose-journey-a2w/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['choose-journey-a2w'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "prove-identity-a2w") {
+            // Send user tomatern
+            res.redirect('/service-pages-routes/a2w/start?userJourney=idv');
+        } else if (selectedOption === "returning-ol-user-a2w") {
+            // Send user to
+            res.redirect('/idv/ipv-core/already-proved-identity');
+        }
+    } else {
+        // If no radio button is selected, redirect to /choose-journey/answer with error
+        res.redirect('/choose-journey-a2w/answer?error=true');
+    }
+});
 
 
 
@@ -372,9 +405,10 @@ router.post('/sign-in-create', (req, res) => {
     const signincreate1 = req.session.data['choose-journey-repay'] ;
     const signincreate2 = req.session.data['choose-journey-maternity'] ;
     const signincreate3 = req.session.data['choose-journey-customer-view'] ;
+    const signincreate4 = req.session.data['choose-journey-a2w'] ;
 
     // If radio option is selected:
-               if (signincreate1 === "prove-identity-repay") {
+       if (signincreate1 === "prove-identity-repay") {
                 // Send user to repay my debt
                 res.redirect('/transition/ol-journey?repay=true');
             }
@@ -386,6 +420,10 @@ router.post('/sign-in-create', (req, res) => {
                 // Send user to repay my debt
                 res.redirect('/transition/ol-journey?cview=true');
             } 
+            else  if (signincreate4 === "prove-identity-a2w") {
+                // Send user to repay my debt
+                res.redirect('/transition/ol-journey?a2w=true');
+            }
             else {
                 res.redirect('/transition/ol-journey?error=true');
               }
