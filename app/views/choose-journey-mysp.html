@@ -1,3 +1,4 @@
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
 {% extends "layouts/_base-one-login.html" %}
 {% set phaseBanner = 'true' %}
 {% set backLink = 'true' %}
@@ -11,24 +12,24 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
-    <form class="form" action="/choose-service-line/answer" method="post">
+    <form class="form" action="/choose-journey-mysp/answer" method="post">
 
         {% if showErrorSummary %}
         {{ govukErrorSummary({
             titleText: "There is a problem",
             errorList: [
                 {
-                    text: "Choose a service line to continue",
-                    href: "#choose-service-line"
+                    text: "Choose a journey to continue",
+                    href: "#choose-journey-mysp"
                 }
             ]
         }) }}
 
         {{ govukRadios({
-          name: "choose-service-line",
+          name: "choose-journey-mysp",
           fieldset: {
             legend: {
-              text: "Choose a service line",
+              text: "Choose a journey",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -37,45 +38,38 @@
             text: "Select one option."
           },
           items: [
-           {
-              value: "a2w",
-              text: "Access to Work",
+            {
+              value: "prove-identity-mysp",
+              text: "New user",
+              hint: {
+                text: ""
+              }
+            },
+             {
+              value: "returning-ol-user-myspwithin6",
+              text: "Returning user within 6 months",
               hint: {
                 text: ""
               }
             },
             {
-              value: "pip-apply",
-              text: "PIP apply",
-              hint: {
-                text: ""
-              }
-            },
-            {
-              value: "repay",
-              text: "Repay and manage benefit money you owe",
-              hint: {
-                text: ""
-              }
-            },
-            {
-              value: "maternity",
-              text: "Maternity Allowance",
+              value: "returning-ol-user-myspover6",
+              text: "Returning user over 6 months",
               hint: {
                 text: ""
               }
             }
           ],
             errorMessage: {
-                text: "Choose a service line to continue"
+                text: "Choose a journey to continue"
             }
         }) }}
         {% else %}
         {{ govukRadios({
-          name: "choose-service-line",
+          name: "choose-journey-mysp",
           fieldset: {
             legend: {
-              text: "Choose a service line",
+              text: "Choose a journey",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--xl"
             }
@@ -84,55 +78,28 @@
             text: "Select one option."
           },
           items: [
-          {
-              value: "mysp",
-              text: "My State Pension",
+            {
+              value: "prove-identity-mysp",
+              text: "New user",
               hint: {
                 text: ""
               }
             },
             {
-              value: "raco",
-              text: "Report a change in your circumstances",
+              value: "returning-ol-user-myspwithin6",
+              text: "Returning user",
               hint: {
                 text: ""
               }
+              
             },
-            {
-              value: "a2w",
-              text: "Access to Work",
+              {
+              value: "returning-ol-user-myspover6",
+              text: "Returning user over 6 months",
               hint: {
                 text: ""
               }
-            },
-            {
-              value: "pip-apply",
-              text: "PIP apply",
-              hint: {
-                text: ""
-              }
-            },
-            {
-              value: "repay",
-              text: "Repay and manage benefit money you owe",
-              hint: {
-                text: ""
-              }
-            },
-            {
-              value: "maternity",
-              text: "Maternity Allowance",
-              hint: {
-                text: ""
-              }
-            }
-              ,
-            {
-              value: "cview",
-              text: "Customer View",
-              hint: {
-                text: ""
-              }
+              
             }
           ]
         }) }}
@@ -147,6 +114,7 @@
 
   </div>
 </div>
+
 
 
 {% endblock %}

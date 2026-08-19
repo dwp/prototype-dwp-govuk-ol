@@ -8,22 +8,24 @@ We need to check your details  - GOV.UK One Login
 {% block beforeContent %}
 {% include "/_includes/phase-banner.njk" %}
 {% endblock %}
-
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-         
-      <form class="form" action="/idv/ipv-core/repeat-fraud-check/repeat-fraud-check-success" method="post">
+    {% set formAction = "/idv/ipv-core/repeat-fraud-check/repeat-fraud-check-success-mysp" %}
+
+    {% if data['choose-service-line'] == "raco" %}
+      {% set formAction = "/idv/ipv-core/repeat-fraud-check/repeat-fraud-check-success-raco" %}
+    {% endif %}
+
+    <form class="form" action="{{ formAction }}" method="post">
 
       <h1 class="govuk-heading-l">
         We need to check your details
-
       </h1>
 
       <p>Your details will be checked against information held by another organisation.</p>
-
       <p>This will help us protect you against online identity theft.</p>
 
       <details class="govuk-details" data-module="govuk-details">
@@ -32,24 +34,25 @@ We need to check your details  - GOV.UK One Login
         </summary>
         <div class="govuk-details__text">
           <p>We'll check your details with <a href="https://www.experian.co.uk/privacy/privacy-and-your-data?utm_medium=internalRef&amp;utm_source=Consumer%20Services" class="govuk-link" rel="noreferrer noopener" target="_blank">Experian (opens in new tab)</a>. This is because companies like Experian have access to information about interactions you've previously had with other organisations.</p>
-
           <p><a href="https://signin.account.gov.uk/privacy-notice" class="govuk-link" rel="noreferrer noopener" target="_blank">Read our privacy notice (opens in new tab)</a> if you'd like to know more about how your details will be used to prove your identity.</p>
         </div>
       </details>
 
       <p>It can take up to 30 seconds to check your details. After you continue, do not reload or close this page.</p>
 
-   
       <button id="button2" class="govuk-button govuk-visually-hidden" data-module="govuk-button">Continue</button>
-
       <button class="govuk-button govuk-!-margin-top-4" id="button--save" data-module="govuk-button">Continue</button>
 
-      </form>
+    </form>
 
-    </div>
   </div>
+</div>
 
 {% endblock %}
+
+
+
+
 
 {% block pageScripts %}
 <script type="text/javascript">

@@ -242,8 +242,19 @@ router.post('/service-pages-routes', (req, res) => {
     else if(selectedOption === 'a2w') {
         res.redirect('service-pages-routes/a2w/start?a2w=true')
       }
+       //If Customer view was selected go to start page
+    else if(selectedOption === 'mysp') {
+        res.redirect('service-pages-routes/mysp/start?mysp=true')
+      }
+           //If Customer view was selected go to start page
+    else if(selectedOption === 'raco') {
+        res.redirect('service-pages-routes/raco/start?raco=true')
+      }
 
 });
+
+
+
 
 // Handle form submission for service lines
 router.post('/choose-service-line/answer', (req, res) => {
@@ -268,6 +279,14 @@ router.post('/choose-service-line/answer', (req, res) => {
          // Send user to customer view
         else if (selectedOption === "cview") {
             res.redirect('/choose-journey-customer-view');
+        }
+          // Send user to mysp
+        else if (selectedOption === "mysp") {
+            res.redirect('/choose-journey-mysp');
+        }
+          // Send user to raco
+        else if (selectedOption === "raco") {
+            res.redirect('/choose-journey-raco');
         }
     } else {
         // If no radio button is selected, redirect to /choose-service-line/answer with error
@@ -322,6 +341,14 @@ router.post(['/return/service-line'], (req, res) => {
         else if (selectedservice === "cview") {
             // Send user to maternity allowance
             res.redirect('/service-pages-routes/customer-view/account-home?cview=true');
+        }
+         else if (selectedservice === "mysp") {
+            // Send user to maternity allowance
+            res.redirect('/service-pages-routes/mysp/account-home?mysp=true');
+        }
+          else if (selectedservice === "raco") {
+            // Send user to maternity allowance
+            res.redirect('/service-pages-routes/raco/no-match');
         }
     } else {
         // If no radio button is selected, redirect to /choose-service-line/answer with error
@@ -397,6 +424,68 @@ router.post('/choose-journey-customer-view/answer', (req, res) => {
     }
 });
 
+// Handle form submission
+router.post('/choose-journey-mysp/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['choose-journey-mysp'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "prove-identity-mysp") {
+            // Send user tomatern
+            res.redirect('/service-pages-routes/mysp/start?userJourney=idv');
+        } else if (selectedOption === "returning-ol-user-myspwithin6") {
+            // Send user to
+            res.redirect('/service-pages-routes/mysp/start?myspwithin6=true');
+        }
+         else if (selectedOption === "returning-ol-user-myspover6") {
+            // Send user to
+            res.redirect('/service-pages-routes/mysp/start?myspover6=true');
+        }
+    } else {
+        // If no radio button is selected, redirect to /choose-journey/answer with error
+        res.redirect('/choose-journey-mysp/answer?error=true');
+    }
+});
+
+// Handle form submission
+router.post('/already-proved-id-over6', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['confirm-name'];
+
+
+        // If radio option is selected:
+        if (selectedOption === "Yes") {
+            // Send user tomatern
+            res.redirect('/idv/fraud-cri/repeat-fraud-check/fraud-check');
+    } else {
+        // If no radio button is selected, redirect to /choose-journey/answer with error
+        res.redirect('/idv/ipv-core/repeat-fraud-check/what-country?addr=true');
+    }
+});
+
+
+
+// Handle form submission
+router.post('/choose-journey-raco/answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['choose-journey-raco'];
+
+    if (selectedOption) {
+        // If radio option is selected:
+        if (selectedOption === "prove-identity-raco") {
+            // Send user tomatern
+            res.redirect('/service-pages-routes/raco/start?userJourney=idv');
+        } else if (selectedOption === "returning-ol-user-racowithin6") {
+            // Send user to
+            res.redirect('/service-pages-routes/raco/start?racowithin6=true');
+        }
+    } else {
+        // If no radio button is selected, redirect to /choose-journey/answer with error
+        res.redirect('/choose-journey-raco/answer?error=true');
+    }
+});
+
 
 
 // Handle form submission for service lines
@@ -406,6 +495,8 @@ router.post('/sign-in-create', (req, res) => {
     const signincreate2 = req.session.data['choose-journey-maternity'] ;
     const signincreate3 = req.session.data['choose-journey-customer-view'] ;
     const signincreate4 = req.session.data['choose-journey-a2w'] ;
+    const signincreate5 = req.session.data['choose-journey-mysp'] ;
+    const signincreate6 = req.session.data['choose-journey-raco'] ;
 
     // If radio option is selected:
        if (signincreate1 === "prove-identity-repay") {
@@ -423,6 +514,14 @@ router.post('/sign-in-create', (req, res) => {
             else  if (signincreate4 === "prove-identity-a2w") {
                 // Send user to repay my debt
                 res.redirect('/transition/ol-journey?a2w=true');
+            }
+              else  if (signincreate5 === "prove-identity-mysp") {
+                // Send user to repay my debt
+                res.redirect('/idv/authentication/create-account?mysp=true');
+            }
+              else  if (signincreate6 === "prove-identity-raco") {
+                // Send user to repay my debt
+                res.redirect('/idv/authentication/create-account?raco=true');
             }
             else {
                 res.redirect('/transition/ol-journey?error=true');
@@ -1610,7 +1709,7 @@ else if (update3 == "Address" && update4 == "dob") {
  }
    // Address
    else if (update3 == "Address") {
-    res.redirect('/idv/address-cri/repeat-fraud-check/find-current-address?addr=true');
+    res.redirect('/idv/ipv-core/repeat-fraud-check/what-country?addr=true');
   }
    // DOB
    else if (update4 == "dob") {
@@ -1650,7 +1749,20 @@ router.post('/continuity-of-identity/update-name-or-dob-answer', (req, res) => {
     }
 });
 
+// Handle form submission for updating full name, dob or address
+router.post('/country-answer', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['country'];
 
+
+        if (selectedOption === "United Kingdom") {
+            // Send back
+            res.redirect('/idv/address-cri/repeat-fraud-check/find-current-address');
+        }  else {
+        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
+        res.redirect('/idv/address-cri/repeat-fraud-check/non-uk-address');
+    }
+});
 
 
 

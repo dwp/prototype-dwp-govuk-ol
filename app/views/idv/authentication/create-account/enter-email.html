@@ -18,19 +18,35 @@ Enter your email address - GOV.UK One Login
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/returning-user/answer" method="post">
+<form class="form" action="check-email" method="post">
 
-      {{ govukInput({
-        label: {
-          text: "Enter your email address",
-          classes: "govuk-label--l",
-          isPageHeading: true
-        },
-        id: "email",
-        name: "email"
-      }) }}
+      
 
-        <button class="govuk-button" data-module="govuk-button">
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="email">
+      Enter your email address
+    </label>
+  </h1>
+
+
+  <input class="govuk-input" id="email" name="email" type="text">
+
+</div>
+
+
+      <h2 class="govuk-heading-m">Agree to the GOV.UK One Login terms and conditions</h2>
+
+      <p class="govuk-body">
+        By continuing, you confirm that you agree to our  <a href="https://signin.account.gov.uk/terms-and-conditions" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">terms and conditions (opens in new tab)</a>.
+      </p>
+
+      <p class="govuk-body">
+        To find out how we use your personal information, see our <a href="https://www.gov.uk/government/publications/govuk-one-login-privacy-notice" class="govuk-link govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank">privacy notice (opens in new tab)</a>.
+      </p>
+     
+        <button class="govuk-button" data-module="govuk-button" data-govuk-button-init="">
           Continue
         </button>
   

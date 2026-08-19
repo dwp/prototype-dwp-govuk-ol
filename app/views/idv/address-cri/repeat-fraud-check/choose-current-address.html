@@ -19,34 +19,113 @@ Choose your address
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/idv/address-cri/repeat-fraud-check/check-current-address" method="post">
+     <form class="form" action="/idv/address-cri/repeat-fraud-check/confirm-addresses" method="post">
 
-          <fieldset class="govuk-fieldset">
+         <fieldset class="govuk-fieldset">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">Choose your address</h1>
+               <h1 class="govuk-fieldset__heading">
+                  Enter your address
+               </h1>
             </legend>
             <p>
-              <span class="govuk-!-margin-bottom-1 govuk-!-display-block">Postcode</span>
-              <strong>AB12 3CD</strong>
-              <a href="/page-index/address-cri/repeat-fraud-check/find-current-address" class="govuk-!-margin-left-5 govuk-link--no-visited-state">Change<span class="govuk-visually-hidden">your postcode</span></a>
+               <span class="govuk-!-margin-bottom-1 govuk-!-display-block">Country</span>
+               <strong>{{ data['country'] }}</strong>
+               <a href="/page-index/address-cri/repeat-fraud-check/international-address/what-country" class="govuk-!-margin-left-5">
+               Change
+               <span class="govuk-visually-hidden">your postcode</span>
+               </a>
             </p>
+            <fieldset class="govuk-fieldset">
+               <legend class="govuk-fieldset__legend govuk-!-margin-bottom-2">
+                  Building address
+               </legend>
+               <div id="building-number-hint" class="govuk-hint govuk-!-margin-top--1 govuk-!-margin-bottom-1">
+                  Fill in at least one
+               </div>
+               <div class="govuk-inset-text govuk-!-margin-top-1">
+                  <div class="govuk-form-group">
+                     <div class="govuk-form-group">
+                        <label class="govuk-label" for="address-non-uk-flat">
+                        Apartment number
+                        </label>
+                        <input class="govuk-input govuk-input--width-5" id="address-non-uk-flat" name="address-non-uk-flat" type="text">
+                     </div>
+                  </div>
+                  <div class="govuk-form-group">
+                     <div class="govuk-form-group">
+                        <label class="govuk-label" for="address-non-uk-house-number">
+                        Building number
+                        </label>
+                        <input class="govuk-input govuk-input--width-5" id="address-non-uk-house-number" name="address-non-uk-house-number" type="text">
+                     </div>
+                  </div>
+                  <div class="govuk-form-group">
+                     <div class="govuk-form-group">
+                        <label class="govuk-label" for="address-non-uk-house-name">
+                        Building name
+                        </label>
+                        <input class="govuk-input govuk-!-width-two-thirds" id="address-non-uk-house-name" name="address-non-uk-house-name" type="text">
+                     </div>
+                  </div>
+               </div>
+            </fieldset>
+            <!-- Address Line 1-->
             <div class="govuk-form-group">
-              <label class="govuk-label" for="delivery-address">Choose your current home address from the list</label>
-              <select class="govuk-select" id="delivery-address" name="current-address">
-                <option value="">5 addresses found</option>
-                <option value="address1">Oxford House, Oxford Row, Leeds, AB12 3CD</option>
-                <option value="address2">Office 14 New Station St, Leeds, AB12 3CD</option>
-                <option value="address3">38 Park Square North, Leeds, AB12 3CD</option>
-                <option value="address4">Lion House, 41, York Place, Leeds, AB12 3CD</option>
-                <option value="address5">1 Whitehall Quay Whitehall Rd, Leeds, AB12 3CD</option>
-              </select>
+               <label class="govuk-label" for="address-non-uk-street">
+               Street name (optional)
+               </label>
+               <input class="govuk-input govuk-input--width-20" id="address-non-uk-street" name="address-non-uk-street" type="text">
             </div>
-          </fieldset>
-          <p class="govuk-body">
-            <a href="/page-index/address-cri/repeat-fraud-check/check-current-address">I cannot find my address in the list</a>
-          </p>
-          <button class="govuk-button" type="submit" data-module="govuk-button">Choose address</button>
-        </form>
+            <!-- Address Line 2-->
+            <div class="govuk-form-group">
+               <label class="govuk-label" for="address-non-uk-town">
+                 Town, suburb or city
+               </label>
+               <input class="govuk-input govuk-!-width-two-thirds" id="address-non-uk-town" name="address-non-uk-town" type="text" autocomplete="address-non-uk-town">
+            </div>
+            <!-- postTown-->
+            <div class="govuk-form-group">
+               <label class="govuk-label" for="address-non-uk-postcode">
+                 Postal code or zipcode (if your country has one)
+               </label>
+               <input class="govuk-input govuk-input--width-10" id="address-non-uk-postcode" name="address-non-uk-postcode" type="text" autocomplete="postal-code">
+            </div>
+            <!-- Region-->
+            <div class="govuk-form-group">
+               <label class="govuk-label" for="address-non-uk-region">
+               Region (optional)
+               </label>
+               <div id="address-non-uk-region-hint" class="govuk-hint">
+                  For example, state, district, county, parish or province
+               </div>
+               <input class="govuk-input govuk-input--width-20" id="address-non-uk-region" name="address-non-uk-region" type="text" aria-describedby="address-non-uk-region-hint">
+            </div>
+         </fieldset>
+         
+         <h3 class="govuk-heading-m">When did you start living at this address?</h3>
+         <div class="govuk-date-input__item" id="address-year-current-input">
+            <div class="govuk-form-group">
+               <label class="govuk-label govuk-date-input__label" for="address-year-current-year">
+               Enter the year you started living here, for example 2017
+               </label>
+               <div id="address-year-current-year-hint" class="govuk-hint">
+               </div>
+               <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="address-year-current-year" name="address-year-current-year" type="text" inputmode="numeric" value="">
+            </div>
+         </div>
+
+
+
+
+
+                <div class="govuk-grid-row">
+                   <div class="govuk-grid-column-two-thirds">
+                      <button class="govuk-button" type="submit" data-module="govuk-button" data-govuk-button-init="">
+                      Continue
+                      </button>
+                   </div>
+                </div>
+             </form>
     </div>
   </div>
 

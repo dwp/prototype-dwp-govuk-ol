@@ -1,0 +1,104 @@
+{%- from "govuk/components/tag/macro.njk" import govukTag -%}
+{% extends "layouts/_base-one-login.html" %}
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "DWP–GOV.UK One Login prototype" %}
+
+{% set serviceName %}
+  DWP – GOV.UK One Login prototype
+{% endset%}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <form class="form" action="/choose-journey-raco/answer" method="post">
+
+        {% if showErrorSummary %}
+        {{ govukErrorSummary({
+            titleText: "There is a problem",
+            errorList: [
+                {
+                    text: "Choose a journey to continue",
+                    href: "#choose-journey-raco"
+                }
+            ]
+        }) }}
+
+        {{ govukRadios({
+          name: "choose-journey-raco",
+          fieldset: {
+            legend: {
+              text: "Choose a journey",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "prove-identity-raco",
+              text: "New user",
+              hint: {
+                text: ""
+              }
+            },
+             {
+              value: "returning-ol-user-racowithin6",
+              text: "Returning user within 6 months",
+              hint: {
+                text: ""
+              }
+            }
+          ],
+            errorMessage: {
+                text: "Choose a journey to continue"
+            }
+        }) }}
+        {% else %}
+        {{ govukRadios({
+          name: "choose-journey-raco",
+          fieldset: {
+            legend: {
+              text: "Choose a journey",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--xl"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "prove-identity-raco",
+              text: "New user",
+              hint: {
+                text: ""
+              }
+            },
+            {
+              value: "returning-ol-user-racowithin6",
+              text: "Returning user",
+              hint: {
+                text: ""
+              }
+            }
+          ]
+        }) }}
+        {% endif %}
+
+        {{ govukButton({
+            text: "Continue",
+            type: "Submit"
+        }) }}
+
+      </form>
+
+  </div>
+</div>
+
+
+
+{% endblock %}

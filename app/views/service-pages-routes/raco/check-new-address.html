@@ -1,0 +1,85 @@
+{% extends "layouts/_base-mysp" %}
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "Manage Your State Pension" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="confirmation" method="post">
+
+      <h1 class="govuk-heading-l">Check your answers</h1>
+
+
+      <dl class="govuk-summary-list">
+         <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Temporary or permanent move
+          </dt>
+          <dd class="govuk-summary-list__value">
+           {{ data['perm-or-temp']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="temp-or-perm">
+              Change<span class="govuk-visually-hidden">name</span>
+            </a>
+          </dd>
+        </div>
+  <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Date of move
+          </dt>
+          <dd class="govuk-summary-list__value">
+           {{ data['passport-issued-day']}}.{{ data['passport-issued-month']}}.{{ data['passport-issued-year']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/page-index/address-cri/repeat-fraud-check/check-current-address">
+              Change<span class="govuk-visually-hidden">date of birth</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Current address
+          </dt>
+          <dd class="govuk-summary-list__value">
+           {{ data['select-address']}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/page-index/address-cri/repeat-fraud-check/check-current-address">
+              Change<span class="govuk-visually-hidden">name</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+<h2 class="govuk-heading-m">
+            Now send your changes
+          </h2>
+
+<p class="govuk-body">
+           By submitting this change you agree that the information you have given is complete and correct.
+          </p>
+          <p class="govuk-body">
+          If you give the wrong or incomplete information, or you do not report changes, you may:
+          </p>
+
+          <ul class="govuk-list govuk-list--bullet">
+            <li>be prosecuted</li>
+            <li>need to pay a financial penalty</li>
+            <li>need to pay any money you are overpaid if you are asked to</li>
+          </ul>
+
+
+ 
+        <button class="govuk-button" data-module="govuk-button">Accept and send</button>
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

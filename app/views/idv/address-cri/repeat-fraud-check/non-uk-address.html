@@ -5,6 +5,7 @@ Check your address
 {% endblock %}
 
 
+
 {% block beforeContent %}
 {% include "/_includes/phase-banner.njk" %}
 {{ govukBackLink({
@@ -17,14 +18,14 @@ Check your address
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="confirm-addresses" method="post">
+      <form class="form" action="/idv/address-cri/repeat-fraud-check/confirm-addresses" method="post">
 
         <h1 class="govuk-heading-l">Check your address</h1>
 
         <p>
           <span class="govuk-!-margin-bottom-1 govuk-!-display-block">Postcode</span>
-          <strong>AB12 3CD</strong>
-          <a href="/page-index/address-cri/web/find-current-address" class="govuk-!-margin-left-5 govuk-link--no-visited-state">Change<span class="govuk-visually-hidden">your postcode</span>
+          <strong>{{ data['country'] }}</strong>
+          <a href="/page-index/address-cri/repeat-fraud-check/find-current-address" class="govuk-!-margin-left-5 govuk-link--no-visited-state">Change<span class="govuk-visually-hidden">your postcode</span>
           </a>
         </p>
 

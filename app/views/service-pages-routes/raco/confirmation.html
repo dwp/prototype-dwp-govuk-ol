@@ -1,0 +1,35 @@
+{% extends "layouts/_base-mysp" %}
+{% set phaseBanner = 'true' %}
+
+{% set title =  "Manage Your State Pension" %}
+
+{% block content %}
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+           We have received your change of address
+          </h1>
+         
+        </div>
+        <h2 class="govuk-heading-m">What happens next</h2>
+        <p class="govuk-body">
+         It can take up to 24 hours to process.
+        </p>
+        <p class="govuk-body">
+         Your new home address will be shown on your personal details page when it is processed.
+        </p>
+       <h2 class="govuk-heading-m">Tell us about changes for your other benefits</h2>
+       <p class="govuk-body">
+         To report changes to Pension Credit you need to contact the benefit team directly.
+        </p>
+          <p class="govuk-body">
+        Find their contact details in a letter they have sent to you, or in  <a href="#" class="govuk-link">guidance about the benefit on GOV.UK(opens in a new tab)</a>. 
+        </p>
+      </div>
+    </div>
+
+</div>
+{% endblock %}
