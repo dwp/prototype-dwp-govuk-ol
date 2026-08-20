@@ -317,7 +317,6 @@ router.post('/choose-journey-repay/answer', (req, res) => {
 
 
 
-
 // Handle form submission for service lines
 router.post(['/return/service-line'], (req, res) => {
  // Make a variable and give it the value from 'computer-or-tablet'
@@ -349,6 +348,44 @@ router.post(['/return/service-line'], (req, res) => {
           else if (selectedservice === "raco") {
             // Send user to maternity allowance
             res.redirect('/service-pages-routes/raco/no-match');
+        }
+    } else {
+        // If no radio button is selected, redirect to /choose-service-line/answer with error
+        res.redirect('/choose-service-line/answer?error=true');
+    }
+});
+
+// Handle form submission for service lines
+router.post(['/return/service-line'], (req, res) => {
+ // Make a variable and give it the value from 'computer-or-tablet'
+ var selectedservice = req.session.data['choose-service-line'];
+
+    if (selectedservice) {
+      
+
+        //If radio option is selected:
+        if (selectedservice === "a2w") {
+            // Send user to repay my debt
+            res.redirect('/service-pages-routes/a2w/account-home?a2w=true');
+             // Send user to repay my debt
+         } else if (selectedservice === "repay") {
+            // Send user to repay my debt
+            res.redirect('/service-pages-routes/repay/account-home?repay=true');
+        } else if (selectedservice === "maternity") {
+            // Send user to maternity allowance
+            res.redirect('/service-pages-routes/maternity-allowance/task-list?maternity=true');
+        }
+        else if (selectedservice === "cview") {
+            // Send user to maternity allowance
+            res.redirect('/service-pages-routes/customer-view/account-home?cview=true');
+        }
+         else if (selectedservice === "mysp") {
+            // Send user to maternity allowance
+            res.redirect('/service-pages-routes/mysp/no-match?mysp=true');
+        }
+          else if (selectedservice === "raco") {
+            // Send user to maternity allowance
+            res.redirect('/service-pages-routes/raco/no-match?raco=true');
         }
     } else {
         // If no radio button is selected, redirect to /choose-service-line/answer with error
@@ -1749,20 +1786,6 @@ router.post('/continuity-of-identity/update-name-or-dob-answer', (req, res) => {
     }
 });
 
-// Handle form submission for updating full name, dob or address
-router.post('/country-answer', (req, res) => {
-    // Check if a radio button is selected
-    const selectedOption = req.body['country'];
-
-
-        if (selectedOption === "United Kingdom") {
-            // Send back
-            res.redirect('/idv/address-cri/repeat-fraud-check/find-current-address');
-        }  else {
-        // If no radio button is selected, redirect to /computer-or-tablet/answer with error
-        res.redirect('/idv/address-cri/repeat-fraud-check/non-uk-address');
-    }
-});
 
 
 

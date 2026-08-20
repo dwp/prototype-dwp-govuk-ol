@@ -36,7 +36,12 @@ Confirm your details
            Current address
           </dt>
           <dd class="govuk-summary-list__value">
-            38 Park Square North<br>Leeds<br>AB12 3CD
+        
+           {% if data['current-address']  %}
+           {{ data['current-address'] }}
+           {% else %} 
+           1 New Close, London, AB3 4CD
+           {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/page-index/address-cri/repeat-fraud-check/check-current-address">
@@ -49,7 +54,11 @@ Confirm your details
             Year you started living at this address
           </dt>
           <dd class="govuk-summary-list__value">
-            2024
+             {% if data['address-year-current-year'] %}
+           {{ data['address-year-current-year'] }}
+           {% else %} 
+           2026
+           {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/page-index/address-cri/repeat-fraud-check/check-current-address">

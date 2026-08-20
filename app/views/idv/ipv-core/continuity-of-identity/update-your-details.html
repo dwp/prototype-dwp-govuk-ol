@@ -36,7 +36,7 @@ Update your details - GOV.UK One Login
              Given names
             </dt>
             <dd class="govuk-summary-list__value">
-              Jane Elizabeth
+              Smith
             </dd>
             <dd class="govuk-summary-list__actions"> 
             </dd>
@@ -56,7 +56,11 @@ Update your details - GOV.UK One Login
               Current home address
             </dt>
             <dd class="govuk-summary-list__value">
-              38 Park Square North<br>Leeds<br>AB12 3CD
+              {% if data['current-address']  %}
+           {{ data['current-address'] }}
+           {% else %} 
+           1 New Close, London, AB3 4CD
+           {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
             </dd>

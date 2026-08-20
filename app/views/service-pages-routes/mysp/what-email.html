@@ -1,0 +1,48 @@
+{% extends "layouts/_base-mysp" %}
+{% set phaseBanner = 'true' %}
+{% set backLink = 'true' %}
+
+{% set title =  "Manage Your State Pension" %}
+
+{% block content %}
+<main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content">
+          
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+  <form class="form" action="check-details" method="post">
+
+      {{ govukInput({
+        label: {
+          text: "What is your email address?",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        
+  hint: {
+    text: "We need this to send you a confirmation that we have received your request and that your account details have been updated."
+  },
+        id: "sign-in-email",
+        name: "sign-in-email",
+        type: "email",
+        autocomplete: "email",
+        spellcheck: false
+}) }}
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+  </div>
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">
+        Get help
+      </h2>
+      <p><a href="contact-pension-service&amp;help" target="_blank">Contact us by phone to get help with the online service (opens in new tab)</a></p>
+    </div>
+  </div>
+
+
+        </main>
+{% endblock %}

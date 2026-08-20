@@ -8,7 +8,7 @@
 
     <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-
+            <form class="form" action="/idv/authentication/create-account" method="post">
             <h1 class="govuk-heading-l">
                 {{title}}
             </h1>
@@ -50,11 +50,11 @@
                 Sign into GOV.UK One Login with the details you’ve previously set up.
             </p>
 
-            {{ govukButton({
-                text: "Continue",
-                href: linkToOneLoginStart
-            }) }}
-
+            <button name="submitButton" class="govuk-button" data-module="govuk-button" id="submitButton">
+                Continue
+                </button>
+</form>
+    </div>
     </div>
 
 {% endblock %}

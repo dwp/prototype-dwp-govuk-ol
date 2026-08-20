@@ -1,0 +1,62 @@
+{% extends "layouts/_base-mysp" %}
+{% set phaseBanner = 'true' %}
+
+{% set title =  "Manage Your State Pension" %}
+
+{% block content %}
+<div class="govuk-width-container">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+           We will update your home address within the next 8 days
+          </h1>
+         
+        </div>
+
+         <p class="govuk-body">
+        We have sent you a confirmation email.
+        </p>
+        <p class="govuk-body">
+       Your home address will be updated to: 
+        </p>
+        <ul class="govuk-list govuk-list--nobullet">
+        <li>{{ data['select-address'] }}</li>
+      
+      </ul>
+        <h2 class="govuk-heading-m">What you need to do next</h2>
+        <p class="govuk-body">
+         You must report your change of address for any other benefits you get or have applied for. You must contact <a href="#" class="govuk-link">the Attendance Allowance helpline(opens in a new tab)</a>
+        </p>
+        <p class="govuk-body">
+        If you do not report your change of address your payments may stop.
+        </p>
+       <h2 class="govuk-heading-m">What happens next</h2>
+       <p class="govuk-body">
+        We will send you an email when we have changed your address for State Pension. This will be within the next 8 days.
+        </p>
+
+            <h2 class="govuk-heading-m">Contacting us</h2>
+
+  <p class="govuk-body">
+      You may need to contact us:
+        </p>
+  <ul class="govuk-list govuk-list--bullet">
+        <li>if you need to get in touch urgently</li>
+        <li>to change the address we send letters to</li>
+        <li>to find out what other changes you must report, and how to tell us about them</li>
+  </ul>
+ <p class="govuk-body">
+      You can contact:
+       
+      </p>
+  <ul class="govuk-list govuk-list--bullet">
+        <li> <a href="#" class="govuk-link">the Pension Service(opens in a new tab)</a> if you live in England, Scotland or Wales</li>
+        <li> <a class="govuk-link" href="#">the Northern Ireland Pension Centre(opens in a new tab)</a> if you live in Northern Ireland</li>
+  </ul>
+      </div>
+    </div>
+
+</div>
+{% endblock %}
