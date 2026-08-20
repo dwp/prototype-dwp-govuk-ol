@@ -24,7 +24,7 @@
               Name
             </dt>
             <dd class="govuk-summary-list__value">
-              Sarah Phillips
+              Smith Doe
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -32,7 +32,7 @@
               Date of birth
             </dt>
             <dd class="govuk-summary-list__value">
-              5 January 1978
+               01 January 1982
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -61,7 +61,11 @@
               Home address
             </dt>
             <dd class="govuk-summary-list__value">
-              72 Guild Street<br>London<br>SE23 6FH
+             {% if data['current-address'] == '1 Current Street, London, AB2 4CD' %}
+           {{ data['current-address'] }}
+           {% else %} 
+          1 Current Street, London, AB2 4CD
+           {% endif %}
             </dd>
               <dd class="govuk-summary-list__actions">
            <a class="govuk-link govuk-!-font-size-19" href="temp-or-perm">
@@ -75,7 +79,11 @@
               Address we send letters to
             </dt>
             <dd class="govuk-summary-list__value">
-              12 Gregg Lane<br>London<br>SE12 6FH
+              {% if data['current-address'] == '1 Current Street, London, AB2 4CD' %}
+           {{ data['current-address'] }}
+           {% else %} 
+          1 Current Street, London, AB2 4CD
+           {% endif %}
             </dd>
           </div>
 
@@ -104,7 +112,7 @@
               Email address
             </dt>
             <dd class="govuk-summary-list__value">
-              <p class="govuk-body">sarah.phillips@example.com</p>
+              <p class="govuk-body">smith@gmail.com</p>
             </dd>
           </div>
         </dl>

@@ -13,7 +13,7 @@
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-l">
           
-            Alex Jones
+            Smith Doe
           
         </span>
         Your State Pension
@@ -76,7 +76,7 @@
           </dt>
           <dd class="govuk-summary-list__value">
             
-              A Jones
+              S Doe
             
           </dd>
           <!-- <dd class="govuk-summary-list__actions">
@@ -116,14 +116,11 @@
           </dt>
           <dd class="govuk-summary-list__value">
             
-              123 Square Street<br>
-            
-            
-              York<br>
-            
-            
-            
-              YO3 1SQ
+           {% if data['current-address'] == '1 Current Street, London, AB2 4CD' %}
+           {{ data['current-address'] }}
+           {% else %} 
+          1 Current Street, London, AB2 4CD
+           {% endif %}
             
           </dd>
           <dd class="govuk-summary-list__actions">
@@ -137,15 +134,11 @@
             Address we send letters to
           </dt>
           <dd class="govuk-summary-list__value">
-            
-              1 Dale Street<br>
-            
-            
-              York<br>
-            
-            
-            
-              YO31ZF              
+                {% if data['current-address'] == '1 Current Street, London, AB2 4CD' %}
+           {{ data['current-address'] }}
+           {% else %} 
+          1 Current Street, London, AB2 4CD
+           {% endif %}
             
           </dd>
           <dd class="govuk-summary-list__actions">
@@ -226,7 +219,7 @@
           </dt>
           <dd class="govuk-summary-list__value">
             
-              alex.jones@dwp.gov.uk
+              smith@gmail.com
             
           </dd>
           <dd class="govuk-summary-list__actions">

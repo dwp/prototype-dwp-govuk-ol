@@ -25,7 +25,7 @@
             Given names
           </dt>
           <dd class="govuk-summary-list__value">
-            Jane Elizabeth
+            Smith
           </dd>
         </div>
         <div class="govuk-summary-list__row">
@@ -41,7 +41,11 @@
             Current home address
           </dt>
           <dd class="govuk-summary-list__value">
-            38 Park Square North<br>Leeds<br>AB12 3CD
+            {% if data['current-address'] == '1 Current Street, London, AB2 4CD' %}
+           {{ data['current-address'] }}
+           {% else %} 
+          1 Current Street, London, AB2 4CD
+           {% endif %}
           </dd>
         </div>
         <div class="govuk-summary-list__row">

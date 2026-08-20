@@ -33,7 +33,16 @@
            Date of move
           </dt>
           <dd class="govuk-summary-list__value">
-           {{ data['passport-issued-day']}}.{{ data['passport-issued-month']}}.{{ data['passport-issued-year']}}
+          {% set day = data['passport-issued-day'] %}
+          {% set month = data['passport-issued-month'] %}
+          {% set year = data['passport-issued-year'] %}
+
+          {% if day and month and year %}
+          {{ day }}.{{ month }}.{{ year }}
+          {% else %}
+          12.2.2026
+          {% endif %}
+
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/page-index/address-cri/repeat-fraud-check/check-current-address">
