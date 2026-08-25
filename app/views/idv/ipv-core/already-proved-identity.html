@@ -11,7 +11,7 @@
   
      {% set formAction = "/service-pages-routes/mysp/account-home" %}
 
-    {% if data['choose-service-line'] == "raco" %}
+    {% if data['racowithin6'] == "true" %}
       {% set formAction = "/service-pages-routes/raco/account-home" %}
     {% endif %}
 
