@@ -16,7 +16,7 @@ Check your phone - GOV.UK One Login
 
      {% set formAction = "/idv/ipv-core/already-proved-identity" %}
 
-    {% if data['choose-journey-mysp'] == "returning-ol-user-myspover6" %}
+    {% if data['myspover6'] == "true" %}
       {% set formAction = "/idv/ipv-core/already-proved-identity-over6" %}
     {% endif %}
 
