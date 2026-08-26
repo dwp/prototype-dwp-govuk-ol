@@ -8,14 +8,9 @@
   
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-  
-     {% set formAction = "/service-pages-routes/mysp/account-home" %}
 
-    {% if data['choose-service-line'] == "raco" %}
-      {% set formAction = "/service-pages-routes/raco/account-home" %}
-    {% endif %}
 
-    <form class="form" action="{{ formAction }}" method="post">
+<form class="form" action="/service-pages-routes/mysp/account-home" method="post">
 
 
       <h1 class="govuk-heading-l">
