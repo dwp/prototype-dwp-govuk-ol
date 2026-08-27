@@ -14,13 +14,19 @@ Check your phone - GOV.UK One Login
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+{% set journey = data.journey | trim %}
+
+
+
 {% set formAction = "/idv/ipv-core/already-proved-identity-mysp" %}
 
-{% if data['myspover6'] == "true" %}
+{% if journey == "mysp-over6" or journey == "myspover6" %}
   {% set formAction = "/idv/ipv-core/already-proved-identity-myspover6" %}
-{% elif data['racowithin6'] == "true" %}
+{% elif journey == "raco-within6" or journey == "racowithin6" %}
   {% set formAction = "/idv/ipv-core/already-proved-identity-raco" %}
 {% endif %}
+
+
 
 <form class="form" action="{{ formAction }}" method="post">
 

@@ -13,13 +13,17 @@ We need to check your details  - GOV.UK One Login
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% set formAction = "/idv/ipv-core/repeat-fraud-check/repeat-fraud-check-success-mysp" %}
+{% set journey = data.journey | trim %}
 
-    {% if data['choose-service-line'] == "raco" %}
-      {% set formAction = "/idv/ipv-core/repeat-fraud-check/repeat-fraud-check-success-raco" %}
-    {% endif %}
+{% set formAction = "/idv/ipv-core/repeat-fraud-check/repeat-fraud-check-success-mysp" %}
 
-    <form class="form" action="{{ formAction }}" method="post">
+{% if journey == "mysp-over6" or journey == "myspover6" %}
+  {% set formAction = "/idv/ipv-core/repeat-fraud-check/repeat-fraud-check-success-mysp" %}
+{% elif journey == "raco-within6" or journey == "racowithin6" %}
+  {% set formAction = "/idv/ipv-core/repeat-fraud-check/repeat-fraud-check-success-raco" %}
+{% endif %}
+
+<form class="form" action="{{ formAction }}" method="post">
 
       <h1 class="govuk-heading-l">
         We need to check your details

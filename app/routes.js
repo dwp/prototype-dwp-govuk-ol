@@ -6,22 +6,34 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-// Add your routes here
+
+
+
+router.get('/service-pages-routes/mysp/start', function (req, res) {
+  console.log('===== MYSP START ROUTE HIT =====')
+  console.log('Full query object:', req.query)
+
+  // Start with nothing
+  req.session.data.journey = null
+
+  // Check for over6 first
+  if (req.query.myspover6 !== undefined) {
+    req.session.data.journey = 'myspover6'
+  } 
+  // Only if over6 was not present, check for within6
+  else if (req.query.myspwithin6 !== undefined) {
+    req.session.data.journey = 'myspwithin6'
+  }
+
+  console.log('Journey after setting:', req.session.data.journey)
+
+  res.render('service-pages-routes/mysp/start')
+})
 
 
 
 
 
-
-//Routes for Filter question
-
-router.get('/id-screener/answer', (req, res) => {
-    // Check if there was an error
-    const showErrorSummary = req.query.error === 'true';
-
-    // Render the template with the error condition
-    res.render('/idv/filter-question.html', { showErrorSummary });
-});
 
 // Handle form submission
 router.post('/id-screener/answer', (req, res) => {
@@ -504,6 +516,22 @@ router.post('/already-proved-id-over6', (req, res) => {
 });
 
 
+
+// Handle form submission
+router.post('/already-proved-identity-myspover6', (req, res) => {
+    // Check if a radio button is selected
+    const selectedOption = req.body['confirm-name'];
+
+
+        // If radio option is selected:
+        if (selectedOption === "Yes") {
+            // Send user tomatern
+            res.redirect('/service-pages-routes/mysp/account-home');
+    } else {
+        // If no radio button is selected, redirect to /choose-journey/answer with error
+        res.redirect('/idv/ipv-core/repeat-fraud-check/what-country?addr=true');
+    }
+});
 
 // Handle form submission
 router.post('/choose-journey-raco/answer', (req, res) => {
