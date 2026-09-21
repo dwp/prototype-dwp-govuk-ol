@@ -7,7 +7,7 @@
   "dependencies": {
     "@govuk-one-login/frontend-ui": "^0.0.2",
     "govuk-frontend": "6.5.1",
-    "govuk-prototype-kit": "13.20.4",
+    "govuk-prototype-kit": "13.20.5",
     "jquery": "4.0.0",
     "notifications-node-client": "8.5.0"
   }
